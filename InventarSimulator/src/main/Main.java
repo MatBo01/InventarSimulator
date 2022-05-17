@@ -11,10 +11,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("menu.fxml"));
-			Scene scene = new Scene(root,400,400);
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Hauptmenue.fxml"));
+			Scene scene = new Scene(root,1600,900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Inventarsimulator");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

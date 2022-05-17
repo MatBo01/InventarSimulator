@@ -1,1 +1,16 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+#btInventaransicht{
+	-fx-background-color: linear-gradient(white, lime);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btItemBearbeiten{
+	-fx-background-color: linear-gradient(white, yellow);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btSpeichernUndBeenden{
+	-fx-background-color: linear-gradient(white, red);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
