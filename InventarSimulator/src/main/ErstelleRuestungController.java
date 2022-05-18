@@ -1,4 +1,4 @@
-package fenster;
+package main;
 
 public class ErstelleRuestungController {
 
