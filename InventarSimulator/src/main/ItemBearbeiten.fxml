@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fenster.ItemBearbeitenController">
+<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemBearbeitenController">
 	 <rowConstraints>
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="180.0" />

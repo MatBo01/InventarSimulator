@@ -33,15 +33,17 @@ public class HauptmenueController {
 		System.out.println("Jetzt wird die Item bearbeiten geöffnet");
 		
 		try {
+			System.out.println("Jetzt wird die Item bearbeiten geöffnet");
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
+			System.out.println("Hallo");
 			
 		} catch (IOException iOException) {
-			
+			System.out.println(iOException.getMessage());
 		}
 	}
 	
