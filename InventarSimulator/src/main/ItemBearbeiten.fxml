@@ -22,7 +22,7 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="btItemLoeschen" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Item Löschen">
+            <Button fx:id="btItemLoeschen" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonItemLoeschenAction" prefHeight="80.0" prefWidth="400.0" text="Item Löschen">
                <font>
                   <Font name="Serif Bold" size="25.0" />
                </font>
@@ -46,7 +46,7 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btItemErstellen" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Item Hinzufügen">
+            <Button fx:id="btItemErstellen" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonItemErstellenAction" prefHeight="80.0" prefWidth="400.0" text="Item Erstellen">
                <font>
                   <Font name="Serif Bold" size="25.0" />
                </font>

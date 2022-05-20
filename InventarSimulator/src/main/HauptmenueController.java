@@ -25,6 +25,18 @@ public class HauptmenueController {
 	@FXML
 	private void handleButtonInventaransichtAction(ActionEvent event) {
 		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		
+		try {
+			Node source = (Node) event.getSource();
+			Stage stage = (Stage) source.getScene().getWindow();
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("InventarAnsichtPlatzhalter.fxml"));
+			Scene scene = new Scene(root, 1600, 900);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setScene(scene);
+			
+		} catch (IOException iOException) {
+			System.out.println(iOException.getMessage());
+		}
 	}
 	
 	@FXML

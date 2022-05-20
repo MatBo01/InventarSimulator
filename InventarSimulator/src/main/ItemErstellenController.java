@@ -9,28 +9,30 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ItemBearbeitenController {
+public class ItemErstellenController {
+
+	@FXML
+	private Button btWaffe;
 	
 	@FXML
-	private Button btItemErstellen;
+	private Button btRuestung;
 	
 	@FXML
-	private Button btItemLoeschen;
+	private Button btVerbrauchsgegenstand;
 	
 	@FXML
-	private Button btHauptmenue;
+	private Button btZurueck;
 	
 	@FXML
-	private void handleButtonItemErstellenAction(ActionEvent event) {
-		System.out.println("Item erstellen wird geöffnet\n");
+	private void handleButtonErstelleWaffeAction(ActionEvent event) {
+		System.out.println("Waffe erstellen wird geöffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ItemErstellen.fxml"));
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ErstelleWaffe.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -41,13 +43,13 @@ public class ItemBearbeitenController {
 	}
 	
 	@FXML
-	private void handleButtonItemLoeschenAction(ActionEvent event) {
-		System.out.println("Item löschen wird geöffnet\n");
+	private void handleButtonErstelleRuestungAction(ActionEvent event) {
+		System.out.println("Rüstung erstellen wird geöffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			VBox root = (VBox)FXMLLoader.load(getClass().getResource("LoeschenWindow.fxml"));
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ErstelleRuestung.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -58,13 +60,30 @@ public class ItemBearbeitenController {
 	}
 	
 	@FXML
-	private void handleButtonHauptmenueAction(ActionEvent event) {
-		System.out.println("Hauptmenü wird geöffnet\n");
+	private void handleButtonErstelleVerbrauchsgegenstandAction(ActionEvent event) {
+		System.out.println("Verbrauchsgegenstand erstellen wird geöffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("Hauptmenue.fxml"));
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ErstelleVerbrauchsgegenstaende.fxml"));
+			Scene scene = new Scene(root, 1600, 900);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setScene(scene);
+			
+		} catch (IOException iOException) {
+			System.out.println(iOException.getMessage());
+		}
+	}
+	
+	@FXML
+	private void handleButtonZurueckAction(ActionEvent event) {
+		System.out.println("Item bearbeiten wird geöffnet\n");
+		
+		try {
+			Node source = (Node) event.getSource();
+			Stage stage = (Stage) source.getScene().getWindow();
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
