@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -25,22 +24,20 @@ public class HauptmenueController {
 	
 	@FXML
 	private void handleButtonInventaransichtAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet");
+		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
 	}
 	
 	@FXML
 	private void handleButtonItemBearbeitenAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Item bearbeiten geöffnet");
+		System.out.println("Item bearbeiten wird geöffnet\n");
 		
 		try {
-			System.out.println("Jetzt wird die Item bearbeiten geöffnet");
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
 			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
-			System.out.println("Hallo");
 			
 		} catch (IOException iOException) {
 			System.out.println(iOException.getMessage());
@@ -49,7 +46,11 @@ public class HauptmenueController {
 	
 	@FXML
 	private void handleButtonSpeichernUndBeendenAction(ActionEvent event) {
-		System.out.println("Jetzt wird gespeichert und das Programm beendet");
+		System.out.println("Jetzt wird gespeichert und das Programm beendet\n");
+		
+		Node source = (Node) event.getSource();
+		Stage stage = (Stage) source.getScene().getWindow();
+		stage.close();
 	}
 	
 }
