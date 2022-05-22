@@ -13,8 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class InventarAnsichtPlatzhalterController {
-
+public class InventarAnsichtController {
+	
 	@FXML
 	private Button btItemAnsicht;
 
@@ -74,4 +74,6 @@ public class InventarAnsichtPlatzhalterController {
 			System.out.println(iOException.getMessage());
 		}
 	}
+
 }
+

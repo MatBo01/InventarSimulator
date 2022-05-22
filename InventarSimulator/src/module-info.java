@@ -1,8 +1,12 @@
 module InventarSimulator {
 	requires javafx.controls;
 	requires javafx.fxml;
-	requires javafx.graphics;
+	requires java.desktop;
 	requires javafx.base;
+	requires javafx.graphics;
+	requires javafx.web;
+	requires java.sql;
 	
 	opens main to javafx.graphics, javafx.fxml;
+	opens POJO to javafx.base;
 }

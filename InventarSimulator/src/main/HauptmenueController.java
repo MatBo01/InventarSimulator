@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class HauptmenueController {
@@ -29,7 +30,7 @@ public class HauptmenueController {
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("InventarAnsichtPlatzhalter.fxml"));
+			HBox root = (HBox)FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
