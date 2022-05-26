@@ -46,7 +46,7 @@ public class DataExchange {
 				i.setSeltenheit(Seltenheit.valueOf(spalten[2]));
 				i.setWert(Integer.parseInt(spalten[3]));
 				
-				// Person wird der ObservableList hinzugefügt
+				// Item wird der ObservableList hinzugefügt
 				ItemListe.add(i);	
 			}
 			s.close();
@@ -92,7 +92,7 @@ public class DataExchange {
 				w.setSchnelligkeit(Integer.parseInt(spalten[7]));
 				w.setWaffenArt(WaffenArt.valueOf(spalten[8]));
 				
-				// Person wird der ObservableList hinzugefügt
+				// Waffe wird der ObservableList hinzugefügt
 				WaffenListe.add(w);	
 			}
 			s.close();
@@ -137,7 +137,7 @@ public class DataExchange {
 				r.setElement(Element.valueOf(spalten[6]));
 				r.setRuestungsArt(RuestungsArt.valueOf(spalten[7]));
 				
-				// Person wird der ObservableList hinzugefügt
+				// Rüstung wird der ObservableList hinzugefügt
 				RuestungsListe.add(r);	
 			}
 			s.close();
@@ -180,7 +180,7 @@ public class DataExchange {
 				v.setBuffs(Buffs.valueOf(spalten[4]));
 				v.setVerbrauchsgegenstandsArt(VerbrauchsgegenstandsArt.valueOf(spalten[5]));
 				
-				// Person wird der ObservableList hinzugefügt
+				// Verbrauchsgegenstand wird der ObservableList hinzugefügt
 				VerbrauchsListe.add(v);	
 			}
 			s.close();
