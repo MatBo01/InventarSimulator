@@ -3,7 +3,7 @@ package main;
 import java.io.IOException;
 
 import POJO.Item;
-import POJO.Ruestung;
+import POJO.Verbrauchsgegenstand;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +19,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ErstelleRuestungController {
+public class ErstelleVerbrauchsgegenstandController {
 
 	// Name----------------------
 
@@ -32,13 +32,10 @@ public class ErstelleRuestungController {
 	// Art-----------------------
 
 	@FXML
-	private RadioButton rbStoffruestung;
+	private RadioButton rbTrank;
 
 	@FXML
-	private RadioButton rbLederruestung;
-
-	@FXML
-	private RadioButton rbStahlruestung;
+	private RadioButton rbEssen;
 
 	@FXML
 	private ToggleGroup tgArt;
@@ -71,47 +68,25 @@ public class ErstelleRuestungController {
 	@FXML
 	private Text tError2;
 
-	// Stärke--------------------
+	// Buffs-------------------
 
 	@FXML
-	private TextField tfVerteidigung;
+	private RadioButton rbHeilung;
 
 	@FXML
-	private Text tError3;
-
-	// Gewicht-------------------
+	private RadioButton rbAusdauer;
 
 	@FXML
-	private TextField tfGewicht;
+	private RadioButton rbAngriff;
 
 	@FXML
-	private Text tError4;
-
-	// Element-------------------
+	private RadioButton rbVerteidigung;
 
 	@FXML
-	private RadioButton rbKeins;
+	private RadioButton rbGeschwindigkeit;
 
 	@FXML
-	private RadioButton rbFeuer;
-
-	@FXML
-	private RadioButton rbWasser;
-
-	@FXML
-	private RadioButton rbErde;
-
-	@FXML
-	private RadioButton rbLuft;
-
-	@FXML
-	private RadioButton rbDunkelheit;
-
-	@FXML
-	private RadioButton rbHeilig;
-
-	@FXML
-	private ToggleGroup tgResistenz;
+	private ToggleGroup tgBuffs;
 
 	// Buttons-------------------
 
@@ -121,25 +96,25 @@ public class ErstelleRuestungController {
 	@FXML
 	private Button btAbbrechen;
 
-	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
+	private ObservableList<Verbrauchsgegenstand> VerbrauchsListe = FXCollections.observableArrayList();
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
 	@FXML
-	private boolean erstelleRuestung() throws IOException {
+	private boolean erstelleVerbrauchsgegenstand() throws IOException {
 
 		boolean keineErrors = true;
 
-		RuestungsListe.clear();
+		VerbrauchsListe.clear();
 		ItemListe.clear();
 
-		RuestungsListe = DataExchange.getArmorFromDb();
+		VerbrauchsListe = DataExchange.getConsumablesFromDb();
 		ItemListe = DataExchange.getItemsFromDb();
 
-		Ruestung r = new Ruestung();
+		Verbrauchsgegenstand v = new Verbrauchsgegenstand();
 		Item item = new Item();
 
-		r.setItemArt(Ruestung.ItemArt.R);
-		item.setItemArt(Item.ItemArt.R);
+		v.setItemArt(Verbrauchsgegenstand.ItemArt.V);
+		item.setItemArt(Item.ItemArt.V);
 
 		// Name-------------------------
 
@@ -150,37 +125,35 @@ public class ErstelleRuestungController {
 			tError1.setText("Bitte kein ',' benutzen!");
 			keineErrors = false;
 		} else {
-			r.setName(tfName.getText());
+			v.setName(tfName.getText());
 			item.setName(tfName.getText());
 			tError1.setText("");
 		}
 
 		// Art---------------------------
 
-		if (tgArt.getSelectedToggle().equals(rbStoffruestung)) {
-			r.setRuestungsArt(Ruestung.RuestungsArt.STO);
-		} else if (tgArt.getSelectedToggle().equals(rbLederruestung)) {
-			r.setRuestungsArt(Ruestung.RuestungsArt.LED);
-		} else if (tgArt.getSelectedToggle().equals(rbStahlruestung)) {
-			r.setRuestungsArt(Ruestung.RuestungsArt.STA);
+		if (tgArt.getSelectedToggle().equals(rbTrank)) {
+			v.setVerbrauchsgegenstandsArt(Verbrauchsgegenstand.VerbrauchsgegenstandsArt.T);
+		} else if (tgArt.getSelectedToggle().equals(rbEssen)) {
+			v.setVerbrauchsgegenstandsArt(Verbrauchsgegenstand.VerbrauchsgegenstandsArt.E);
 		}
 
 		// Seltenheit--------------------
 
 		if (tgSeltenheit.getSelectedToggle().equals(rbNormal)) {
-			r.setSeltenheit(Ruestung.Seltenheit.N);
+			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.N);
 			item.setSeltenheit(Item.Seltenheit.N);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbUngewoehnlich)) {
-			r.setSeltenheit(Ruestung.Seltenheit.U);
+			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.U);
 			item.setSeltenheit(Item.Seltenheit.U);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbSelten)) {
-			r.setSeltenheit(Ruestung.Seltenheit.S);
+			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.S);
 			item.setSeltenheit(Item.Seltenheit.S);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbEpisch)) {
-			r.setSeltenheit(Ruestung.Seltenheit.E);
+			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.E);
 			item.setSeltenheit(Item.Seltenheit.E);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbLegendaer)) {
-			r.setSeltenheit(Ruestung.Seltenheit.L);
+			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.L);
 			item.setSeltenheit(Item.Seltenheit.L);
 		}
 
@@ -196,7 +169,7 @@ public class ErstelleRuestungController {
 					tError2.setText("Bitte keine negativen Zahlen eingeben!");
 					keineErrors = false;
 				} else {
-					r.setWert(i);
+					v.setWert(i);
 					item.setWert(i);
 					tError2.setText("");
 				}
@@ -206,70 +179,25 @@ public class ErstelleRuestungController {
 			}
 		}
 
-		// Stärke-----------------------
+		// Buffs-------------------------
 
-		if (tfVerteidigung.getText().equals("")) {
-			tError3.setText("Bitte nur ganze Zahlen eingeben!");
-			keineErrors = false;
-		} else {
-			try {
-				int i = Integer.parseInt(tfVerteidigung.getText());
-				if (i < 0) {
-					tError3.setText("Bitte keine negativen Zahlen eingeben!");
-					keineErrors = false;
-				} else {
-					r.setStaerke(i);
-					tError3.setText("");
-				}
-			} catch (NumberFormatException e) {
-				tError3.setText("Bitte nur ganze Zahlen eingeben!");
-				keineErrors = false;
-			}
-		}
-
-		// Gewicht----------------------
-
-		if (tfGewicht.getText().equals("")) {
-			tError4.setText("Bitte nur ganze Zahlen eingeben!");
-			keineErrors = false;
-		} else {
-			try {
-				int i = Integer.parseInt(tfGewicht.getText());
-				if (i < 0) {
-					tError4.setText("Bitte keine negativen Zahlen eingeben!");
-					keineErrors = false;
-				} else {
-					r.setGewicht(i);
-					tError4.setText("");
-				}
-			} catch (NumberFormatException e) {
-				tError4.setText("Bitte nur ganze Zahlen eingeben!");
-				keineErrors = false;
-			}
-		}
-
-		// Element-----------------------
-
-		if (tgResistenz.getSelectedToggle().equals(rbKeins)) {
-			r.setElement(Ruestung.Element.K);
-		} else if (tgResistenz.getSelectedToggle().equals(rbFeuer)) {
-			r.setElement(Ruestung.Element.F);
-		} else if (tgResistenz.getSelectedToggle().equals(rbWasser)) {
-			r.setElement(Ruestung.Element.W);
-		} else if (tgResistenz.getSelectedToggle().equals(rbErde)) {
-			r.setElement(Ruestung.Element.E);
-		} else if (tgResistenz.getSelectedToggle().equals(rbLuft)) {
-			r.setElement(Ruestung.Element.L);
-		} else if (tgResistenz.getSelectedToggle().equals(rbDunkelheit)) {
-			r.setElement(Ruestung.Element.D);
-		} else if (tgResistenz.getSelectedToggle().equals(rbHeilig)) {
-			r.setElement(Ruestung.Element.H);
+		if (tgBuffs.getSelectedToggle().equals(rbHeilung)) {
+			v.setBuffs(Verbrauchsgegenstand.Buffs.HE);
+		} else if (tgBuffs.getSelectedToggle().equals(rbAusdauer)) {
+			v.setBuffs(Verbrauchsgegenstand.Buffs.AU);
+		} else if (tgBuffs.getSelectedToggle().equals(rbAngriff)) {
+			v.setBuffs(Verbrauchsgegenstand.Buffs.AN);
+		} else if (tgBuffs.getSelectedToggle().equals(rbVerteidigung)) {
+			v.setBuffs(Verbrauchsgegenstand.Buffs.VE);
+		} else if (tgBuffs.getSelectedToggle().equals(rbGeschwindigkeit)) {
+			v.setBuffs(Verbrauchsgegenstand.Buffs.GE);
 		}
 
 		if (keineErrors) {
-			RuestungsListe.add(r);
+			VerbrauchsListe.add(v);
 			ItemListe.add(item);
-			DataExchange.safeArmorToDB(r);
+			DataExchange.safeConsumablesToDB(v);
+
 		}
 
 		return keineErrors;
@@ -277,7 +205,7 @@ public class ErstelleRuestungController {
 
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
-		if (erstelleRuestung()) {
+		if (erstelleVerbrauchsgegenstand()) {
 			try {
 				Node source = (Node) event.getSource();
 				Stage stage = (Stage) source.getScene().getWindow();
@@ -293,8 +221,8 @@ public class ErstelleRuestungController {
 
 		System.out.println("\n\n\n");
 
-		for (Ruestung ruestungen : RuestungsListe) {
-			System.out.println(ruestungen.toString());
+		for (Verbrauchsgegenstand verbrauchsgegenstaende : VerbrauchsListe) {
+			System.out.println(verbrauchsgegenstaende.toString());
 		}
 
 		System.out.println();

@@ -11,7 +11,7 @@
       <Pane prefHeight="900.0" prefWidth="1600.0">
          <children>
             <Button fx:id="btDauerhaftLoeschen" layoutX="1436.0" layoutY="689.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="143.0" text="Dauerhaft Loeschen" />
-            <Button fx:id="btHauptmenue" layoutX="1436.0" layoutY="765.0" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="62.0" prefWidth="143.0" text="Zurück" />
+            <Button fx:id="btZurueck" layoutX="1436.0" layoutY="765.0" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="62.0" prefWidth="143.0" text="Zurück" />
             <TableView layoutY="94.0" prefHeight="760.0" prefWidth="1296.0">
               <columns>
                 <TableColumn fx:id="tcName" prefWidth="150.0" text="Name" />

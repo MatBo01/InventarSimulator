@@ -3,12 +3,7 @@ package main;
 import java.io.IOException;
 
 import POJO.Waffe;
-import POJO.Ausruestung;
-import POJO.Ausruestung.Element;
 import POJO.Item;
-import POJO.Item.ItemArt;
-import POJO.Item.Seltenheit;
-import POJO.Waffe.WaffenArt;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,7 +83,7 @@ public class ErstelleWaffeController {
 	// Stärke--------------------
 
 	@FXML
-	private TextField tfStaerke;
+	private TextField tfAngriff;
 
 	@FXML
 	private Text tError3;
@@ -147,7 +142,7 @@ public class ErstelleWaffeController {
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
 	@FXML
-	private boolean erstelleWaffe() {
+	private boolean erstelleWaffe() throws IOException {
 
 		boolean keineErrors = true;
 
@@ -160,14 +155,16 @@ public class ErstelleWaffeController {
 		Waffe w = new Waffe();
 		Item item = new Item();
 
-		w.setItemArt(Item.ItemArt.W);
+		w.setItemArt(Waffe.ItemArt.W);
 		item.setItemArt(Item.ItemArt.W);
 
 		// Name-------------------------
 
 		if (tfName.getText().equals("")) {
-			System.out.println(tfName.getText());
 			tError1.setText("Bitte einen Namen eingeben!");
+			keineErrors = false;
+		} else if (tfName.getText().contains(",")) {
+			tError1.setText("Bitte kein ',' benutzen!");
 			keineErrors = false;
 		} else {
 			w.setName(tfName.getText());
@@ -187,26 +184,26 @@ public class ErstelleWaffeController {
 			w.setWaffenArt(Waffe.WaffenArt.GR);
 		} else if (tgArt.getSelectedToggle().equals(rbSchwert)) {
 			w.setWaffenArt(Waffe.WaffenArt.SC);
-		}else if (tgArt.getSelectedToggle().equals(rbSpeer)) {
+		} else if (tgArt.getSelectedToggle().equals(rbSpeer)) {
 			w.setWaffenArt(Waffe.WaffenArt.SP);
 		}
 
 		// Seltenheit--------------------
 
 		if (tgSeltenheit.getSelectedToggle().equals(rbNormal)) {
-			w.setSeltenheit(Item.Seltenheit.N);
+			w.setSeltenheit(Waffe.Seltenheit.N);
 			item.setSeltenheit(Item.Seltenheit.N);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbUngewoehnlich)) {
-			w.setSeltenheit(Item.Seltenheit.U);
+			w.setSeltenheit(Waffe.Seltenheit.U);
 			item.setSeltenheit(Item.Seltenheit.U);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbSelten)) {
-			w.setSeltenheit(Item.Seltenheit.S);
+			w.setSeltenheit(Waffe.Seltenheit.S);
 			item.setSeltenheit(Item.Seltenheit.S);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbEpisch)) {
-			w.setSeltenheit(Item.Seltenheit.E);
+			w.setSeltenheit(Waffe.Seltenheit.E);
 			item.setSeltenheit(Item.Seltenheit.E);
 		} else if (tgSeltenheit.getSelectedToggle().equals(rbLegendaer)) {
-			w.setSeltenheit(Item.Seltenheit.L);
+			w.setSeltenheit(Waffe.Seltenheit.L);
 			item.setSeltenheit(Item.Seltenheit.L);
 		}
 
@@ -218,9 +215,14 @@ public class ErstelleWaffeController {
 		} else {
 			try {
 				int i = Integer.parseInt(tfWert.getText());
-				w.setWert(i);
-				item.setWert(i);
-				tError2.setText("");
+				if (i < 0) {
+					tError2.setText("Bitte keine negativen Zahlen eingeben!");
+					keineErrors = false;
+				} else {
+					w.setWert(i);
+					item.setWert(i);
+					tError2.setText("");
+				}
 			} catch (NumberFormatException e) {
 				tError2.setText("Bitte nur ganze Zahlen eingeben!");
 				keineErrors = false;
@@ -229,14 +231,19 @@ public class ErstelleWaffeController {
 
 		// Stärke-----------------------
 
-		if (tfStaerke.getText().equals("")) {
+		if (tfAngriff.getText().equals("")) {
 			tError3.setText("Bitte nur ganze Zahlen eingeben!");
 			keineErrors = false;
 		} else {
 			try {
-				int i = Integer.parseInt(tfStaerke.getText());
-				w.setStaerke(i);
-				tError3.setText("");
+				int i = Integer.parseInt(tfAngriff.getText());
+				if (i < 0) {
+					tError3.setText("Bitte keine negativen Zahlen eingeben!");
+					keineErrors = false;
+				} else {
+					w.setStaerke(i);
+					tError3.setText("");
+				}
 			} catch (NumberFormatException e) {
 				tError3.setText("Bitte nur ganze Zahlen eingeben!");
 				keineErrors = false;
@@ -251,8 +258,13 @@ public class ErstelleWaffeController {
 		} else {
 			try {
 				int i = Integer.parseInt(tfGewicht.getText());
-				w.setGewicht(i);
-				tError4.setText("");
+				if (i < 0) {
+					tError4.setText("Bitte keine negativen Zahlen eingeben!");
+					keineErrors = false;
+				} else {
+					w.setGewicht(i);
+					tError4.setText("");
+				}
 			} catch (NumberFormatException e) {
 				tError4.setText("Bitte nur ganze Zahlen eingeben!");
 				keineErrors = false;
@@ -267,42 +279,48 @@ public class ErstelleWaffeController {
 		} else {
 			try {
 				int i = Integer.parseInt(tfSchnelligkeit.getText());
-				w.setSchnelligkeit(i);
-				tError5.setText("");
+				if (i < 0) {
+					tError5.setText("Bitte keine negativen Zahlen eingeben!");
+					keineErrors = false;
+				} else {
+					w.setSchnelligkeit(i);
+					tError5.setText("");
+				}
 			} catch (NumberFormatException e) {
 				tError5.setText("Bitte nur ganze Zahlen eingeben!");
 				keineErrors = false;
 			}
 		}
-		
-		// Art---------------------------
 
-				if (tgElement.getSelectedToggle().equals(rbKeins)) {
-					w.setElement(Waffe.Element.K);
-				} else if (tgElement.getSelectedToggle().equals(rbFeuer)) {
-					w.setElement(Waffe.Element.F);
-				} else if (tgElement.getSelectedToggle().equals(rbWasser)) {
-					w.setElement(Waffe.Element.W);
-				} else if (tgElement.getSelectedToggle().equals(rbErde)) {
-					w.setElement(Waffe.Element.E);
-				} else if (tgElement.getSelectedToggle().equals(rbLuft)) {
-					w.setElement(Waffe.Element.L);
-				}else if (tgElement.getSelectedToggle().equals(rbDunkelheit)) {
-					w.setElement(Waffe.Element.D);
-				}else if (tgElement.getSelectedToggle().equals(rbHeilig)) {
-					w.setElement(Waffe.Element.H);
-				}
-	
-		if(keineErrors) {
-			WaffenListe.add(w);	
+		// Element-----------------------
+
+		if (tgElement.getSelectedToggle().equals(rbKeins)) {
+			w.setElement(Waffe.Element.K);
+		} else if (tgElement.getSelectedToggle().equals(rbFeuer)) {
+			w.setElement(Waffe.Element.F);
+		} else if (tgElement.getSelectedToggle().equals(rbWasser)) {
+			w.setElement(Waffe.Element.W);
+		} else if (tgElement.getSelectedToggle().equals(rbErde)) {
+			w.setElement(Waffe.Element.E);
+		} else if (tgElement.getSelectedToggle().equals(rbLuft)) {
+			w.setElement(Waffe.Element.L);
+		} else if (tgElement.getSelectedToggle().equals(rbDunkelheit)) {
+			w.setElement(Waffe.Element.D);
+		} else if (tgElement.getSelectedToggle().equals(rbHeilig)) {
+			w.setElement(Waffe.Element.H);
+		}
+
+		if (keineErrors) {
+			WaffenListe.add(w);
 			ItemListe.add(item);
-		}		
+			DataExchange.safeWeaponToDB(w);
+		}
 
 		return keineErrors;
 	}
 
 	@FXML
-	private void handleButtonErstellenAction(ActionEvent event) {
+	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleWaffe()) {
 			try {
 				Node source = (Node) event.getSource();
@@ -316,16 +334,16 @@ public class ErstelleWaffeController {
 				System.out.println(iOException.getMessage());
 			}
 		}
-		
+
 		System.out.println("\n\n\n");
-		
-		for(Waffe waffen: WaffenListe) {
+
+		for (Waffe waffen : WaffenListe) {
 			System.out.println(waffen.toString());
 		}
-		
+
 		System.out.println();
-		
-		for(Item items: ItemListe) {
+
+		for (Item items : ItemListe) {
 			System.out.println(items.toString());
 		}
 	}

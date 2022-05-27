@@ -21,7 +21,7 @@ public class HauptmenueController {
 	private Button btItemBearbeiten;
 	
 	@FXML
-	private Button btSpeichernUndBeenden;
+	private Button btBeenden;
 	
 	@FXML
 	private void handleButtonInventaransichtAction(ActionEvent event) {
@@ -58,8 +58,8 @@ public class HauptmenueController {
 	}
 	
 	@FXML
-	private void handleButtonSpeichernUndBeendenAction(ActionEvent event) {
-		System.out.println("Jetzt wird gespeichert und das Programm beendet\n");
+	private void handleButtonBeendenAction(ActionEvent event) {
+		System.out.println("Jetzt wird das Programm beendet\n");
 		
 		Node source = (Node) event.getSource();
 		Stage stage = (Stage) source.getScene().getWindow();

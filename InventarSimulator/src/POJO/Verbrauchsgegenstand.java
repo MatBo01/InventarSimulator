@@ -1,6 +1,6 @@
 package POJO;
 
-public class Verbrauchsgegenstaende extends Item{
+public class Verbrauchsgegenstand extends Item{
 
 	public enum Buffs{
 		HE("Heilung"),
@@ -33,11 +33,11 @@ public class Verbrauchsgegenstaende extends Item{
 	private String buffs;
 	private String verbrauchsgegenstandsArt;
 	
-	public Verbrauchsgegenstaende() {
+	public Verbrauchsgegenstand() {
 		
 	}
 	
-	public Verbrauchsgegenstaende(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, Buffs buffs, VerbrauchsgegenstandsArt verbrauchsgegenstandsArt) {
+	public Verbrauchsgegenstand(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, Buffs buffs, VerbrauchsgegenstandsArt verbrauchsgegenstandsArt) {
 		super(itemArt, name, seltenheit, wert);
 		this.buffs = buffs.getBuffs();
 		this.verbrauchsgegenstandsArt = verbrauchsgegenstandsArt.getVerbrauchsgegenstandsArt();

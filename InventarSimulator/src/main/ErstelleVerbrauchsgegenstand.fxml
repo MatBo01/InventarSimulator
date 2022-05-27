@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleWaffeController">
+<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleVerbrauchsgegenstandController">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="80.0" />
       <RowConstraints minHeight="10.0" prefHeight="80.0" />
@@ -78,7 +78,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Angriff:" GridPane.rowIndex="5">
+      <Label prefHeight="29.0" prefWidth="115.0" text="Buffs:" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Bold" size="25.0" />
          </font>
@@ -86,31 +86,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Gewicht:" GridPane.rowIndex="6">
-         <font>
-            <Font name="Serif Bold" size="25.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Schnelligkeit:" GridPane.rowIndex="7">
-         <font>
-            <Font name="Serif Bold" size="25.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
-      <Label text="Element:" GridPane.rowIndex="8">
-         <font>
-            <Font name="Serif Bold" size="25.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="50.0" />
-         </GridPane.margin>
-      </Label>
-      <RadioButton fx:id="rbAxt" mnemonicParsing="false" selected="true" text="Axt" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <RadioButton fx:id="rbEssen" mnemonicParsing="false" text="Essen" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
@@ -124,51 +100,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </RadioButton>
-      <RadioButton fx:id="rbBogen" mnemonicParsing="false" text="Bogen" toggleGroup="$tgArt" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbDolch" mnemonicParsing="false" text="Dolch" toggleGroup="$tgArt" GridPane.columnIndex="3" GridPane.rowIndex="2">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbGrossschwert" mnemonicParsing="false" text="Großschwert" toggleGroup="$tgArt" GridPane.columnIndex="4" GridPane.rowIndex="2">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbSchwert" mnemonicParsing="false" text="Schwert" toggleGroup="$tgArt" GridPane.columnIndex="5" GridPane.rowIndex="2">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbSpeer" mnemonicParsing="false" text="Speer" toggleGroup="$tgArt" GridPane.columnIndex="6" GridPane.rowIndex="2">
+      <RadioButton fx:id="rbTrank" mnemonicParsing="false" selected="true" text="Trank" toggleGroup="$tgArt" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
@@ -245,45 +177,21 @@
             <Insets left="20.0" right="100.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="tfAngriff" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <GridPane.margin>
-            <Insets left="20.0" right="100.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="tfGewicht" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <GridPane.margin>
-            <Insets left="20.0" right="100.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="tfSchnelligkeit" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <GridPane.margin>
-            <Insets left="20.0" right="100.0" />
-         </GridPane.margin>
-      </TextField>
-      <RadioButton fx:id="rbFeuer" mnemonicParsing="false" style="-fx-background-color: orangered; -fx-background-radius: 20;" text="Feuer" GridPane.columnIndex="2" GridPane.rowIndex="8">
+      <RadioButton fx:id="rbAudauer" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Audauer" GridPane.columnIndex="2" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
          <toggleGroup>
-            <ToggleGroup fx:id="tgElement" />
+            <ToggleGroup fx:id="tgBuffs" />
          </toggleGroup>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </RadioButton>
-      <RadioButton fx:id="rbWasser" mnemonicParsing="false" style="-fx-background-color: dodgerblue; -fx-background-radius: 20;" text="Wasser" toggleGroup="$tgElement" GridPane.columnIndex="3" GridPane.rowIndex="8">
+      <RadioButton fx:id="rbAngriff" mnemonicParsing="false" style="-fx-background-color: orangered; -fx-background-radius: 20;" text="Angriff" toggleGroup="$tgBuffs" GridPane.columnIndex="3" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
@@ -294,40 +202,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </RadioButton>
-      <RadioButton fx:id="rbErde" mnemonicParsing="false" style="-fx-background-color: chocolate; -fx-background-radius: 20;" text="Erde" toggleGroup="$tgElement" GridPane.columnIndex="4" GridPane.rowIndex="8">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbLuft" mnemonicParsing="false" style="-fx-background-color: powderblue; -fx-background-radius: 20;" text="Luft" toggleGroup="$tgElement" GridPane.columnIndex="5" GridPane.rowIndex="8">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbDunkelheit" mnemonicParsing="false" style="-fx-background-color: darkorchid; -fx-background-radius: 20;" text="Dunkelheit" toggleGroup="$tgElement" GridPane.columnIndex="6" GridPane.rowIndex="8">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </RadioButton>
-      <RadioButton fx:id="rbHeilig" mnemonicParsing="false" style="-fx-background-color: lightyellow; -fx-background-radius: 20;" text="Heilig" toggleGroup="$tgElement" GridPane.columnIndex="7" GridPane.rowIndex="8">
+      <RadioButton fx:id="rbGeschwindigkeit" mnemonicParsing="false" style="-fx-background-color: paleturquoise; -fx-background-radius: 20;" text="Geschwindigkeit" toggleGroup="$tgBuffs" GridPane.columnIndex="5" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
@@ -376,7 +251,7 @@
             <Insets left="20.0" />
          </GridPane.margin>
       </Text>
-      <RadioButton fx:id="rbKeins" mnemonicParsing="false" selected="true" style="-fx-background-color: lightgrey; -fx-background-radius: 20;" text="Keins" toggleGroup="$tgElement" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <RadioButton fx:id="rbHeilung" mnemonicParsing="false" selected="true" style="-fx-background-color: springgreen; -fx-background-radius: 20;" text="Heilung" toggleGroup="$tgBuffs" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>
@@ -392,30 +267,26 @@
             <Insets left="20.0" />
          </GridPane.margin>
       </Text>
-      <Text fx:id="tError3" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-      </Text>
-      <Text fx:id="tError4" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-      </Text>
-      <Text fx:id="tError5" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
-         <GridPane.margin>
-            <Insets left="20.0" />
-         </GridPane.margin>
-      </Text>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
          <children>
-            <Label layoutX="100.0" layoutY="22.0" prefHeight="34.0" prefWidth="200.0" text="Waffe erstellen" textAlignment="CENTER" textOverrun="CLIP" underline="true">
+            <Label layoutY="22.0" prefHeight="34.0" prefWidth="400.0" text="Verbauchsgegenstand erstellen" textAlignment="CENTER" textOverrun="CLIP" underline="true">
                <font>
                   <Font name="Serif Bold" size="30.0" />
                </font>
             </Label>
          </children>
       </Pane>
+      <RadioButton fx:id="rbVerteidigung" mnemonicParsing="false" style="-fx-background-color: sandybrown; -fx-background-radius: 20;" text="Verteidigung" toggleGroup="$tgBuffs" GridPane.columnIndex="4" GridPane.rowIndex="5">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </RadioButton>
    </children>
    <padding>
       <Insets top="50.0" />

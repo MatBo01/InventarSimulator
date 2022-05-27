@@ -13,15 +13,33 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 public class AllesViewController implements Initializable {
 
 	@FXML
-	private MenuButton mbSortierung;
+	private Button btName;
+	private int nameZaehler = 1;
+
+	@FXML
+	private Button btArt;
+	private int artZaehler = 1;
+
+	@FXML
+	private Button btSeltenheit;
+	private int seltenheitZaehler = 1;
+
+	@FXML
+	private Button btWert;
+	private int wertZaehler = 1;
 	
 	@FXML
-	private MenuItem miName;
+	private TextField tfSuche;
+	
+	@FXML
+	private Button btSuchen;
 	
 	@FXML
 	private TableView<Item> tvItems;
@@ -49,11 +67,65 @@ public class AllesViewController implements Initializable {
 	}
 	
 	@FXML
-	private Button btTest;
+	private void handleButtonDbNameSortierAction(ActionEvent event) {
+		if (nameZaehler == 1) {
+			// sortierung aufsteigend
+			
+			nameZaehler++;
+		} else if (nameZaehler == 2) {
+			// sortierung absteigend
+			
+			nameZaehler--;
+		}
+		tvItemsUpdate();
+	}
+
+	@FXML
+	private void handleButtonDbArtSortierAction(ActionEvent event) {
+		if (artZaehler == 1) {
+			// sortierung aufsteigend
+
+			artZaehler++;
+		} else if (artZaehler == 2) {
+			// sortierung absteigend
+
+			artZaehler--;
+		}
+		tvItemsUpdate();
+	}
+
+	@FXML
+	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
+		if (seltenheitZaehler == 1) {
+			// sortierung aufsteigend
+
+			seltenheitZaehler++;
+		} else if (seltenheitZaehler == 2) {
+			// sortierung absteigend
+
+			seltenheitZaehler--;
+		}
+		tvItemsUpdate();
+	}
+
+	@FXML
+	private void handleButtonDbWertSortierAction(ActionEvent event) {
+		if (wertZaehler == 1) {
+			// sortierung aufsteigend
+
+			wertZaehler++;
+		} else if (wertZaehler == 2) {
+			// sortierung absteigend
+
+			wertZaehler--;
+		}
+		tvItemsUpdate();
+	}
 	
 	@FXML
-	private void handleButtonDbAuslesenAction(ActionEvent event) {
-		tvItemsUpdate();
+	private void handleButtonDbSuchenAction(ActionEvent event) {
+		// Itemsuche
+		
 	}
 	
 	@FXML
@@ -62,9 +134,9 @@ public class AllesViewController implements Initializable {
 		ItemListe.clear();
 		// Daten aus DB holen
 		ItemListe = DataExchange.getItemsFromDb();
-		for(Item item: ItemListe) {
-			System.out.println(item.toString());
-		}
+//		for(Item item: ItemListe) {
+//			System.out.println(item.toString());
+//		}
 		tvItems.setItems(ItemListe);
 	}
 }

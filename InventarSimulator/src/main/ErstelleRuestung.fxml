@@ -1,309 +1,372 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleRuestungController">
-	  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleRuestungController">
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="80.0" />
+      <RowConstraints minHeight="10.0" prefHeight="150.0" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+   </columnConstraints>
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Label text="Name:" GridPane.rowIndex="1">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="tfName" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="20.0" right="20.0" />
+         </GridPane.margin>
+      </TextField>
+      <Label text="Art:" GridPane.rowIndex="2">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Seltenheit:" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Wert:" GridPane.rowIndex="4">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label prefHeight="29.0" prefWidth="156.0" text="Verteidigung:" GridPane.rowIndex="5">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Gewicht:" GridPane.rowIndex="6">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Resistenz:" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Bold" size="25.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </Label>
+      <RadioButton fx:id="rbStoffruestung" mnemonicParsing="false" selected="true" text="Stoffrüstung" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <toggleGroup>
+            <ToggleGroup fx:id="tgArt" />
+         </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbLederruestung" mnemonicParsing="false" text="Lederrüstung" toggleGroup="$tgArt" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbStahlruestung" mnemonicParsing="false" text="Stahlrüstung" toggleGroup="$tgArt" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbNormal" mnemonicParsing="false" selected="true" style="-fx-background-color: lightgrey; -fx-background-radius: 20;" text="Normal" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <toggleGroup>
+            <ToggleGroup fx:id="tgSeltenheit" />
+         </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbUngewoehnlich" mnemonicParsing="false" style="-fx-background-color: lightblue; -fx-background-radius: 20;" text="Ungewöhnlich" toggleGroup="$tgSeltenheit" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbSelten" mnemonicParsing="false" style="-fx-background-color: lightgreen; -fx-background-radius: 20;" text="Selten" toggleGroup="$tgSeltenheit" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbEpisch" mnemonicParsing="false" style="-fx-background-color: violet; -fx-background-radius: 20;" text="Episch" toggleGroup="$tgSeltenheit" GridPane.columnIndex="4" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbLegendaer" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Legendär" toggleGroup="$tgSeltenheit" GridPane.columnIndex="5" GridPane.rowIndex="3">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <TextField fx:id="tfWert" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="20.0" right="100.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="tfVerteidigung" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="20.0" right="100.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="tfGewicht" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="20.0" right="100.0" />
+         </GridPane.margin>
+      </TextField>
+      <RadioButton fx:id="rbFeuer" mnemonicParsing="false" style="-fx-background-color: orangered; -fx-background-radius: 20;" text="Feuer" GridPane.columnIndex="2" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <toggleGroup>
+            <ToggleGroup fx:id="tgResistenz" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbWasser" mnemonicParsing="false" style="-fx-background-color: dodgerblue; -fx-background-radius: 20;" text="Wasser" toggleGroup="$tgResistenz" GridPane.columnIndex="3" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbErde" mnemonicParsing="false" style="-fx-background-color: chocolate; -fx-background-radius: 20;" text="Erde" toggleGroup="$tgResistenz" GridPane.columnIndex="4" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbLuft" mnemonicParsing="false" style="-fx-background-color: powderblue; -fx-background-radius: 20;" text="Luft" toggleGroup="$tgResistenz" GridPane.columnIndex="5" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbDunkelheit" mnemonicParsing="false" style="-fx-background-color: darkorchid; -fx-background-radius: 20;" text="Dunkelheit" toggleGroup="$tgResistenz" GridPane.columnIndex="6" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="rbHeilig" mnemonicParsing="false" style="-fx-background-color: lightyellow; -fx-background-radius: 20;" text="Heilig" toggleGroup="$tgResistenz" GridPane.columnIndex="7" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <Button mnemonicParsing="false" text="Bild hinzufügen" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="9" GridPane.valignment="TOP">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="50.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btErstellen" mnemonicParsing="false" onAction="#handleButtonErstellenAction" prefHeight="50.0" prefWidth="150.0" text="Erstellen " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="50.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btAbbrechen" mnemonicParsing="false" onAction="#handleButtonAbbrechenAction" prefHeight="50.0" prefWidth="150.0" text="Abbrechen" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="7" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" top="50.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Text fx:id="tError2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </Text>
+      <RadioButton fx:id="rbKeins" mnemonicParsing="false" selected="true" style="-fx-background-color: lightgrey; -fx-background-radius: 20;" text="Keins" toggleGroup="$tgResistenz" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <font>
+            <Font name="Serif Regular" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <Text fx:id="tError1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="tError3" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="tError4" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+      </Text>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
          <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Stoffrüstung">
+            <Label layoutX="87.0" layoutY="22.0" prefHeight="34.0" prefWidth="226.0" text="Rüstung erstellen" textAlignment="CENTER" textOverrun="CLIP" underline="true">
                <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Lederrüstung">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Stahlrüstung">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Normal">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Ungewöhnlich">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Selten">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Episch">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Legendär">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Feuer">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Wasser">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Erde">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Luft">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Dunkelheit">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <TextField layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <children>
-            <TextField layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <children>
-            <TextField layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-         <children>
-            <TextField layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-         <children>
-            <TextField layoutX="15.0" layoutY="29.0" prefHeight="25.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Label layoutX="14.0" layoutY="25.0" text="Rüstung" textFill="#000000d9">
-               <font>
-                  <Font name="Serif Regular" size="38.0" />
+                  <Font name="Serif Bold" size="30.0" />
                </font>
             </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Name:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Art:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Seltenheit:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Wert:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Verteidigungsstärke:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Schnelligkeit:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Gewicht:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8">
-         <children>
-            <Label layoutX="14.0" layoutY="28.0" text="Elementresitenzen:">
-               <font>
-                  <Font name="Corbel" size="22.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="8">
-         <children>
-            <CheckBox layoutX="14.0" layoutY="30.0" mnemonicParsing="false" text="Heilig">
-               <font>
-                  <Font name="Georgia" size="16.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9">
-         <children>
-            <Button layoutX="14.0" layoutY="31.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="171.0" text="Bild hinzufügen">
-               <font>
-                  <Font name="Corbel" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="9">
-         <children>
-            <Button fx:id="btAbbrechen" layoutY="31.0" mnemonicParsing="false" onAction="#handleButtonAbbrechenAction" prefHeight="72.0" prefWidth="171.0" text="Abbrechen">
-               <font>
-                  <Font name="Corbel" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
-         <children>
-            <Button layoutX="29.0" layoutY="31.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="171.0" text="Erstellen &amp; Hinzufügen">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="9">
-         <children>
-            <Button layoutX="57.0" layoutY="31.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="171.0" text="Erstellen">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
    </children>
+   <padding>
+      <Insets top="50.0" />
+   </padding>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
 </GridPane>
