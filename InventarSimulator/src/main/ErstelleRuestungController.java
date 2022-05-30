@@ -230,11 +230,11 @@ public class ErstelleRuestungController {
 		// Gewicht----------------------
 
 		if (tfGewicht.getText().equals("")) {
-			tError4.setText("Bitte nur ganze Zahlen eingeben!");
+			tError4.setText("Bitte nur natürliche Zahlen eingeben! (Für Kommazahlen '.' benutzten!)");
 			keineErrors = false;
 		} else {
 			try {
-				int i = Integer.parseInt(tfGewicht.getText());
+				double i = Double.parseDouble(tfGewicht.getText());
 				if (i < 0) {
 					tError4.setText("Bitte keine negativen Zahlen eingeben!");
 					keineErrors = false;
@@ -243,7 +243,7 @@ public class ErstelleRuestungController {
 					tError4.setText("");
 				}
 			} catch (NumberFormatException e) {
-				tError4.setText("Bitte nur ganze Zahlen eingeben!");
+				tError4.setText("Bitte nur natürliche Zahlen eingeben! (Für Kommazahlen '.' benutzten!)");
 				keineErrors = false;
 			}
 		}

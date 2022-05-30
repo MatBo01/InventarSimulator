@@ -70,7 +70,7 @@ public class RuestungViewController implements Initializable {
 	private TableColumn<Ruestung, Integer> tcStaerke;
 	
 	@FXML
-	private TableColumn<Ruestung, Integer> tcGewicht;
+	private TableColumn<Ruestung, Double> tcGewicht;
 	
 	@FXML
 	private TableColumn<Ruestung, String> tcElement;

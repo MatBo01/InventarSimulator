@@ -21,7 +21,7 @@ public class Ruestung extends Ausruestung {
 	public Ruestung() {
 	}
 	
-	public Ruestung(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, int gewicht, Element element, RuestungsArt ruestungsArt) {
+	public Ruestung(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, double gewicht, Element element, RuestungsArt ruestungsArt) {
 		super(itemArt, name, seltenheit, wert, staerke, gewicht, element);
 		this.ruestungsArt = ruestungsArt.getRuestungsArt();
 	}

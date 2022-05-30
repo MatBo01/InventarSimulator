@@ -74,7 +74,7 @@ public class WaffenViewController implements Initializable {
 	private TableColumn<Waffe, Integer> tcStaerke;
 
 	@FXML
-	private TableColumn<Waffe, Integer> tcGewicht;
+	private TableColumn<Waffe, Double> tcGewicht;
 
 	@FXML
 	private TableColumn<Waffe, String> tcElement;

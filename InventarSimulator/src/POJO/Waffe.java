@@ -25,7 +25,7 @@ public class Waffe extends Ausruestung{
 	public Waffe() {
 	}
 	
-	public Waffe(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, int gewicht, Element element, int schnelligkeit, WaffenArt waffenArt) {
+	public Waffe(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, double gewicht, Element element, int schnelligkeit, WaffenArt waffenArt) {
 		super(itemArt, name, seltenheit, wert, staerke, gewicht, element);
 		this.schnelligkeit = schnelligkeit;
 		this.waffenArt = waffenArt.getWaffenArt();

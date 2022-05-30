@@ -95,7 +95,7 @@ public class DataExchange {
 				w.setSeltenheit(Seltenheit.valueOf(spalten[2]));
 				w.setWert(Integer.parseInt(spalten[3]));
 				w.setStaerke(Integer.parseInt(spalten[4]));
-				w.setGewicht(Integer.parseInt(spalten[5]));
+				w.setGewicht(Double.parseDouble(spalten[5]));
 				w.setElement(Element.valueOf(spalten[6]));
 				w.setSchnelligkeit(Integer.parseInt(spalten[7]));
 				w.setWaffenArt(WaffenArt.valueOf(spalten[8]));
@@ -143,7 +143,7 @@ public class DataExchange {
 				r.setSeltenheit(Seltenheit.valueOf(spalten[2]));
 				r.setWert(Integer.parseInt(spalten[3]));
 				r.setStaerke(Integer.parseInt(spalten[4]));
-				r.setGewicht(Integer.parseInt(spalten[5]));
+				r.setGewicht(Double.parseDouble(spalten[5]));
 				r.setElement(Element.valueOf(spalten[6]));
 				r.setRuestungsArt(RuestungsArt.valueOf(spalten[7]));
 

@@ -21,13 +21,13 @@ public abstract class Ausruestung extends Item {
 	}
 	
 	private int staerke;
-	private int gewicht;
+	private double gewicht;
 	private String element;
 	
 	public Ausruestung() {
 	}
 	
-	public Ausruestung(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, int gewicht, Element element) {
+	public Ausruestung(ItemArt itemArt, String name, Seltenheit seltenheit, int wert, int staerke, double gewicht, Element element) {
 		super(itemArt, name, seltenheit, wert);
 		this.staerke = staerke;
 		this.gewicht = gewicht;
@@ -42,11 +42,11 @@ public abstract class Ausruestung extends Item {
 		this.staerke = staerke;
 	}
 
-	public int getGewicht() {
+	public double getGewicht() {
 		return gewicht;
 	}
 
-	public void setGewicht(int gewicht) {
+	public void setGewicht(double gewicht) {
 		this.gewicht = gewicht;
 	}
 
