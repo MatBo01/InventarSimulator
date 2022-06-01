@@ -141,7 +141,7 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler == 1) {
-			// sortierung aufsteigend
+			
 
 			wertZaehler++;
 		} else if (wertZaehler == 2) {
@@ -149,7 +149,7 @@ public class WaffenViewController implements Initializable {
 
 			wertZaehler--;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
@@ -205,7 +205,7 @@ public class WaffenViewController implements Initializable {
 
 			schnelligkeitZaehler--;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 	
 	@FXML

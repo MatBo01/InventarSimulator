@@ -18,7 +18,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <fx:include source="AllesView.fxml" />
+                        <fx:include fx:id="allesView" source="AllesView.fxml" />
                      </children>
                   </AnchorPane>
                </content>
@@ -28,7 +28,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <fx:include source="WaffenView.fxml" />
+                        <fx:include fx:id="waffenView" source="WaffenView.fxml" />
                      </children>
                   </AnchorPane>
                </content>
@@ -38,7 +38,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <fx:include source="RuestungView.fxml" />
+                        <fx:include fx:id="ruestungView" source="RuestungView.fxml" />
                      </children>
                   </AnchorPane>
                </content>
@@ -48,7 +48,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" />
-                        <fx:include source="VerbrauchsgegenstandView.fxml" />
+                        <fx:include fx:id="verbrauchsgegenstandView" source="VerbrauchsgegenstandView.fxml" />
                      </children>
                   </AnchorPane>
                </content>

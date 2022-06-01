@@ -23,6 +23,32 @@ public class InventarAnsichtController {
 
 	@FXML
 	private Button btHauptmenue;
+	
+	@FXML
+	AllesViewController allesViewController;
+	
+	@FXML
+	WaffenViewController waffenViewController;
+	
+	@FXML
+	RuestungViewController ruestungViewController;
+	
+	@FXML
+	VerbrauchsgegenstandViewController verbrauchsgegenstandViewController;
+	
+	public void initialize() {
+		allesViewController.tvItemsUpdate();
+		waffenViewController.tvWaffenUpdate();
+		ruestungViewController.tvRuestungsUpdate();
+		verbrauchsgegenstandViewController.tvVerbrauchsgegenstaendeUpdate();
+	}
+	
+	public void UpdateTable(){
+		allesViewController.tvItemsUpdate();
+		waffenViewController.tvWaffenUpdate();
+		ruestungViewController.tvRuestungsUpdate();
+		verbrauchsgegenstandViewController.tvVerbrauchsgegenstaendeUpdate();
+	}
 
 	@FXML
 	private void handleButtonItemAnsichtAction(ActionEvent event) {
