@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AllesViewController">
+<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AllesViewController">
    <children>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
@@ -45,7 +45,7 @@
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <TextField fx:id="tfSuche" prefHeight="30.0" prefWidth="200.0" promptText="Waffe suchen...">
+            <TextField fx:id="tfSuche" prefHeight="30.0" prefWidth="200.0" promptText="Item suchen...">
                <HBox.margin>
                   <Insets bottom="10.0" left="660.0" top="10.0" />
                </HBox.margin>
@@ -65,10 +65,10 @@
       </HBox>
       <TableView fx:id="tvItems" prefHeight="801.0" prefWidth="1398.0">
         <columns>
-          <TableColumn fx:id="tcName" prefWidth="174.0" text="Name" />
-          <TableColumn fx:id="tcItemArt" prefWidth="174.0" text="Art" />
-            <TableColumn fx:id="tcSeltenheit" prefWidth="174.0" text="Seltenheit" />
-            <TableColumn fx:id="tcWert" prefWidth="174.0" text="Wert" />
+          <TableColumn fx:id="tcName" editable="false" prefWidth="174.0" sortable="false" text="Name" />
+          <TableColumn fx:id="tcItemArt" editable="false" prefWidth="174.0" sortable="false" text="Art" />
+            <TableColumn fx:id="tcSeltenheit" editable="false" prefWidth="174.0" sortable="false" text="Seltenheit" />
+            <TableColumn fx:id="tcWert" editable="false" prefWidth="174.0" sortable="false" text="Wert" />
         </columns>
       </TableView>
    </children>

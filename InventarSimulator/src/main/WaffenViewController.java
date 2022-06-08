@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Waffe;
+import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btName;
-	private int nameZaehler = 1;
+	private boolean nameZaehler = true;
 
 	@FXML
 	private Button btArt;
@@ -27,7 +28,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btSeltenheit;
-	private int seltenheitZaehler = 1;
+	private byte seltenheitZaehler = 1;
 
 	@FXML
 	private Button btWert;
@@ -82,7 +83,19 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private TableColumn<Waffe, Integer> tcSchnelligkeit;
 
-	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
+	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList(); 
+	
+	public ObservableList<Waffe> getWaffenListe() {
+		return WaffenListe;
+	}
+
+	public void setWaffenListe(ObservableList<Waffe> waffenListe) {
+		WaffenListe = waffenListe;
+	}
+	
+	public void selection(int liste, int richtung) {
+		
+	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -98,16 +111,16 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
-		if (nameZaehler == 1) {
+		if (nameZaehler) {
 			// sortierung aufsteigend
-			
-			nameZaehler++;
-		} else if (nameZaehler == 2) {
+			SelectionSort.selectionSortW(WaffenListe, nameZaehler);
+			nameZaehler = false;
+		} else if (!nameZaehler) {
 			// sortierung absteigend
-			
-			nameZaehler--;
+			SelectionSort.selectionSortW(WaffenListe, nameZaehler);
+			nameZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML

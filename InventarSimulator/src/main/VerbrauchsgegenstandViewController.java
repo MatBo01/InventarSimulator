@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Verbrauchsgegenstand;
+import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	
 	@FXML
 	private Button btName;
-	private int nameZaehler = 1;
+	private boolean nameZaehler;
 
 	@FXML
 	private Button btArt;
@@ -74,16 +75,16 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
-		if (nameZaehler == 1) {
+		if (nameZaehler) {
 			// sortierung aufsteigend
-
-			nameZaehler++;
-		} else if (nameZaehler == 2) {
+			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			nameZaehler = false;
+		} else if (!nameZaehler) {
 			// sortierung absteigend
-
-			nameZaehler--;
+			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			nameZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML

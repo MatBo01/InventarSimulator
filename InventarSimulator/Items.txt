@@ -7,3 +7,4 @@ R,Alte Unterhose,L,999,99,9,D,STO
 V,Pusteblume,L,969,AN,E
 R,Stahlbrustplatte,S,104,23,8,K,STA
 W,Gigasword,E,345,43,6.4,D,2,GR
+W,Ranziger Dolch,N,420,69,1337.0,K,1,BO

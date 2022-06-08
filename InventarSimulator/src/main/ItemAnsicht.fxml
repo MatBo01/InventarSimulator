@@ -46,7 +46,7 @@
          </cursor></Button>
       <BorderPane layoutX="112.5" layoutY="112.5" prefHeight="226.0" prefWidth="226.0" style="-fx-border-color: black;">
          <top>
-            <ImageView fitHeight="225.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" style="visibility: 0;" BorderPane.alignment="CENTER" />
+            <ImageView fitHeight="225.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
    </children>

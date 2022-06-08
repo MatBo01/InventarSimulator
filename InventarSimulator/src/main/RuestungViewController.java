@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Ruestung;
+import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btName;
-	private int nameZaehler = 1;
+	private boolean nameZaehler = true;
 
 	@FXML
 	private Button btArt;
@@ -90,16 +91,16 @@ public class RuestungViewController implements Initializable {
 	
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
-		if (nameZaehler == 1) {
+		if (nameZaehler) {
 			// sortierung aufsteigend
-
-			nameZaehler++;
-		} else if (nameZaehler == 2) {
+			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			nameZaehler = false;
+		} else if (!nameZaehler) {
 			// sortierung absteigend
-
-			nameZaehler--;
+			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			nameZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
