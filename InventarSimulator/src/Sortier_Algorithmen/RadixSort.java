@@ -36,16 +36,19 @@ public class RadixSort {
 			zähler[(WaffenListe.get(i).getWert() / position) % 10]--;
 		}
 
-		if (richtung)
+		if (richtung) {
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
-		else if (!richtung) {
-			for (int i = size; i >= 0 ; i--) {
-				WaffenListe.set(i, ablage[i]);
+		} else if (!richtung) {
+			int n = 0;
+			for (int i = size - 1; i >= 0; i--) {
+				WaffenListe.set(n, ablage[i]);
+				if (n < size) {
+					n++;
+				}
 			}
 		}
-
 	}
 
 	public static ObservableList<Waffe> radixSort(ObservableList<Waffe> WaffenListe, boolean richtung) {

@@ -146,7 +146,7 @@ public class WaffenViewController implements Initializable {
 
 			wertZaehler = false;
 		} else if (!wertZaehler) {
-			FXCollections.reverse(WaffenListe);
+			RadixSort.radixSort(WaffenListe, wertZaehler);
 
 			wertZaehler = true;
 		}
