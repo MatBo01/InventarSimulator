@@ -37,14 +37,16 @@ public class RadixSort {
 		}
 
 		if (richtung) {
-			System.out.println("1");
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
-			System.out.println("2");
+			int n = 0;
 			for (int i = size - 1; i >= 0; i--) {
-				WaffenListe.set(i, ablage[i]);
+				WaffenListe.set(n, ablage[i]);
+			}
+			if (n < size) {
+				n++;
 			}
 		}
 	}

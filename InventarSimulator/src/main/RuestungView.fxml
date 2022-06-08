@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RuestungViewController">
+<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RuestungViewController">
    <children>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>

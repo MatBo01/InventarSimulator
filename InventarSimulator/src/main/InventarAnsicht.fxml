@@ -6,8 +6,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <HBox prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InventarAnsichtController">
    <children>
@@ -58,12 +58,36 @@
             <Insets />
          </HBox.margin>
       </TabPane>
-      <Pane prefHeight="200.0" prefWidth="200.0">
+      <VBox prefHeight="900.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btItemsHinzufuegen" layoutX="30.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonItemsHinzufuegenAction" prefHeight="50.0" prefWidth="140.0" text="Items Hinzufügen" />
-            <Button fx:id="btHauptmenue" layoutX="30.0" layoutY="750.0" mnemonicParsing="false" onAction="#handleButtonHauptmenueAction" prefHeight="50.0" prefWidth="140.0" text="Hauptmenü" />
-            <Button fx:id="btItemAnsicht" layoutX="62.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleButtonItemAnsichtAction" prefHeight="30.0" prefWidth="30.0" text="🔍" />
+            <Button fx:id="btItemAnsicht" mnemonicParsing="false" onAction="#handleButtonItemAnsichtAction" prefHeight="30.0" prefWidth="30.0" text="🔍">
+               <VBox.margin>
+                  <Insets left="85.0" />
+               </VBox.margin></Button>
+            <Button fx:id="btItemErstellen" mnemonicParsing="false" onAction="#handleButtonItemErstellenAction" prefHeight="50.0" prefWidth="140.0" text="Item erstellen">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="660.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btItemLoeschen" mnemonicParsing="false" onAction="#handleButtonItemLoeschenAction" prefHeight="50.0" prefWidth="140.0" text="Item löschen">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btHauptmenue" mnemonicParsing="false" onAction="#handleButtonHauptmenueAction" prefHeight="50.0" prefWidth="140.0" text="Hauptmenü">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font></Button>
          </children>
-      </Pane>
+      </VBox>
    </children>
 </HBox>

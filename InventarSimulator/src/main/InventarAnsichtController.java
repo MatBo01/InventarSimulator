@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class InventarAnsichtController {
@@ -19,7 +19,10 @@ public class InventarAnsichtController {
 	private Button btItemAnsicht;
 
 	@FXML
-	private Button btItemsHinzufuegen;
+	private Button btItemErstellen;
+	
+	@FXML
+	private Button btItemLoeschen;
 
 	@FXML
 	private Button btHauptmenue;
@@ -68,17 +71,34 @@ public class InventarAnsichtController {
 	}
 
 	@FXML
-	private void handleButtonItemsHinzufuegenAction(ActionEvent event) {
-		System.out.println("Hauptmenü wird geöffnet\n");
-
+	private void handleButtonItemErstellenAction(ActionEvent event) {
+		System.out.println("Item erstellen wird geöffnet\n");
+		
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			Pane root = (Pane) FXMLLoader.load(getClass().getResource("ItemsHinzufuegen.fxml"));
+			GridPane root = (GridPane)FXMLLoader.load(getClass().getResource("ItemErstellen.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
-
+			
+		} catch (IOException iOException) {
+			System.out.println(iOException.getMessage());
+		}
+	}
+	
+	@FXML
+	private void handleButtonItemLoeschenAction(ActionEvent event) {
+		System.out.println("Item löschen wird geöffnet\n");
+		
+		try {
+			Node source = (Node) event.getSource();
+			Stage stage = (Stage) source.getScene().getWindow();
+			VBox root = (VBox)FXMLLoader.load(getClass().getResource("LoeschenWindow.fxml"));
+			Scene scene = new Scene(root, 1600, 900);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setScene(scene);
+			
 		} catch (IOException iOException) {
 			System.out.println(iOException.getMessage());
 		}

@@ -14,25 +14,12 @@
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="180.0" />
       <RowConstraints minHeight="10.0" prefHeight="180.0" />
-      <RowConstraints minHeight="10.0" prefHeight="180.0" />
    </rowConstraints>
    <columnConstraints>
       <ColumnConstraints minWidth="10.0" prefWidth="500.0" />
    </columnConstraints>
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-         <children>
-            <Button fx:id="btItemBearbeiten" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonItemBearbeitenAction" prefHeight="80.0" prefWidth="400.0" text="Item Bearbeiten">
-               <font>
-                  <Font name="Serif Bold" size="25.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
          <children>
             <Button fx:id="btBeenden" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonBeendenAction" prefHeight="80.0" prefWidth="400.0" text="Beenden">
                <font>
@@ -58,6 +45,6 @@
       </Pane>
    </children>
    <padding>
-      <Insets bottom="180.0" left="550.0" right="550.0" top="180.0" />
+      <Insets bottom="270.0" left="550.0" right="550.0" top="270.0" />
    </padding>
 </GridPane>

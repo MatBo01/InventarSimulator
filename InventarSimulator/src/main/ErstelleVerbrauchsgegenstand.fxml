@@ -177,7 +177,7 @@
             <Insets left="20.0" right="100.0" />
          </GridPane.margin>
       </TextField>
-      <RadioButton fx:id="rbAudauer" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Audauer" GridPane.columnIndex="2" GridPane.rowIndex="5">
+      <RadioButton fx:id="rbAusdauer" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Audauer" GridPane.columnIndex="2" GridPane.rowIndex="5">
          <font>
             <Font name="Serif Regular" size="20.0" />
          </font>

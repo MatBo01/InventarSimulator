@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -322,14 +322,16 @@ public class ErstelleWaffeController {
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleWaffe()) {
+			System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+
 			try {
 				Node source = (Node) event.getSource();
 				Stage stage = (Stage) source.getScene().getWindow();
-				GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
+				HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
 				Scene scene = new Scene(root, 1600, 900);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				stage.setScene(scene);
-
+				
 			} catch (IOException iOException) {
 				System.out.println(iOException.getMessage());
 			}
@@ -350,16 +352,16 @@ public class ErstelleWaffeController {
 
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
-		System.out.println("Item bearbeiten wird geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
+			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
-
+			
 		} catch (IOException iOException) {
 			System.out.println(iOException.getMessage());
 		}
