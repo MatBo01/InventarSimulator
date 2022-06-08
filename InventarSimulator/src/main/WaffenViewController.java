@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Waffe;
+import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +33,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler = true;
 
 	@FXML
 	private Button btAngriff;
@@ -153,14 +154,14 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
-			
+		if (wertZaehler) {
+			RadixSort.radixSort(WaffenListe, wertZaehler);
 
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			wertZaehler= false;
+		} else if (!wertZaehler) {
 			// sortierung absteigend
-
-			wertZaehler--;
+			RadixSort.radixSort(WaffenListe, wertZaehler);
+			wertZaehler= true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
