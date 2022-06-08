@@ -2,7 +2,6 @@ package Sortier_Algorithmen;
 
 import POJO.Item;
 import POJO.Waffe;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class RadixSort {
@@ -21,7 +20,7 @@ public class RadixSort {
 		return max;
 	}
 
-	private static void vorSortierung(ObservableList<Waffe> WaffenListe, int size, int position) {
+	private static void vorSortierung(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
 
 		Waffe[] ablage = new Waffe[size];
 		int[] zähler = new int[10];
@@ -37,23 +36,28 @@ public class RadixSort {
 			zähler[(WaffenListe.get(i).getWert() / position) % 10]--;
 		}
 
-		for (int i = 0; i < size; i++) {
-			WaffenListe.set(i, ablage[i]);
+		if (richtung)
+			for (int i = 0; i < size; i++) {
+				WaffenListe.set(i, ablage[i]);
+			}
+		else if (!richtung) {
+			for (int i = size; i >= 0 ; i--) {
+				WaffenListe.set(i, ablage[i]);
+			}
 		}
 
 	}
 
-	public static ObservableList<Waffe> radixSort(ObservableList<Waffe> WaffenListe) {
+	public static ObservableList<Waffe> radixSort(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		int size = WaffenListe.size();
 
 		int max = getMax(WaffenListe, size);
 
 		for (int position = 1; max / position > 0; position *= 10) {
-			vorSortierung(WaffenListe, size, position);
+			vorSortierung(WaffenListe, size, position, richtung);
 		}
 
 		return WaffenListe;
 	}
-
 }

@@ -32,7 +32,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler;
 
 	@FXML
 	private Button btAngriff;
@@ -141,14 +141,14 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
-			RadixSort.radixSort(WaffenListe);
+		if (wertZaehler) {
+			RadixSort.radixSort(WaffenListe, wertZaehler);
 
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			wertZaehler = false;
+		} else if (!wertZaehler) {
 			FXCollections.reverse(WaffenListe);
 
-			wertZaehler--;
+			wertZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
@@ -156,11 +156,9 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonDbAngriffSortierAction(ActionEvent event) {
 		if (angriffZaehler == 1) {
-			RadixSort.radixSort(WaffenListe);
 
 			angriffZaehler++;
 		} else if (angriffZaehler == 2) {
-			FXCollections.reverse(WaffenListe);
 
 			angriffZaehler--;
 		}

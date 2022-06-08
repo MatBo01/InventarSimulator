@@ -6,3 +6,6 @@ W,Feurige Kampfaxt,S,23,14,3,F,8,AX
 R,Alte Unterhose,L,999,99,9,D,STO
 V,Pusteblume,L,969,AN,E
 R,Stahlbrustplatte,S,104,23,8,K,STA
+W,DIngs,N,34,43,23.0,K,43,AX
+W,Dingens,N,1000,321,321.0,K,12,AX
+W,Kirchen,N,10000,32,23.0,K,43,AX
