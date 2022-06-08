@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Waffe;
+import Sortier_Algorithmen.RadixSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -51,7 +52,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
 
@@ -100,11 +101,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler == 1) {
 			// sortierung aufsteigend
-			
+
 			nameZaehler++;
 		} else if (nameZaehler == 2) {
 			// sortierung absteigend
-			
+
 			nameZaehler--;
 		}
 		tvWaffenUpdate();
@@ -141,29 +142,29 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler == 1) {
-			// sortierung aufsteigend
+			RadixSort.radixSort(WaffenListe);
 
 			wertZaehler++;
 		} else if (wertZaehler == 2) {
-			// sortierung absteigend
+			FXCollections.reverse(WaffenListe);
 
 			wertZaehler--;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbAngriffSortierAction(ActionEvent event) {
 		if (angriffZaehler == 1) {
-			// sortierung aufsteigend
+			RadixSort.radixSort(WaffenListe);
 
 			angriffZaehler++;
 		} else if (angriffZaehler == 2) {
-			// sortierung absteigend
+			FXCollections.reverse(WaffenListe);
 
 			angriffZaehler--;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
@@ -207,7 +208,7 @@ public class WaffenViewController implements Initializable {
 		}
 		tvWaffenUpdate();
 	}
-	
+
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche

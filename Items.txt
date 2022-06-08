@@ -1,0 +1,10 @@
+R,Alte Lederrüstung,N,23,6,5,K,LED
+W,dwdw,U,9999,2,82.0,L,82,BO
+W,vdees,N,10,25,282.0,K,27,AX
+W,grgr,N,25,25,25.0,K,25,AX
+W,hrth,N,150,25,28.0,K,28,AX
+W,fe3fe,N,9,1,11.0,K,1,AX
+W,fe3fe,N,858,585,5.0,K,5,AX
+W,feff,N,50,27,2727.0,K,27,AX
+W,hth,N,111,25,25.0,K,52,AX
+W,deve,N,1000,40,414.0,K,1,AX
