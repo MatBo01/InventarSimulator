@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Verbrauchsgegenstand;
+import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,19 +25,19 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private int seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler = true;
 
 	@FXML
 	private Button btBuffs;
-	private int buffsZaehler = 1;
+	private boolean buffsZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
@@ -89,58 +90,58 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			
+			artZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
-
-			artZaehler--;
+			
+			artZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			
+			seltenheitZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
+		if (wertZaehler) {
 			// sortierung aufsteigend
-
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			RadixSort.radixSortVW(VerbrauchsgegenstandsListe, wertZaehler);
+			wertZaehler = false;
+		} else if (!wertZaehler) {
 			// sortierung absteigend
-
-			wertZaehler--;
+			RadixSort.radixSortVW(VerbrauchsgegenstandsListe, wertZaehler);
+			wertZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML
 	private void handleButtonDbBuffsSortierAction(ActionEvent event) {
-		if (buffsZaehler == 1) {
+		if (buffsZaehler) {
 			// sortierung aufsteigend
-
-			buffsZaehler++;
-		} else if (buffsZaehler == 2) {
+			
+			buffsZaehler = false;
+		} else if (!buffsZaehler) {
 			// sortierung absteigend
-
-			buffsZaehler--;
+			
+			buffsZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 	
 	@FXML

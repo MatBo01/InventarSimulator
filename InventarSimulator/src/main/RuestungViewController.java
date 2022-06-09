@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Ruestung;
+import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,27 +25,27 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private int seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler = true;
 
 	@FXML
 	private Button btVerteidigung;
-	private int verteidigungZaehler = 1;
+	private boolean verteidigungZaehler = true;
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btResistenz;
-	private int resistenzZaehler = 1;
+	private boolean resistenzZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
@@ -105,86 +106,86 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			SelectionSort.selectionSortR(RuestungsListe, artZaehler);
+			nameZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
-
-			artZaehler--;
+			SelectionSort.selectionSortR(RuestungsListe, artZaehler);
+			nameZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			SelectionSort.selectionSortR(RuestungsListe, seltenheitZaehler);
+			nameZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			SelectionSort.selectionSortR(RuestungsListe, seltenheitZaehler);
+			seltenheitZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
+		if (wertZaehler) {
 			// sortierung aufsteigend
-
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			RadixSort.radixSortRW(RuestungsListe, wertZaehler);
+			wertZaehler = false;
+		} else if (!wertZaehler) {
 			// sortierung absteigend
-
-			wertZaehler--;
+			RadixSort.radixSortRW(RuestungsListe, wertZaehler);
+			wertZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbVerteidigungSortierAction(ActionEvent event) {
-		if (verteidigungZaehler == 1) {
+		if (verteidigungZaehler) {
 			// sortierung aufsteigend
-
-			verteidigungZaehler++;
-		} else if (verteidigungZaehler == 2) {
+			RadixSort.radixSortRV(RuestungsListe, verteidigungZaehler);
+			verteidigungZaehler = false;
+		} else if (!verteidigungZaehler) {
 			// sortierung absteigend
-
-			verteidigungZaehler--;
+			RadixSort.radixSortRV(RuestungsListe, verteidigungZaehler);
+			verteidigungZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
+		if (gewichtZaehler) {
 			// sortierung aufsteigend
-
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			
+			gewichtZaehler = false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
-			gewichtZaehler--;
+			
+			gewichtZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbResistenzSortierAction(ActionEvent event) {
-		if (resistenzZaehler == 1) {
+		if (resistenzZaehler) {
 			// sortierung aufsteigend
-
-			resistenzZaehler++;
-		} else if (resistenzZaehler == 2) {
+			
+			resistenzZaehler = false;
+		} else if (!resistenzZaehler) {
 			// sortierung absteigend
-
-			resistenzZaehler--;
+			
+			resistenzZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 	
 	@FXML

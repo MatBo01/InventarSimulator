@@ -25,11 +25,11 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private byte seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
@@ -37,19 +37,19 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btAngriff;
-	private int angriffZaehler = 1;
+	private boolean angriffZaehler = true;
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btElement;
-	private int elementZaehler = 1;
+	private boolean elementZaehler = true;
 
 	@FXML
 	private Button btSchnelligkeit;
-	private int schnelligkeitZaehler = 1;
+	private boolean schnelligkeitZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
@@ -126,98 +126,98 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
 
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			artZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
 
-			artZaehler--;
+			artZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
 
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
 
-			seltenheitZaehler--;
+			seltenheitZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
-			RadixSort.radixSort(WaffenListe, wertZaehler);
-
-			wertZaehler= false;
+			// sortierung aufsteigend
+			RadixSort.radixSortWW(WaffenListe, wertZaehler);
+			wertZaehler = false;
 		} else if (!wertZaehler) {
 			// sortierung absteigend
-			RadixSort.radixSort(WaffenListe, wertZaehler);
-			wertZaehler= true;
+			RadixSort.radixSortWW(WaffenListe, wertZaehler);
+			wertZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbAngriffSortierAction(ActionEvent event) {
-		if (angriffZaehler == 1) {
+		if (angriffZaehler) {
 			// sortierung aufsteigend
-
-			angriffZaehler++;
-		} else if (angriffZaehler == 2) {
+			RadixSort.radixSortWA(WaffenListe, angriffZaehler);
+			angriffZaehler = false;
+		} else if (!angriffZaehler) {
 			// sortierung absteigend
-
-			angriffZaehler--;
+			RadixSort.radixSortWA(WaffenListe, angriffZaehler);
+			angriffZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
+		if (gewichtZaehler) {
 			// sortierung aufsteigend
-
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			
+			gewichtZaehler = false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
 
-			gewichtZaehler--;
+			gewichtZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbElementSortierAction(ActionEvent event) {
-		if (elementZaehler == 1) {
+		if (elementZaehler) {
 			// sortierung aufsteigend
 
-			elementZaehler++;
-		} else if (elementZaehler == 2) {
+			elementZaehler = false;
+		} else if (!elementZaehler) {
 			// sortierung absteigend
 
-			elementZaehler--;
+			elementZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbSchnelligkeitSortierAction(ActionEvent event) {
-		if (schnelligkeitZaehler == 1) {
+		if (schnelligkeitZaehler) {
 			// sortierung aufsteigend
-
-			schnelligkeitZaehler++;
-		} else if (schnelligkeitZaehler == 2) {
+			RadixSort.radixSortWS(WaffenListe, schnelligkeitZaehler);
+			schnelligkeitZaehler = false;
+		} else if (!schnelligkeitZaehler) {
 			// sortierung absteigend
-
-			schnelligkeitZaehler--;
+			RadixSort.radixSortWS(WaffenListe, schnelligkeitZaehler);
+			schnelligkeitZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}

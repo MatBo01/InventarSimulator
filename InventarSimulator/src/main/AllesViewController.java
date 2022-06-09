@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Item;
+import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,19 +21,19 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private Button btName;
-	private boolean nameZaehler;
+	private boolean nameZaehler = true;
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private byte seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
@@ -74,7 +75,6 @@ public class AllesViewController implements Initializable {
 		if (nameZaehler) {
 			// sortierung aufsteigend
 			SelectionSort.selectionSort(ItemListe, nameZaehler);
-
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
@@ -86,42 +86,42 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			SelectionSort.selectionSort(ItemListe, artZaehler);
+			artZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
-
-			artZaehler--;
+			SelectionSort.selectionSort(ItemListe, artZaehler);
+			artZaehler = true;
 		}
 		tvItems.setItems(ItemListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
 			SelectionSort.selectionSort(ItemListe, seltenheitZaehler);
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			SelectionSort.selectionSort(ItemListe, seltenheitZaehler);
+			seltenheitZaehler = true;
 		}
 		tvItems.setItems(ItemListe);
 	}
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
+		if (wertZaehler) {
 			// sortierung aufsteigend
-
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			RadixSort.radixSortIW(ItemListe, wertZaehler);
+			wertZaehler = false;
+		} else if (!wertZaehler) {
 			// sortierung absteigend
-
-			wertZaehler--;
+			RadixSort.radixSortIW(ItemListe, wertZaehler);
+			wertZaehler = true;
 		}
 		tvItems.setItems(ItemListe);
 	}
