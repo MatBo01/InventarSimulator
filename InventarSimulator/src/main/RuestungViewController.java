@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import POJO.Ruestung;
+import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,15 +33,15 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btWert;
-	private int wertZaehler = 1;
+	private boolean wertZaehler = true;
 
 	@FXML
 	private Button btVerteidigung;
-	private int verteidigungZaehler = 1;
+	private boolean verteidigungZaehler = true;
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btResistenz;
@@ -133,44 +134,44 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
-		if (wertZaehler == 1) {
-			// sortierung aufsteigend
+		if (wertZaehler) {
+			RadixSort.radixSortRW(RuestungsListe, wertZaehler);
 
-			wertZaehler++;
-		} else if (wertZaehler == 2) {
+			wertZaehler= false;
+		} else if (!wertZaehler) {
 			// sortierung absteigend
-
-			wertZaehler--;
+			RadixSort.radixSortRW(RuestungsListe, wertZaehler);
+			wertZaehler= true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbVerteidigungSortierAction(ActionEvent event) {
-		if (verteidigungZaehler == 1) {
-			// sortierung aufsteigend
+		if (verteidigungZaehler) {
+			RadixSort.radixSortRV(RuestungsListe, verteidigungZaehler);
 
-			verteidigungZaehler++;
-		} else if (verteidigungZaehler == 2) {
+			verteidigungZaehler= false;
+		} else if (!verteidigungZaehler) {
 			// sortierung absteigend
-
-			verteidigungZaehler--;
+			RadixSort.radixSortRV(RuestungsListe, verteidigungZaehler);
+			verteidigungZaehler= true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
-			// sortierung aufsteigend
+		if (gewichtZaehler) {
+			RadixSort.radixSortRG(RuestungsListe, gewichtZaehler);
 
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			gewichtZaehler= false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
-			gewichtZaehler--;
+			RadixSort.radixSortRG(RuestungsListe, gewichtZaehler);
+			gewichtZaehler= true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML

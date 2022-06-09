@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InventarAnsichtController">
+   <children>
+      <TabPane prefHeight="900.0" prefWidth="1400.0" style="-fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="150.0">
+         <tabs>
+            <Tab text="Alles">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <fx:include fx:id="allesView" source="AllesView.fxml" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Waffen">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <fx:include fx:id="waffenView" source="WaffenView.fxml" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Rüstungen">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <fx:include fx:id="ruestungView" source="RuestungView.fxml" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Verbrauchsgegenstände">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <fx:include fx:id="verbrauchsgegenstandView" source="VerbrauchsgegenstandView.fxml" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </TabPane>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btItemsHinzufuegen" layoutX="30.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleButtonItemsHinzufuegenAction" prefHeight="50.0" prefWidth="140.0" text="Items Hinzufügen" />
+            <Button fx:id="btHauptmenue" layoutX="30.0" layoutY="750.0" mnemonicParsing="false" onAction="#handleButtonHauptmenueAction" prefHeight="50.0" prefWidth="140.0" text="Hauptmenü" />
+            <Button fx:id="btItemAnsicht" layoutX="62.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleButtonItemAnsichtAction" prefHeight="30.0" prefWidth="30.0" text="🔍" />
+         </children>
+      </Pane>
+   </children>
+</HBox>

@@ -37,11 +37,11 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btAngriff;
-	private int angriffZaehler = 1;
+	private boolean angriffZaehler = true;
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btElement;
@@ -49,11 +49,11 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btSchnelligkeit;
-	private int schnelligkeitZaehler = 1;
+	private boolean schnelligkeitZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
 
@@ -84,8 +84,8 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private TableColumn<Waffe, Integer> tcSchnelligkeit;
 
-	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList(); 
-	
+	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
+
 	public ObservableList<Waffe> getWaffenListe() {
 		return WaffenListe;
 	}
@@ -93,9 +93,9 @@ public class WaffenViewController implements Initializable {
 	public void setWaffenListe(ObservableList<Waffe> waffenListe) {
 		WaffenListe = waffenListe;
 	}
-	
+
 	public void selection(int liste, int richtung) {
-		
+
 	}
 
 	@Override
@@ -155,43 +155,43 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
-			RadixSort.radixSort(WaffenListe, wertZaehler);
+			RadixSort.radixSortWW(WaffenListe, wertZaehler);
 
-			wertZaehler= false;
+			wertZaehler = false;
 		} else if (!wertZaehler) {
 			// sortierung absteigend
-			RadixSort.radixSort(WaffenListe, wertZaehler);
-			wertZaehler= true;
+			RadixSort.radixSortWW(WaffenListe, wertZaehler);
+			wertZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbAngriffSortierAction(ActionEvent event) {
-		if (angriffZaehler == 1) {
-			// sortierung aufsteigend
+		if (angriffZaehler) {
+			RadixSort.radixSortWA(WaffenListe, angriffZaehler);
 
-			angriffZaehler++;
-		} else if (angriffZaehler == 2) {
+			angriffZaehler = false;
+		} else if (!angriffZaehler) {
 			// sortierung absteigend
-
-			angriffZaehler--;
+			RadixSort.radixSortWA(WaffenListe, angriffZaehler);
+			angriffZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
-			// sortierung aufsteigend
+		if (gewichtZaehler) {
+			RadixSort.radixSortWG(WaffenListe, gewichtZaehler);
 
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			gewichtZaehler = false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
-			gewichtZaehler--;
+			RadixSort.radixSortWG(WaffenListe, gewichtZaehler);
+			gewichtZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
@@ -210,18 +210,18 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbSchnelligkeitSortierAction(ActionEvent event) {
-		if (schnelligkeitZaehler == 1) {
-			// sortierung aufsteigend
+		if (schnelligkeitZaehler) {
+			RadixSort.radixSortWS(WaffenListe, schnelligkeitZaehler);
 
-			schnelligkeitZaehler++;
-		} else if (schnelligkeitZaehler == 2) {
+			schnelligkeitZaehler = false;
+		} else if (!schnelligkeitZaehler) {
 			// sortierung absteigend
-
-			schnelligkeitZaehler--;
+			RadixSort.radixSortWS(WaffenListe, schnelligkeitZaehler);
+			schnelligkeitZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
-	
+
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche

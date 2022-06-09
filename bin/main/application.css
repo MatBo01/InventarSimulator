@@ -1,0 +1,31 @@
+
+
+#btInventaransicht{
+	-fx-background-color: linear-gradient(white, lime);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btItemBearbeiten{
+	-fx-background-color: linear-gradient(white, yellow);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btBeenden{
+	-fx-background-color: linear-gradient(white, red);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btItemErstellen{
+	-fx-background-color: linear-gradient(white, green);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btItemLoeschen{
+	-fx-background-color: linear-gradient(white, red);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+#btHauptmenue{
+	-fx-background-color: linear-gradient(white, orange);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
