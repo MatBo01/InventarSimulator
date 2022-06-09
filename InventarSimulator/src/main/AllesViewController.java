@@ -24,11 +24,11 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private byte seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
@@ -82,28 +82,28 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			SelectionSort.selectionSortArt(ItemListe, artZaehler);
+			artZaehler=false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
-
-			artZaehler--;
+			SelectionSort.selectionSortArt(ItemListe, artZaehler);
+			artZaehler=true;
 		}
 		tvItems.setItems(ItemListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSort(ItemListe, seltenheitZaehler);
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			SelectionSort.selectionSortSeltenheit(ItemListe, seltenheitZaehler);
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			SelectionSort.selectionSortSeltenheit(ItemListe, seltenheitZaehler);
+			seltenheitZaehler = true;
 		}
 		tvItems.setItems(ItemListe);
 	}

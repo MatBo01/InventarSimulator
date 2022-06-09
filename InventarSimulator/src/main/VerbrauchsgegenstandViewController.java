@@ -16,19 +16,19 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class VerbrauchsgegenstandViewController implements Initializable{
-	
+public class VerbrauchsgegenstandViewController implements Initializable {
+
 	@FXML
 	private Button btName;
 	private boolean nameZaehler;
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private int seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
@@ -36,34 +36,34 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private Button btBuffs;
-	private int buffsZaehler = 1;
+	private boolean buffsZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private TableView<Verbrauchsgegenstand> tvVerbrauchsgegenstaende;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcName;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcVerbrauchsgegenstandsArt;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcSeltenheit;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, Integer> tcWert;
 
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, Integer> tcBuffs;
-	
+
 	private ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe = FXCollections.observableArrayList();
-	
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -72,16 +72,16 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tcWert.setCellValueFactory(new PropertyValueFactory<>("Wert"));
 		tcBuffs.setCellValueFactory(new PropertyValueFactory<>("Buffs"));
 	}
-	
+
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			SelectionSort.selectionSortVerbrauchsgegenstand(VerbrauchsgegenstandsListe, nameZaehler);
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			SelectionSort.selectionSortVerbrauchsgegenstand(VerbrauchsgegenstandsListe, nameZaehler);
 			nameZaehler = true;
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
@@ -89,30 +89,32 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			SelectionSort.selectionSortArtVerbrauchsgegenstand(VerbrauchsgegenstandsListe, artZaehler);
+			artZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
+			SelectionSort.selectionSortArtVerbrauchsgegenstand(VerbrauchsgegenstandsListe, artZaehler);
 
-			artZaehler--;
+			artZaehler = true;
+
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			SelectionSort.selectionSortVerbrauchsgegenstandSeltenheit(VerbrauchsgegenstandsListe, seltenheitZaehler);
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			SelectionSort.selectionSortVerbrauchsgegenstandSeltenheit(VerbrauchsgegenstandsListe, seltenheitZaehler);
+			seltenheitZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
 	@FXML
@@ -131,27 +133,30 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private void handleButtonDbBuffsSortierAction(ActionEvent event) {
-		if (buffsZaehler == 1) {
+		if (buffsZaehler) {
 			// sortierung aufsteigend
+			SelectionSort.selectionSortBuffVerbrauchsgegenstand(VerbrauchsgegenstandsListe, buffsZaehler);
+			System.out.println("test21");
 
-			buffsZaehler++;
-		} else if (buffsZaehler == 2) {
+			buffsZaehler = false;
+		} else if (!buffsZaehler) {
 			// sortierung absteigend
-
-			buffsZaehler--;
+			SelectionSort.selectionSortBuffVerbrauchsgegenstand(VerbrauchsgegenstandsListe, buffsZaehler);
+System.out.println("test1");
+			buffsZaehler = true;
 		}
-		tvVerbrauchsgegenstaendeUpdate();
+		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
-	
+
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
-		
+
 	}
-	
+
 	@FXML
 	public void tvVerbrauchsgegenstaendeUpdate() {
-		
+
 		VerbrauchsgegenstandsListe.clear();
 		// Daten aus DB holen
 		VerbrauchsgegenstandsListe = DataExchange.getConsumablesFromDb();

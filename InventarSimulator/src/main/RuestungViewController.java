@@ -24,11 +24,11 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btArt;
-	private int artZaehler = 1;
+	private boolean artZaehler = true;
 
 	@FXML
 	private Button btSeltenheit;
-	private int seltenheitZaehler = 1;
+	private boolean seltenheitZaehler = true;
 
 	@FXML
 	private Button btWert;
@@ -44,40 +44,40 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btResistenz;
-	private int resistenzZaehler = 1;
+	private boolean resistenzZaehler = true;
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private TableView<Ruestung> tvRuestung;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcName;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcRuestungsArt;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcSeltenheit;
-	
+
 	@FXML
 	private TableColumn<Ruestung, Integer> tcWert;
 
 	@FXML
 	private TableColumn<Ruestung, Integer> tcStaerke;
-	
+
 	@FXML
 	private TableColumn<Ruestung, Double> tcGewicht;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcElement;
-	
+
 	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
-	
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -88,16 +88,16 @@ public class RuestungViewController implements Initializable {
 		tcGewicht.setCellValueFactory(new PropertyValueFactory<>("Gewicht"));
 		tcElement.setCellValueFactory(new PropertyValueFactory<>("Element"));
 	}
-	
+
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			SelectionSort.selectionSortRuestung(RuestungsListe, nameZaehler);
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			SelectionSort.selectionSortRuestung(RuestungsListe, nameZaehler);
 			nameZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);
@@ -105,30 +105,31 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
-		if (artZaehler == 1) {
+		if (artZaehler) {
 			// sortierung aufsteigend
-
-			artZaehler++;
-		} else if (artZaehler == 2) {
+			SelectionSort.selectionSortArtRuestung(RuestungsListe, artZaehler);
+			artZaehler = false;
+		} else if (!artZaehler) {
 			// sortierung absteigend
-
-			artZaehler--;
+			SelectionSort.selectionSortArtRuestung(RuestungsListe, artZaehler);
+			artZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
-		if (seltenheitZaehler == 1) {
+		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-
-			seltenheitZaehler++;
-		} else if (seltenheitZaehler == 2) {
+			SelectionSort.selectionSortRuestungSeltenheit(RuestungsListe, seltenheitZaehler);
+			seltenheitZaehler = false;
+		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
-			seltenheitZaehler--;
+			SelectionSort.selectionSortRuestungSeltenheit(RuestungsListe, seltenheitZaehler);
+			seltenheitZaehler = true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
+
 	}
 
 	@FXML
@@ -175,26 +176,27 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbResistenzSortierAction(ActionEvent event) {
-		if (resistenzZaehler == 1) {
+		if (resistenzZaehler) {
 			// sortierung aufsteigend
-
-			resistenzZaehler++;
-		} else if (resistenzZaehler == 2) {
+			SelectionSort.selectionSortRuestungResistenz(RuestungsListe, resistenzZaehler);
+			resistenzZaehler = false;
+		} else if (!resistenzZaehler) {
 			// sortierung absteigend
+			SelectionSort.selectionSortRuestungResistenz(RuestungsListe, resistenzZaehler);
+			resistenzZaehler = true;
 
-			resistenzZaehler--;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
-	
+
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 	}
-	
+
 	@FXML
 	public void tvRuestungsUpdate() {
-		
+
 		RuestungsListe.clear();
 		// Daten aus DB holen
 		RuestungsListe = DataExchange.getArmorFromDb();
