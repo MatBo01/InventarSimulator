@@ -88,11 +88,11 @@ public class AllesViewController implements Initializable {
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSort(ItemListe, artZaehler);
+			SelectionSort.selectionSortArt(ItemListe, artZaehler);
 			artZaehler = false;
 		} else if (!artZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSort(ItemListe, artZaehler);
+			SelectionSort.selectionSortArt(ItemListe, artZaehler);
 			artZaehler = true;
 		}
 		tvItems.setItems(ItemListe);
@@ -102,11 +102,11 @@ public class AllesViewController implements Initializable {
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSort(ItemListe, seltenheitZaehler);
+			SelectionSort.selectionSortSeltenheit(ItemListe, seltenheitZaehler);
 			seltenheitZaehler = false;
 		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSort(ItemListe, seltenheitZaehler);
+			SelectionSort.selectionSortSeltenheit(ItemListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
 		tvItems.setItems(ItemListe);

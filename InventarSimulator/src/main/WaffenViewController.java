@@ -59,6 +59,10 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private TableView<Waffe> tvWaffen;
+	
+	public TableView<Waffe> getTvWaffen() {
+		return tvWaffen;
+	}
 
 	@FXML
 	private TableColumn<Waffe, String> tcName;
@@ -114,11 +118,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortW(WaffenListe, nameZaehler);
+			SelectionSort.selectionSortWaffe(WaffenListe, nameZaehler);
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortW(WaffenListe, nameZaehler);
+			SelectionSort.selectionSortWaffe(WaffenListe, nameZaehler);
 			nameZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
@@ -128,11 +132,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
 			// sortierung aufsteigend
-
+			SelectionSort.selectionSortArtWaffe(WaffenListe, artZaehler);
 			artZaehler = false;
 		} else if (!artZaehler) {
 			// sortierung absteigend
-
+			SelectionSort.selectionSortArtWaffe(WaffenListe, artZaehler);
 			artZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
@@ -142,11 +146,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-
+			SelectionSort.selectionSortWaffeSeltenheit(WaffenListe, seltenheitZaehler);
 			seltenheitZaehler = false;
 		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-
+			SelectionSort.selectionSortWaffeSeltenheit(WaffenListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
@@ -184,11 +188,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
 		if (gewichtZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortWaffeGewicht(WaffenListe, gewichtZaehler);
 			gewichtZaehler = false;
 		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
+			SelectionSort.selectionSortWaffeGewicht(WaffenListe, gewichtZaehler);
 			gewichtZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
@@ -198,11 +202,11 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbElementSortierAction(ActionEvent event) {
 		if (elementZaehler) {
 			// sortierung aufsteigend
-
+			SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
 			elementZaehler = false;
 		} else if (!elementZaehler) {
 			// sortierung absteigend
-
+			SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
 			elementZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);

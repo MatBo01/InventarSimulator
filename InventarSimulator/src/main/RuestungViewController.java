@@ -94,11 +94,11 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			SelectionSort.selectionSortRuestung(RuestungsListe, nameZaehler);
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortR(RuestungsListe, nameZaehler);
+			SelectionSort.selectionSortRuestung(RuestungsListe, nameZaehler);
 			nameZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);
@@ -108,12 +108,12 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortR(RuestungsListe, artZaehler);
-			nameZaehler = false;
+			SelectionSort.selectionSortArtRuestung(RuestungsListe, artZaehler);
+			artZaehler = false;
 		} else if (!artZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortR(RuestungsListe, artZaehler);
-			nameZaehler = true;
+			SelectionSort.selectionSortArtRuestung(RuestungsListe, artZaehler);
+			artZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);
 	}
@@ -122,11 +122,11 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortR(RuestungsListe, seltenheitZaehler);
-			nameZaehler = false;
+			SelectionSort.selectionSortRuestungSeltenheit(RuestungsListe, seltenheitZaehler);
+			seltenheitZaehler = false;
 		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortR(RuestungsListe, seltenheitZaehler);
+			SelectionSort.selectionSortRuestungSeltenheit(RuestungsListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);
@@ -164,11 +164,11 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
 		if (gewichtZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortRuestungGewicht(RuestungsListe, gewichtZaehler);
 			gewichtZaehler = false;
 		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-			
+			SelectionSort.selectionSortRuestungGewicht(RuestungsListe, gewichtZaehler);
 			gewichtZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);
@@ -178,11 +178,11 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbResistenzSortierAction(ActionEvent event) {
 		if (resistenzZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortRuestungResistenz(RuestungsListe, resistenzZaehler);
 			resistenzZaehler = false;
 		} else if (!resistenzZaehler) {
 			// sortierung absteigend
-			
+			SelectionSort.selectionSortRuestungResistenz(RuestungsListe, resistenzZaehler);
 			resistenzZaehler = true;
 		}
 		tvRuestung.setItems(RuestungsListe);

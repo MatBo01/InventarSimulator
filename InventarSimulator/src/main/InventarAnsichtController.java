@@ -2,6 +2,8 @@ package main;
 
 import java.io.IOException;
 
+import POJO.Item;
+import POJO.Waffe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +57,26 @@ public class InventarAnsichtController {
 
 	@FXML
 	private void handleButtonItemAnsichtAction(ActionEvent event) {
+		try {
+			Item itemDetails = allesViewController.getTvItems().getSelectionModel().getSelectedItem();
+			System.out.println(itemDetails.toString());
+		}catch(NullPointerException n){
+			System.out.println("Kein Item gewählt!");
+		}
+		
+		try {
+			Waffe itemDetails = waffenViewController.getTvWaffen().getSelectionModel().getSelectedItem();
+			System.out.println(itemDetails.toString());
+		}catch(NullPointerException n){
+			System.out.println("Kein Item gewählt!");
+		}
+		
+		
+		
+		oeffneItemAnsicht();
+	}
+	
+	private void oeffneItemAnsicht() {
 		System.out.println("Hauptmenü wird geöffnet\n");
 
 		try {

@@ -78,11 +78,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
 			// sortierung aufsteigend
-			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			SelectionSort.selectionSortVerbrauchsgegenstand(VerbrauchsgegenstandsListe, nameZaehler);
 			nameZaehler = false;
 		} else if (!nameZaehler) {
 			// sortierung absteigend
-			SelectionSort.selectionSortV(VerbrauchsgegenstandsListe, nameZaehler);
+			SelectionSort.selectionSortVerbrauchsgegenstand(VerbrauchsgegenstandsListe, nameZaehler);
 			nameZaehler = true;
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
@@ -92,11 +92,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortArtVerbrauchsgegenstand(VerbrauchsgegenstandsListe, artZaehler);
 			artZaehler = false;
 		} else if (!artZaehler) {
 			// sortierung absteigend
-			
+			SelectionSort.selectionSortArtVerbrauchsgegenstand(VerbrauchsgegenstandsListe, artZaehler);
 			artZaehler = true;
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
@@ -106,11 +106,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortVerbrauchsgegenstandSeltenheit(VerbrauchsgegenstandsListe, seltenheitZaehler);
 			seltenheitZaehler = false;
 		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
-			
+			SelectionSort.selectionSortVerbrauchsgegenstandSeltenheit(VerbrauchsgegenstandsListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
@@ -134,11 +134,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private void handleButtonDbBuffsSortierAction(ActionEvent event) {
 		if (buffsZaehler) {
 			// sortierung aufsteigend
-			
+			SelectionSort.selectionSortBuffVerbrauchsgegenstand(VerbrauchsgegenstandsListe, buffsZaehler);
 			buffsZaehler = false;
 		} else if (!buffsZaehler) {
 			// sortierung absteigend
-			
+			SelectionSort.selectionSortBuffVerbrauchsgegenstand(VerbrauchsgegenstandsListe, buffsZaehler);
 			buffsZaehler = true;
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
