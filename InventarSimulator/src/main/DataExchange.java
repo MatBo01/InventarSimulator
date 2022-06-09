@@ -1,8 +1,10 @@
 package main;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -414,11 +416,45 @@ public class DataExchange {
 				BufferedWriter b = new BufferedWriter(f);
 				PrintWriter p = new PrintWriter(b);) {
 
-			p.println("V," + v.getName() + seltenheit + v.getWert()	+ buffs + verbrauchsArt);
+			p.println("V," + v.getName() + seltenheit + v.getWert() + buffs + verbrauchsArt);
 
 		} catch (FileNotFoundException i) {
 			i.printStackTrace();
 		}
+	}
+
+	public static void itemLoeschen(Item i) throws FileNotFoundException, IOException {
+
+		File items = new File("Items.txt");
+		File tempItems = new File("TempItems.txt");
+
+		BufferedReader itemsReader = new BufferedReader(new FileReader(items));
+		BufferedWriter itemsWriter = new BufferedWriter(new FileWriter(tempItems));
+
+		String loeschenZeile = i.toString();
+		String aktuelleZeile;
+
+		while ((aktuelleZeile = itemsReader.readLine()) != null) {
+			Item vergleichsItem = new Item();
+			
+			String[] spalten = aktuelleZeile.split(",");
+
+			vergleichsItem.setItemArt(ItemArt.valueOf(spalten[0]));
+			vergleichsItem.setName(spalten[1]);
+			vergleichsItem.setSeltenheit(Seltenheit.valueOf(spalten[2]));
+			vergleichsItem.setWert(Integer.parseInt(spalten[3]));
+	
+			if (vergleichsItem.toString().equals(loeschenZeile)) {
+				continue;
+			}
+			itemsWriter.write(aktuelleZeile + "\n");
+		}
+
+		itemsReader.close();
+		itemsWriter.close();
+
+		items.delete();
+		tempItems.renameTo(items);
 	}
 
 	public static void main(String[] args) {

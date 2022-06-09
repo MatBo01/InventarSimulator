@@ -43,6 +43,10 @@ public class AllesViewController implements Initializable {
 	@FXML
 	private TableView<Item> tvItems;
 
+	public TableView<Item> getTvItems() {
+		return tvItems;
+	}
+
 	@FXML
 	private TableColumn<Item, String> tcName;
 
@@ -56,7 +60,7 @@ public class AllesViewController implements Initializable {
 	private TableColumn<Item, Integer> tcWert;
 
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
-
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));

@@ -10,6 +10,3 @@ W,Gigasword,E,345,43,6.4,D,2,GR
 W,Ranziger Dolch,N,420,69,1337.0,K,1,BO
 W,GroﬂAxt,U,543,344,4.0,F,3,DO
 V,Burger,E,23,AN,T
-V,erg,N,3,HE,E
-V,543,N,4,AU,E
-W,6987,U,879,78,8.0,W,9,BO

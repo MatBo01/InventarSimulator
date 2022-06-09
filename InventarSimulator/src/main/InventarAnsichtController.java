@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class InventarAnsichtController {
@@ -94,7 +94,7 @@ public class InventarAnsichtController {
 		try {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			VBox root = (VBox)FXMLLoader.load(getClass().getResource("LoeschenWindow.fxml"));
+			HBox root = (HBox)FXMLLoader.load(getClass().getResource("ItemsLoeschen.fxml"));
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
