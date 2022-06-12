@@ -48,6 +48,10 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	@FXML
 	private TableView<Verbrauchsgegenstand> tvVerbrauchsgegenstaende;
 	
+	public TableView<Verbrauchsgegenstand> getTvVerbrauchsgegenstaende() {
+		return tvVerbrauchsgegenstaende;
+	}
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcName;
 	
@@ -65,6 +69,10 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	
 	private ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe = FXCollections.observableArrayList();
 	
+	public ObservableList<Verbrauchsgegenstand> getVerbrauchsgegenstandsListe() {
+		return VerbrauchsgegenstandsListe;
+	}
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));

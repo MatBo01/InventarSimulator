@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InventarAnsichtController">
+<HBox prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InventarAnsichtController">
    <children>
       <TabPane prefHeight="900.0" prefWidth="1400.0" style="-fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="150.0">
          <tabs>
-            <Tab text="Alles">
+            <Tab fx:id="tbAlles" text="Alles">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -23,7 +23,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Waffen">
+            <Tab fx:id="tbWaffen" text="Waffen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -33,7 +33,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Rüstungen">
+            <Tab fx:id="tbRuestungen" text="Rüstungen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -43,7 +43,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Verbrauchsgegenstände">
+            <Tab fx:id="tbVerbrauchsgegenstaende" text="Verbrauchsgegenstände">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

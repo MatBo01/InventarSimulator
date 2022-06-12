@@ -56,6 +56,10 @@ public class RuestungViewController implements Initializable {
 	@FXML
 	private TableView<Ruestung> tvRuestung;
 	
+	public TableView<Ruestung> getTvRuestung() {
+		return tvRuestung;
+	}
+
 	@FXML
 	private TableColumn<Ruestung, String> tcName;
 	
@@ -78,7 +82,11 @@ public class RuestungViewController implements Initializable {
 	private TableColumn<Ruestung, String> tcElement;
 	
 	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
-	
+
+	public ObservableList<Ruestung> getRuestungsListe() {
+		return RuestungsListe;
+	}
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));

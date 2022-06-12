@@ -93,10 +93,6 @@ public class WaffenViewController implements Initializable {
 	public ObservableList<Waffe> getWaffenListe() {
 		return WaffenListe;
 	}
-
-	public void setWaffenListe(ObservableList<Waffe> waffenListe) {
-		WaffenListe = waffenListe;
-	}
 	
 	public void selection(int liste, int richtung) {
 		
