@@ -315,7 +315,7 @@ public class ErstelleWaffeController {
 
 		// Element-----------------------
 
-		// prüft, welches Element gewählt wurde, und speicheret sie
+		// prüft, welches Element gewählt wurde, und speicheret es
 		if (tgElement.getSelectedToggle().equals(rbKeins)) {
 			w.setElement(Waffe.Element.K);
 		} else if (tgElement.getSelectedToggle().equals(rbFeuer)) {
@@ -341,6 +341,11 @@ public class ErstelleWaffeController {
 		return keineErrors;
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage wenn erstelleWaffe() keine Errors hat und speichert Waffe in DB
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 */
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleWaffe()) {
@@ -361,6 +366,11 @@ public class ErstelleWaffeController {
 		}
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 */
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
 		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
