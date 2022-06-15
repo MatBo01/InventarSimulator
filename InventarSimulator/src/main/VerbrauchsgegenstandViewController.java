@@ -46,6 +46,9 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private Button btSuchen;
 	
 	@FXML
+	private Button btReset;
+	
+	@FXML
 	private TableView<Verbrauchsgegenstand> tvVerbrauchsgegenstaende;
 	
 	public TableView<Verbrauchsgegenstand> getTvVerbrauchsgegenstaende() {
@@ -158,15 +161,22 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		
 	}
 	
+	/**
+	 * Ließt die ItemListe wieder neu aus der Datenbank aus
+	 * 
+	 * @param event - setzt Tabelle auf Anfangszustand zurück
+	 */
+	@FXML
+	private void handleButtonResetAction(ActionEvent event) {
+		tvVerbrauchsgegenstaendeUpdate();
+	}
+	
 	@FXML
 	public void tvVerbrauchsgegenstaendeUpdate() {
 		
 		VerbrauchsgegenstandsListe.clear();
 		// Daten aus DB holen
 		VerbrauchsgegenstandsListe = DataExchange.getConsumablesFromDb();
-//		for(Verbrauchsgegenstand verbrauchsgegenstand: VerbrauchsgegenstandsListe) {
-//			System.out.println(verbrauchsgegenstand.toString());
-//		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 }

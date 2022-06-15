@@ -17,6 +17,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Tabellen-Anzeige für alle Rüstungen in der Datenbank, inklusive Sortierbuttons und Suchfeld
+ */
 public class RuestungViewController implements Initializable {
 
 	@FXML
@@ -52,6 +55,9 @@ public class RuestungViewController implements Initializable {
 	
 	@FXML
 	private Button btSuchen;
+	
+	@FXML
+	private Button btReset;
 	
 	@FXML
 	private TableView<Ruestung> tvRuestung;
@@ -199,6 +205,16 @@ public class RuestungViewController implements Initializable {
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
+	}
+	
+	/**
+	 * Ließt die ItemListe wieder neu aus der Datenbank aus
+	 * 
+	 * @param event - setzt Tabelle auf Anfangszustand zurück
+	 */
+	@FXML
+	private void handleButtonResetAction(ActionEvent event) {
+		tvRuestungsUpdate();
 	}
 	
 	@FXML

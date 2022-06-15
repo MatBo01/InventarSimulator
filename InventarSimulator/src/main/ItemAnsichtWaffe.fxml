@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemAnsichtWaffeController">
+<HBox accessibleRole="IMAGE_VIEW" prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemAnsichtWaffeController">
    <children>
-      <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivBild" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="100.0" top="100.0" />
          </HBox.margin>
@@ -159,7 +159,7 @@
             </Text>
          </children>
       </GridPane>
-      <VBox prefHeight="200.0" prefWidth="120.0">
+      <VBox prefHeight="200.0" prefWidth="120.0" styleClass="detailansichtBG">
          <children>
             <Button fx:id="btZurueck" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="40.0" prefWidth="100.0" text="Zurück">
                <cursor>

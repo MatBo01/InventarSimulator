@@ -1,10 +1,16 @@
 package main;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import POJO.Waffe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -15,44 +21,83 @@ public class ItemAnsichtWaffeController {
 
 	@FXML
 	private Text tAusruestungsArt;
-	
+
 	@FXML
 	private Text tWaffenArt;
-	
+
 	@FXML
 	private Text tSeltenheit;
-	
+
 	@FXML
 	private Text tWert;
-	
+
 	@FXML
 	private Text tAngriff;
-	
+
 	@FXML
 	private Text tGewicht;
-	
+
 	@FXML
 	private Text tElement;
-	
+
 	@FXML
 	private Text tSchnelligkeit;
-	
+
+	@FXML
+	private ImageView ivBild;
+
 	@FXML
 	private Button btZurueck;
-	
+
 	@FXML
 	InventarAnsichtController inventarAnsichtController;
-	
-	public void setInformation(Waffe w) {
+
+	public void setInformation(Waffe w) throws FileNotFoundException {
 		tName.setText(w.getName());
 		tAusruestungsArt.setText(w.getItemArt());
 		tWaffenArt.setText(w.getWaffenArt());
 		tSeltenheit.setText(w.getSeltenheit());
-		tWert.setText(""+ w.getWert());
-		tAngriff.setText(""+ w.getStaerke());
-		tGewicht.setText(""+ w.getGewicht());
+		tWert.setText("" + w.getWert());
+		tAngriff.setText("" + w.getStaerke());
+		tGewicht.setText("" + w.getGewicht());
 		tElement.setText(w.getElement());
-		tSchnelligkeit.setText(""+ w.getWert());
+		tSchnelligkeit.setText("" + w.getWert());
+
+		InputStream axt = new FileInputStream("img/waffen/axt.png");
+		InputStream bogen = new FileInputStream("img/waffen/bogen.png");
+		InputStream dolch = new FileInputStream("img/waffen/dolch.png");
+		InputStream grossschwert = new FileInputStream("img/waffen/grossschwert.png");
+		InputStream schwert = new FileInputStream("img/waffen/schwert.png");
+		InputStream speer = new FileInputStream("img/waffen/speer.png");
+
+		Image image = null;
+		switch(w.getWaffenArt()) {
+		case "Axt":
+			System.out.println("1");
+			image = new Image(axt);
+			break;
+		case "Bogen":
+			System.out.println("2");
+			image = new Image(bogen);
+			break;
+		case "Dolch":
+			System.out.println("3");
+			image = new Image(dolch);
+			break;
+		case "Großschwert":
+			System.out.println("4");
+			image = new Image(grossschwert);
+			break;
+		case "Schwert":
+			System.out.println("5");
+			image = new Image(schwert);
+			break;
+		case "Speer":
+			System.out.println("6");
+			image = new Image(speer);
+			break;
+		}
+		ivBild.setImage(image);
 	}
 
 	@FXML

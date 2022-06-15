@@ -6,9 +6,19 @@ import POJO.Verbrauchsgegenstand;
 import POJO.Waffe;
 import javafx.collections.ObservableList;
 
+/**
+ * Beinhaltet die Methoden f√ºr den Radix Sort Algorithmus 
+ */
 public class RadixSort {
 
-	// Grˆﬂte Zahl im Array finden
+	
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxWW(ObservableList<Waffe> WaffenListe, int size) {
 
 		int max = WaffenListe.get(0).getWert();
@@ -22,30 +32,47 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungWW(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
-
+		
+		//Array f√ºr sp√§teres zwischenspeichern wird erstellt
 		Waffe[] ablage = new Waffe[size];
-		int[] z‰hler = new int[10];
+		
+		//Array zum zaehlen wie oft ein Wert in der Liste vorkommt 
+		int[] zaehler = new int[10];
 
+		// Kommt ein Wert vor wird an dieser Stelle im Array zaehler plus 1 gerechnet
 		for (int i = 0; i < size; i++)
-			z‰hler[(WaffenListe.get(i).getWert() / position) % 10]++;
-
+			zaehler[(WaffenListe.get(i).getWert() / position) % 10]++;
+		
+		//Nun werden kumulierten Summen berechnet. Dadurch wird die Sortierung an die richtige Stelle leichter
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
-
+			zaehler[i] += zaehler[i - 1];
+		
+		// Je nach richtung wird auf- oder absteigend sortiert
 		if (richtung) {
-
+			
+			//Nun werden die Werte aus der √ºbergebenen WaffenListe an die korrekte Stelle in dem Array ablage gespeichert. Im array zaehler wird an dieser Stelle minus 1 gerechnet
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getWert() / position) % 10]--;
+				ablage[zaehler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
+				zaehler[(WaffenListe.get(i).getWert() / position) % 10]--;
 			}
+			//Nun wird die richtige Zahlenfolge in die WaffenListe √ºbergeben
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
+			//Selbe Sache nur andersrum
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getWert() / position) % 10]--;
+				ablage[zaehler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
+				zaehler[(WaffenListe.get(i).getWert() / position) % 10]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -56,12 +83,20 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Waffe> radixSortWW(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		int size = WaffenListe.size();
 
 		int max = getMaxWW(WaffenListe, size);
-
+		
+		//Die einzelnen Positionen der gr√∂√üten Zahl aus der Waffenliste werden durchgegangen
 		for (int position = 1; max / position > 0; position *= 10) {
 			vorSortierungWW(WaffenListe, size, position, richtung);
 		}
@@ -71,6 +106,13 @@ public class RadixSort {
 
 	// -----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxWA(ObservableList<Waffe> WaffenListe, int size) {
 
 		int max = WaffenListe.get(0).getStaerke();
@@ -84,30 +126,38 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungWA(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
 
 		Waffe[] ablage = new Waffe[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(WaffenListe.get(i).getStaerke() / position) % 10]++;
+			z√§hler[(WaffenListe.get(i).getStaerke() / position) % 10]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(WaffenListe.get(i).getStaerke() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getStaerke() / position) % 10]--;
+				ablage[z√§hler[(WaffenListe.get(i).getStaerke() / position) % 10] - 1] = WaffenListe.get(i);
+				z√§hler[(WaffenListe.get(i).getStaerke() / position) % 10]--;
 			}
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(WaffenListe.get(i).getStaerke() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getStaerke() / position) % 10]--;
+				ablage[z√§hler[(WaffenListe.get(i).getStaerke() / position) % 10] - 1] = WaffenListe.get(i);
+				z√§hler[(WaffenListe.get(i).getStaerke() / position) % 10]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -118,6 +168,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Waffe> radixSortWA(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		int size = WaffenListe.size();
@@ -133,6 +190,13 @@ public class RadixSort {
 
 	// -----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxWG(ObservableList<Waffe> WaffenListe, int size) {
 
 		int max = (int) WaffenListe.get(0).getGewicht();
@@ -146,30 +210,38 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungWG(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
 
 		Waffe[] ablage = new Waffe[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]++;
+			z√§hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)] - 1] = WaffenListe.get(i);
-				z‰hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]--;
+				ablage[z√§hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)] - 1] = WaffenListe.get(i);
+				z√§hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]--;
 			}
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)] - 1] = WaffenListe.get(i);
-				z‰hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]--;
+				ablage[z√§hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)] - 1] = WaffenListe.get(i);
+				z√§hler[(int) ((WaffenListe.get(i).getGewicht() / position) % 10)]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -180,6 +252,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Waffe> radixSortWG(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		int size = WaffenListe.size();
@@ -195,6 +274,13 @@ public class RadixSort {
 
 //-----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxWS(ObservableList<Waffe> WaffenListe, int size) {
 
 		int max = WaffenListe.get(0).getSchnelligkeit();
@@ -208,30 +294,38 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungWS(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
 
 		Waffe[] ablage = new Waffe[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]++;
+			z√§hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]--;
+				ablage[z√§hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10] - 1] = WaffenListe.get(i);
+				z√§hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]--;
 			}
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10] - 1] = WaffenListe.get(i);
-				z‰hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]--;
+				ablage[z√§hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10] - 1] = WaffenListe.get(i);
+				z√§hler[(WaffenListe.get(i).getSchnelligkeit() / position) % 10]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -242,6 +336,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Waffe> radixSortWS(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		int size = WaffenListe.size();
@@ -256,7 +357,14 @@ public class RadixSort {
 	}
 
 	// -----------------------------------------------------------------------------------------------------
-
+	
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxRW(ObservableList<Ruestung> RuestungsListe, int size) {
 
 		int max = RuestungsListe.get(0).getWert();
@@ -270,31 +378,39 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungRW(ObservableList<Ruestung> RuestungsListe, int size, int position,
 			boolean richtung) {
 
 		Ruestung[] ablage = new Ruestung[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(RuestungsListe.get(i).getWert() / position) % 10]++;
+			z√§hler[(RuestungsListe.get(i).getWert() / position) % 10]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(RuestungsListe.get(i).getWert() / position) % 10] - 1] = RuestungsListe.get(i);
-				z‰hler[(RuestungsListe.get(i).getWert() / position) % 10]--;
+				ablage[z√§hler[(RuestungsListe.get(i).getWert() / position) % 10] - 1] = RuestungsListe.get(i);
+				z√§hler[(RuestungsListe.get(i).getWert() / position) % 10]--;
 			}
 			for (int i = 0; i < size; i++) {
 				RuestungsListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(RuestungsListe.get(i).getWert() / position) % 10] - 1] = RuestungsListe.get(i);
-				z‰hler[(RuestungsListe.get(i).getWert() / position) % 10]--;
+				ablage[z√§hler[(RuestungsListe.get(i).getWert() / position) % 10] - 1] = RuestungsListe.get(i);
+				z√§hler[(RuestungsListe.get(i).getWert() / position) % 10]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -305,6 +421,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Ruestung> radixSortRW(ObservableList<Ruestung> RuestungsListe, boolean richtung) {
 
 		int size = RuestungsListe.size();
@@ -319,7 +442,14 @@ public class RadixSort {
 	}
 
 	// -----------------------------------------------------------------------------------------------------
-
+	
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxRV(ObservableList<Ruestung> RuestungsListe, int size) {
 
 		int max = RuestungsListe.get(0).getStaerke();
@@ -333,31 +463,39 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungRV(ObservableList<Ruestung> RuestungsListe, int size, int position,
 			boolean richtung) {
 
 		Ruestung[] ablage = new Ruestung[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(RuestungsListe.get(i).getStaerke() / position) % 10]++;
+			z√§hler[(RuestungsListe.get(i).getStaerke() / position) % 10]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(RuestungsListe.get(i).getStaerke() / position) % 10] - 1] = RuestungsListe.get(i);
-				z‰hler[(RuestungsListe.get(i).getStaerke() / position) % 10]--;
+				ablage[z√§hler[(RuestungsListe.get(i).getStaerke() / position) % 10] - 1] = RuestungsListe.get(i);
+				z√§hler[(RuestungsListe.get(i).getStaerke() / position) % 10]--;
 			}
 			for (int i = 0; i < size; i++) {
 				RuestungsListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(RuestungsListe.get(i).getStaerke() / position) % 10] - 1] = RuestungsListe.get(i);
-				z‰hler[(RuestungsListe.get(i).getStaerke() / position) % 10]--;
+				ablage[z√§hler[(RuestungsListe.get(i).getStaerke() / position) % 10] - 1] = RuestungsListe.get(i);
+				z√§hler[(RuestungsListe.get(i).getStaerke() / position) % 10]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -368,6 +506,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Ruestung> radixSortRV(ObservableList<Ruestung> RuestungsListe, boolean richtung) {
 
 		int size = RuestungsListe.size();
@@ -382,7 +527,14 @@ public class RadixSort {
 	}
 
 	// -----------------------------------------------------------------------------------------------------
-
+	
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxRG(ObservableList<Ruestung> RuestungsListe, int size) {
 
 		int max = (int) RuestungsListe.get(0).getGewicht();
@@ -396,33 +548,41 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungRG(ObservableList<Ruestung> RuestungsListe, int size, int position,
 			boolean richtung) {
 
 		Ruestung[] ablage = new Ruestung[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]++;
+			z√§hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)] - 1] = RuestungsListe
+				ablage[z√§hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)] - 1] = RuestungsListe
 						.get(i);
-				z‰hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]--;
+				z√§hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]--;
 			}
 			for (int i = 0; i < size; i++) {
 				RuestungsListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)] - 1] = RuestungsListe
+				ablage[z√§hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)] - 1] = RuestungsListe
 						.get(i);
-				z‰hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]--;
+				z√§hler[(int) ((RuestungsListe.get(i).getGewicht() / position) % 10)]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -433,6 +593,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Ruestung> radixSortRG(ObservableList<Ruestung> RuestungsListe, boolean richtung) {
 
 		int size = RuestungsListe.size();
@@ -448,6 +615,13 @@ public class RadixSort {
 
 	// -----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxVW(ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, int size) {
 
 		int max = (int) VerbrauchsgegenstandsListe.get(0).getWert();
@@ -461,33 +635,41 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungVW(ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, int size,
 			int position, boolean richtung) {
 
 		Verbrauchsgegenstand[] ablage = new Verbrauchsgegenstand[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]++;
+			z√§hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]
+				ablage[z√§hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]
 						- 1] = VerbrauchsgegenstandsListe.get(i);
-				z‰hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]--;
+				z√§hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]--;
 			}
 			for (int i = 0; i < size; i++) {
 				VerbrauchsgegenstandsListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]
+				ablage[z√§hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]
 						- 1] = VerbrauchsgegenstandsListe.get(i);
-				z‰hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]--;
+				z√§hler[(int) ((VerbrauchsgegenstandsListe.get(i).getWert() / position) % 10)]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -498,6 +680,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Verbrauchsgegenstand> radixSortVW(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {
 
@@ -514,6 +703,13 @@ public class RadixSort {
 
 	// -----------------------------------------------------------------------------------------------------
 
+	/**
+	 * Findet den groessten Wert der uebergebenen ObservableList
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @return - Gibt den groessten Wert der WaffenListe zurueck
+	 */
 	private static int getMaxIW(ObservableList<Item> ItemListe, int size) {
 
 		int max = (int) ItemListe.get(0).getWert();
@@ -527,30 +723,38 @@ public class RadixSort {
 		return max;
 	}
 
+	/**
+	 * Bekommt eine Liste an Werten √ºbergeben und sortiert diese auf- oder absteigend
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param size - Groesse der WaffenListe
+	 * @param position - Gibt an 
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 */
 	private static void vorSortierungIW(ObservableList<Item> ItemListe, int size, int position, boolean richtung) {
 
 		Item[] ablage = new Item[size];
-		int[] z‰hler = new int[10];
+		int[] z√§hler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			z‰hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]++;
+			z√§hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]++;
 
 		for (int i = 1; i < 10; i++)
-			z‰hler[i] += z‰hler[i - 1];
+			z√§hler[i] += z√§hler[i - 1];
 
 		if (richtung) {
 
 			for (int i = size - 1; i >= 0; i--) {
-				ablage[z‰hler[(int) ((ItemListe.get(i).getWert() / position) % 10)] - 1] = ItemListe.get(i);
-				z‰hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]--;
+				ablage[z√§hler[(int) ((ItemListe.get(i).getWert() / position) % 10)] - 1] = ItemListe.get(i);
+				z√§hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]--;
 			}
 			for (int i = 0; i < size; i++) {
 				ItemListe.set(i, ablage[i]);
 			}
 		} else if (!richtung) {
 			for (int i = 0; i < size; i++) {
-				ablage[z‰hler[(int) ((ItemListe.get(i).getWert() / position) % 10)] - 1] = ItemListe.get(i);
-				z‰hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]--;
+				ablage[z√§hler[(int) ((ItemListe.get(i).getWert() / position) % 10)] - 1] = ItemListe.get(i);
+				z√§hler[(int) ((ItemListe.get(i).getWert() / position) % 10)]--;
 			}
 			int n = size - 1;
 			for (int i = 0; i < size; i++) {
@@ -561,6 +765,13 @@ public class RadixSort {
 
 	}
 
+	/**
+	 * Die vorSortierung wird f√ºr jede Stelle der gr√∂√üten Zahl ausgef√ºhrt
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
+	 * @return - gibt die sortierte WaffenListe zur√ºck
+	 */
 	public static ObservableList<Item> radixSortIW(ObservableList<Item> ItemListe, boolean richtung) {
 
 		int size = ItemListe.size();

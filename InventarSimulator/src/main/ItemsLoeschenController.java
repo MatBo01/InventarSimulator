@@ -40,7 +40,7 @@ public class ItemsLoeschenController {
 			tError.setText(" ");
 			DataExchange.itemLoeschen(loeschen);
 		} catch (NullPointerException e) {
-			tError.setText("Bitte etwas auswählen!");
+			tError.setText("Bitte etwas auswÃ¤hlen!");
 		}
 
 		allesViewController.tvItemsUpdate();
@@ -48,7 +48,7 @@ public class ItemsLoeschenController {
 
 	@FXML
 	private void handleButtonZurueckAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();

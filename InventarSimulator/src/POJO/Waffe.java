@@ -6,7 +6,7 @@ public class Waffe extends Ausruestung{
 		AX("Axt"),
 		BO("Bogen"),
 		DO("Dolch"),
-		GR("Groﬂschwert"),
+		GR("Gro√üschwert"),
 		SC("Schwert"),
 		SP("Speer");
 		

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RuestungViewController">
+<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RuestungViewController">
    <children>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
@@ -69,9 +69,17 @@
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
             </Button>
+            <Button fx:id="btReset" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="30.0" prefWidth="80.0" text="Reset">
+               <font>
+                  <Font name="Serif Regular" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="200.0" top="10.0" />
+               </HBox.margin>
+            </Button>
             <TextField fx:id="tfSuche" prefHeight="30.0" prefWidth="200.0" promptText="Ruestung suchen...">
                <HBox.margin>
-                  <Insets bottom="10.0" left="300.0" top="10.0" />
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
                <font>
                   <Font name="Serif Regular" size="14.0" />

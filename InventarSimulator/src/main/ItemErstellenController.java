@@ -28,7 +28,7 @@ public class ItemErstellenController {
 	
 	@FXML
 	private void handleButtonErstelleWaffeAction(ActionEvent event) {
-		System.out.println("Waffe erstellen wird geöffnet\n");
+		System.out.println("Waffe erstellen wird geÃ¶ffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
@@ -45,7 +45,7 @@ public class ItemErstellenController {
 	
 	@FXML
 	private void handleButtonErstelleRuestungAction(ActionEvent event) {
-		System.out.println("Rüstung erstellen wird geöffnet\n");
+		System.out.println("RÃ¼stung erstellen wird geÃ¶ffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
@@ -62,7 +62,7 @@ public class ItemErstellenController {
 	
 	@FXML
 	private void handleButtonErstelleVerbrauchsgegenstandAction(ActionEvent event) {
-		System.out.println("Verbrauchsgegenstand erstellen wird geöffnet\n");
+		System.out.println("Verbrauchsgegenstand erstellen wird geÃ¶ffnet\n");
 		
 		try {
 			Node source = (Node) event.getSource();
@@ -79,7 +79,7 @@ public class ItemErstellenController {
 	
 	@FXML
 	private void handleButtonZurueckAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();

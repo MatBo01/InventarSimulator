@@ -80,7 +80,7 @@ public class ErstelleWaffeController {
 	@FXML
 	private Text tError2;
 
-	// Stärke--------------------
+	// StÃ¤rke--------------------
 
 	@FXML
 	private TextField tfAngriff;
@@ -229,7 +229,7 @@ public class ErstelleWaffeController {
 			}
 		}
 
-		// Stärke-----------------------
+		// StÃ¤rke-----------------------
 
 		if (tfAngriff.getText().equals("")) {
 			tError3.setText("Bitte nur ganze Zahlen eingeben!");
@@ -253,7 +253,7 @@ public class ErstelleWaffeController {
 		// Gewicht----------------------
 
 		if (tfGewicht.getText().equals("")) {
-			tError4.setText("Bitte nur natürliche Zahlen eingeben! (Für Kommazahlen '.' benutzten!)");
+			tError4.setText("Bitte nur natÃ¼rliche Zahlen eingeben! (FÃ¼r Kommazahlen '.' benutzten!)");
 			keineErrors = false;
 		} else {
 			try {
@@ -266,7 +266,7 @@ public class ErstelleWaffeController {
 					tError4.setText("");
 				}
 			} catch (NumberFormatException e) {
-				tError4.setText("Bitte nur natürliche Zahlen eingeben! (Für Kommazahlen '.' benutzten!)");
+				tError4.setText("Bitte nur natÃ¼rliche Zahlen eingeben! (FÃ¼r Kommazahlen '.' benutzten!)");
 				keineErrors = false;
 			}
 		}
@@ -322,7 +322,7 @@ public class ErstelleWaffeController {
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleWaffe()) {
-			System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+			System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 			try {
 				Node source = (Node) event.getSource();
@@ -352,7 +352,7 @@ public class ErstelleWaffeController {
 
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();

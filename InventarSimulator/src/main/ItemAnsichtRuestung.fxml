@@ -15,7 +15,7 @@
 
 <HBox prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemAnsichtRuestungController">
    <children>
-      <ImageView fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ivBild" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="100.0" top="100.0" />
          </HBox.margin>

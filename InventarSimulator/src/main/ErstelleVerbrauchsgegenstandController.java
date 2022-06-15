@@ -206,7 +206,7 @@ public class ErstelleVerbrauchsgegenstandController {
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleVerbrauchsgegenstand()) {
-			System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+			System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 			try {
 				Node source = (Node) event.getSource();
@@ -236,7 +236,7 @@ public class ErstelleVerbrauchsgegenstandController {
 
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geÃ¶ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();

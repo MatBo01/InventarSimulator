@@ -17,6 +17,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Tabellen-Anzeige für alle Items in der Datenbank, inklusive Sortierbuttons und Suchfeld
+ */
 public class AllesViewController implements Initializable {
 
 	@FXML
@@ -40,6 +43,9 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private Button btSuchen;
+	
+	@FXML
+	private Button btReset;
 
 	@FXML
 	private TableView<Item> tvItems;
@@ -62,6 +68,9 @@ public class AllesViewController implements Initializable {
 
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 	
+	/**
+	 * Setzt Daten von jedem Item aus der ObservableList: ItemListe in die TableView ein 
+	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -70,6 +79,11 @@ public class AllesViewController implements Initializable {
 		tcWert.setCellValueFactory(new PropertyValueFactory<>("Wert"));
 	}
 
+	/**
+	 * Sortierbutton: Name
+	 * 
+	 * @param event - sotiert Tabelle nach den Namen
+	 */
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
@@ -81,9 +95,15 @@ public class AllesViewController implements Initializable {
 			SelectionSort.selectionSort(ItemListe, nameZaehler);
 			nameZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvItems.setItems(ItemListe);
 	}
 
+	/**
+	 * Sortierbutton: (Item)Art
+	 * 
+	 * @param event - sotiert Tabelle nach der ItemArt
+	 */
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
@@ -95,9 +115,15 @@ public class AllesViewController implements Initializable {
 			SelectionSort.selectionSortArt(ItemListe, artZaehler);
 			artZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvItems.setItems(ItemListe);
 	}
 
+	/**
+	 * Sortierbutton: Seltenheit
+	 * 
+	 * @param event - sotiert Tabelle nach der Seltenheit
+	 */
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
@@ -109,9 +135,15 @@ public class AllesViewController implements Initializable {
 			SelectionSort.selectionSortSeltenheit(ItemListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvItems.setItems(ItemListe);
 	}
 
+	/**
+	 * Sortierbutton: Wert
+	 * 
+	 * @param event - sotiert Tabelle nach dem Wert
+	 */
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
@@ -123,24 +155,40 @@ public class AllesViewController implements Initializable {
 			RadixSort.radixSortIW(ItemListe, wertZaehler);
 			wertZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvItems.setItems(ItemListe);
 	}
 
+	/**
+	 * Suchbutton Event
+	 * 
+	 * @param event - durchsucht Tabelle nach der Sucheingabe (tfSuche)
+	 */
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 
 	}
+	
+	/**
+	 * Ließt die ItemListe wieder neu aus der Datenbank aus
+	 * 
+	 * @param event - setzt Tabelle auf Anfangszustand zurück
+	 */
+	@FXML
+	private void handleButtonResetAction(ActionEvent event) {
+		tvItemsUpdate();
+	}
 
+	
+	/**
+	 * Lädt die Items aus der Datenbank und setzt sie in die Tabelle ein
+	 */
 	@FXML
 	public void tvItemsUpdate() {
-
 		ItemListe.clear();
 		// Daten aus DB holen
 		ItemListe = DataExchange.getItemsFromDb();
-//		for(Item item: ItemListe) {
-//			System.out.println(item.toString());
-//		}
 		tvItems.setItems(ItemListe);
 	}
 }

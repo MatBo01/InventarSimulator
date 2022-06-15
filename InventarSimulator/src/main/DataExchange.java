@@ -29,7 +29,7 @@ public class DataExchange {
 	// Item-Liste laden -----------------------------------
 
 	public static ObservableList<Item> getItemsFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Personen) gespeichert werden kÃ¶nnen, wird erstellt
 		ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -48,13 +48,13 @@ public class DataExchange {
 				// String wird bei eingegebenen Zeichen (,) gespaltet und in array gespeichert
 				String[] spalten = zeile.split(",");
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehÃ¶rige Parameter der Person gespeichert
 				i.setItemArt(ItemArt.valueOf(spalten[0]));
 				i.setName(spalten[1]);
 				i.setSeltenheit(Seltenheit.valueOf(spalten[2]));
 				i.setWert(Integer.parseInt(spalten[3]));
 
-				// Item wird der ObservableList hinzugefügt
+				// Item wird der ObservableList hinzugefÃ¼gt
 				ItemListe.add(i);
 			}
 			s.close();
@@ -68,7 +68,7 @@ public class DataExchange {
 	// Waffen-Liste laden ---------------------------------
 
 	public static ObservableList<Waffe> getWeaponsFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Personen) gespeichert werden kÃ¶nnen, wird erstellt
 		ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -91,7 +91,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehÃ¶rige Parameter der Person gespeichert
 				w.setItemArt(ItemArt.valueOf(spalten[0]));
 				w.setName(spalten[1]);
 				w.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -102,7 +102,7 @@ public class DataExchange {
 				w.setSchnelligkeit(Integer.parseInt(spalten[7]));
 				w.setWaffenArt(WaffenArt.valueOf(spalten[8]));
 
-				// Waffe wird der ObservableList hinzugefügt
+				// Waffe wird der ObservableList hinzugefÃ¼gt
 				WaffenListe.add(w);
 			}
 			s.close();
@@ -113,10 +113,10 @@ public class DataExchange {
 		return WaffenListe;
 	}
 
-	// Rüstungs-Liste laden -----------------------------
+	// RÃ¼stungs-Liste laden -----------------------------
 
 	public static ObservableList<Ruestung> getArmorFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Personen) gespeichert werden kÃ¶nnen, wird erstellt
 		ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -139,7 +139,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehÃ¶rige Parameter der Person gespeichert
 				r.setItemArt(ItemArt.valueOf(spalten[0]));
 				r.setName(spalten[1]);
 				r.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -149,7 +149,7 @@ public class DataExchange {
 				r.setElement(Element.valueOf(spalten[6]));
 				r.setRuestungsArt(RuestungsArt.valueOf(spalten[7]));
 
-				// Rüstung wird der ObservableList hinzugefügt
+				// RÃ¼stung wird der ObservableList hinzugefÃ¼gt
 				RuestungsListe.add(r);
 			}
 			s.close();
@@ -163,7 +163,7 @@ public class DataExchange {
 	// Verbrauchsgegenstands-Liste laden ------------
 
 	public static ObservableList<Verbrauchsgegenstand> getConsumablesFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Personen) gespeichert werden kÃ¶nnen, wird erstellt
 		ObservableList<Verbrauchsgegenstand> VerbrauchsListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -186,7 +186,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehÃ¶rige Parameter der Person gespeichert
 				v.setItemArt(ItemArt.valueOf(spalten[0]));
 				v.setName(spalten[1]);
 				v.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -194,7 +194,7 @@ public class DataExchange {
 				v.setBuffs(Buffs.valueOf(spalten[4]));
 				v.setVerbrauchsgegenstandsArt(VerbrauchsgegenstandsArt.valueOf(spalten[5]));
 
-				// Verbrauchsgegenstand wird der ObservableList hinzugefügt
+				// Verbrauchsgegenstand wird der ObservableList hinzugefÃ¼gt
 				VerbrauchsListe.add(v);
 			}
 			s.close();
@@ -214,7 +214,7 @@ public class DataExchange {
 		case "Normal":
 			seltenheit = ",N,";
 			break;
-		case "Ungewöhnlich":
+		case "UngewÃ¶hnlich":
 			seltenheit = ",U,";
 			break;
 		case "Selten":
@@ -223,7 +223,7 @@ public class DataExchange {
 		case "Episch":
 			seltenheit = ",E,";
 			break;
-		case "Legendär":
+		case "LegendÃ¤r":
 			seltenheit = ",L,";
 			break;
 		}
@@ -264,7 +264,7 @@ public class DataExchange {
 		case "Dolch":
 			waffenArt = ",DO";
 			break;
-		case "Großschwert":
+		case "GroÃŸschwert":
 			waffenArt = ",GR";
 			break;
 		case "Schwert":
@@ -287,7 +287,7 @@ public class DataExchange {
 		}
 	}
 
-	// Rüstungs-Liste speichern ---------------------------------
+	// RÃ¼stungs-Liste speichern ---------------------------------
 
 	public static void safeArmorToDB(Ruestung r) throws IOException {
 
@@ -296,7 +296,7 @@ public class DataExchange {
 		case "Normal":
 			seltenheit = ",N,";
 			break;
-		case "Ungewöhnlich":
+		case "UngewÃ¶hnlich":
 			seltenheit = ",U,";
 			break;
 		case "Selten":
@@ -305,7 +305,7 @@ public class DataExchange {
 		case "Episch":
 			seltenheit = ",E,";
 			break;
-		case "Legendär":
+		case "LegendÃ¤r":
 			seltenheit = ",L,";
 			break;
 		}
@@ -337,13 +337,13 @@ public class DataExchange {
 
 		String ruestungsArt = "";
 		switch (r.getRuestungsArt()) {
-		case "Stoffrüstung":
+		case "StoffrÃ¼stung":
 			ruestungsArt = "STO";
 			break;
-		case "Lederrüstung":
+		case "LederrÃ¼stung":
 			ruestungsArt = "LED";
 			break;
-		case "Stahlrüstung":
+		case "StahlrÃ¼stung":
 			ruestungsArt = "STA";
 			break;
 		}
@@ -369,7 +369,7 @@ public class DataExchange {
 		case "Normal":
 			seltenheit = ",N,";
 			break;
-		case "Ungewöhnlich":
+		case "UngewÃ¶hnlich":
 			seltenheit = ",U,";
 			break;
 		case "Selten":
@@ -378,7 +378,7 @@ public class DataExchange {
 		case "Episch":
 			seltenheit = ",E,";
 			break;
-		case "Legendär":
+		case "LegendÃ¤r":
 			seltenheit = ",L,";
 			break;
 		}
@@ -391,13 +391,13 @@ public class DataExchange {
 		case "Ausdauerregeneration":
 			buffs = ",AU,";
 			break;
-		case "Verteidigungserhöhung":
+		case "VerteidigungserhÃ¶hung":
 			buffs = ",VE,";
 			break;
-		case "Angriffserhöhung":
+		case "AngriffserhÃ¶hung":
 			buffs = ",AN,";
 			break;
-		case "Geschwindigkeitserhöhung":
+		case "GeschwindigkeitserhÃ¶hung":
 			buffs = ",GE,";
 			break;
 		}

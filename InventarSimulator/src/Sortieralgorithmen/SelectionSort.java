@@ -180,9 +180,9 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
-						if (ItemListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (ItemListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -195,7 +195,7 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
 						if (ItemListe.get(n).getSeltenheit().equals("Selten")) {
@@ -212,7 +212,7 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")
 						&& !ItemListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
@@ -243,9 +243,9 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n > 0; n--) {
-						if (ItemListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (ItemListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -258,7 +258,7 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n > 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Selten")) {
@@ -275,7 +275,7 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")
 						&& !ItemListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
@@ -314,9 +314,9 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
-						if (WaffenListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (WaffenListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -329,7 +329,7 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Selten")) {
@@ -346,7 +346,7 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
@@ -377,9 +377,9 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n > 0; n--) {
-						if (WaffenListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (WaffenListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -392,7 +392,7 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Selten")) {
@@ -409,7 +409,7 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
@@ -448,9 +448,9 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (RuestungsListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -463,7 +463,7 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Selten")) {
@@ -480,7 +480,7 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
@@ -511,9 +511,9 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (RuestungsListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -526,7 +526,7 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Selten")) {
@@ -543,7 +543,7 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
@@ -582,9 +582,9 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
-						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -597,7 +597,7 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Selten")) {
@@ -614,7 +614,7 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
@@ -645,9 +645,9 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
 						}
 					}
@@ -660,7 +660,7 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Selten")) {
@@ -677,7 +677,7 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
@@ -715,9 +715,9 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getItemArt().equals("Waffe")
-						&& !ItemListe.get(j).getItemArt().equals("Rüstung")) {
+						&& !ItemListe.get(j).getItemArt().equals("RÃ¼stung")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
-						if (ItemListe.get(n).getItemArt().equals("Rüstung")) {
+						if (ItemListe.get(n).getItemArt().equals("RÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -745,9 +745,9 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getItemArt().equals("Waffe")
-						&& !ItemListe.get(j).getItemArt().equals("Rüstung")) {
+						&& !ItemListe.get(j).getItemArt().equals("RÃ¼stung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (ItemListe.get(n).getItemArt().equals("Rüstung")) {
+						if (ItemListe.get(n).getItemArt().equals("RÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -807,9 +807,9 @@ public class SelectionSort {
 		if (richtung) {
 			for (int i = 0; i < RuestungsListe.size(); i++) {
 				int min = i;
-				if (!RuestungsListe.get(i).getRuestungsArt().equals("Stoffrüstung")) {
+				if (!RuestungsListe.get(i).getRuestungsArt().equals("StoffrÃ¼stung")) {
 					for (int n = i + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Stoffrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("StoffrÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -820,10 +820,10 @@ public class SelectionSort {
 			}
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
-				if (!RuestungsListe.get(j).getRuestungsArt().equals("Stoffrüstung")
-						&& !RuestungsListe.get(j).getRuestungsArt().equals("Lederrüstung")) {
+				if (!RuestungsListe.get(j).getRuestungsArt().equals("StoffrÃ¼stung")
+						&& !RuestungsListe.get(j).getRuestungsArt().equals("LederrÃ¼stung")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Lederrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("LederrÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -837,9 +837,9 @@ public class SelectionSort {
 		else if (!richtung) {
 			for (int i = RuestungsListe.size() - 1; i >= 0; i--) {
 				int min = i;
-				if (!RuestungsListe.get(i).getRuestungsArt().equals("Stoffrüstung")) {
+				if (!RuestungsListe.get(i).getRuestungsArt().equals("StoffrÃ¼stung")) {
 					for (int n = i - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Stoffrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("StoffrÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -850,10 +850,10 @@ public class SelectionSort {
 			}
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
-				if (!RuestungsListe.get(j).getRuestungsArt().equals("Stoffrüstung")
-						&& !RuestungsListe.get(j).getRuestungsArt().equals("Lederrüstung")) {
+				if (!RuestungsListe.get(j).getRuestungsArt().equals("StoffrÃ¼stung")
+						&& !RuestungsListe.get(j).getRuestungsArt().equals("LederrÃ¼stung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Lederrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("LederrÃ¼stung")) {
 							min = n;
 						}
 					}
@@ -939,9 +939,9 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Verteidigungserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 							min = n;
 						}
 					}
@@ -955,10 +955,10 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Angriffserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("AngriffserhÃ¶hung")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Angriffserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("AngriffserhÃ¶hung")) {
 							min = n;
 						}
 					}
@@ -1001,9 +1001,9 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Verteidigungserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 							min = n;
 						}
 					}
@@ -1018,10 +1018,10 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Angriffserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("AngriffserhÃ¶hung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Angriffserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("AngriffserhÃ¶hung")) {
 							min = n;
 						}
 					}

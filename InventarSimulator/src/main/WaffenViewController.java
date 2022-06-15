@@ -17,6 +17,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Tabellen-Anzeige für alle Waffen in der Datenbank, inklusive Sortierbuttons und Suchfeld
+ */
 public class WaffenViewController implements Initializable {
 
 	@FXML
@@ -53,13 +56,16 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
+	
+	@FXML
+	private Button btReset;
 
 	@FXML
 	private TableView<Waffe> tvWaffen;
-	
+
 	public TableView<Waffe> getTvWaffen() {
 		return tvWaffen;
 	}
@@ -88,16 +94,15 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private TableColumn<Waffe, Integer> tcSchnelligkeit;
 
-	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList(); 
-	
+	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
+
 	public ObservableList<Waffe> getWaffenListe() {
 		return WaffenListe;
 	}
-	
-	public void selection(int liste, int richtung) {
-		
-	}
 
+	/**
+	 * Setzt Daten von jeder Waffe aus der ObservableList: WaffenListe in die TableView ein
+	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -110,6 +115,11 @@ public class WaffenViewController implements Initializable {
 		tcSchnelligkeit.setCellValueFactory(new PropertyValueFactory<>("Schnelligkeit"));
 	}
 
+	/**
+	 * Sortierbutton: Name
+	 * 
+	 * @param event - sotiert Tabelle nach den Namen
+	 */
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
@@ -121,9 +131,15 @@ public class WaffenViewController implements Initializable {
 			SelectionSort.selectionSortWaffe(WaffenListe, nameZaehler);
 			nameZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: (Waffen)Art
+	 * 
+	 * @param event - sotiert Tabelle nach der WaffenArt
+	 */
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
@@ -135,9 +151,15 @@ public class WaffenViewController implements Initializable {
 			SelectionSort.selectionSortArtWaffe(WaffenListe, artZaehler);
 			artZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Seltenheit
+	 * 
+	 * @param event - sotiert Tabelle nach der Seltenheit
+	 */
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
@@ -149,9 +171,15 @@ public class WaffenViewController implements Initializable {
 			SelectionSort.selectionSortWaffeSeltenheit(WaffenListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Wert
+	 * 
+	 * @param event - sotiert Tabelle nach dem Wert
+	 */
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
@@ -163,9 +191,15 @@ public class WaffenViewController implements Initializable {
 			RadixSort.radixSortWW(WaffenListe, wertZaehler);
 			wertZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Angriff
+	 * 
+	 * @param event - sotiert Tabelle nach dem Angriff
+	 */
 	@FXML
 	private void handleButtonDbAngriffSortierAction(ActionEvent event) {
 		if (angriffZaehler) {
@@ -177,9 +211,15 @@ public class WaffenViewController implements Initializable {
 			RadixSort.radixSortWA(WaffenListe, angriffZaehler);
 			angriffZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Gewicht
+	 * 
+	 * @param event - sotiert Tabelle nach dem Gewicht
+	 */
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
 		if (gewichtZaehler) {
@@ -191,9 +231,15 @@ public class WaffenViewController implements Initializable {
 			SelectionSort.selectionSortWaffeGewicht(WaffenListe, gewichtZaehler);
 			gewichtZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Element
+	 * 
+	 * @param event - sotiert Tabelle nach dem Element
+	 */
 	@FXML
 	private void handleButtonDbElementSortierAction(ActionEvent event) {
 		if (elementZaehler) {
@@ -205,9 +251,15 @@ public class WaffenViewController implements Initializable {
 			SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
 			elementZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
 
+	/**
+	 * Sortierbutton: Schnelligkeit
+	 * 
+	 * @param event - sotiert Tabelle nach dem Schnelligkeit
+	 */
 	@FXML
 	private void handleButtonDbSchnelligkeitSortierAction(ActionEvent event) {
 		if (schnelligkeitZaehler) {
@@ -219,23 +271,38 @@ public class WaffenViewController implements Initializable {
 			RadixSort.radixSortWS(WaffenListe, schnelligkeitZaehler);
 			schnelligkeitZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvWaffen.setItems(WaffenListe);
 	}
-	
+
+	/**
+	 * Suchbutton Event
+	 * 
+	 * @param event - durchsucht Tabelle nach der Sucheingabe (tfSuche)
+	 */
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 	}
+	
+	/**
+	 * Ließt die ItemListe wieder neu aus der Datenbank aus
+	 * 
+	 * @param event - setzt Tabelle auf Anfangszustand zurück
+	 */
+	@FXML
+	private void handleButtonResetAction(ActionEvent event) {
+		tvWaffenUpdate();
+	}
 
+	/**
+	 * Lädt die Waffen aus der Datenbank und setzt sie in die Tabelle ein
+	 */
 	@FXML
 	public void tvWaffenUpdate() {
-
 		WaffenListe.clear();
 		// Daten aus DB holen
 		WaffenListe = DataExchange.getWeaponsFromDb();
-//		for (Waffe waffen : WaffenListe) {
-//			System.out.println(waffen.toString());
-//		}
 		tvWaffen.setItems(WaffenListe);
 	}
 }

@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+/**
+ * Hauptmenü - Szene des Programms
+ */
 public class HauptmenueController {
 
 	@FXML
@@ -23,31 +25,23 @@ public class HauptmenueController {
 	@FXML
 	private Button btBeenden;
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 */
 	@FXML
 	private void handleButtonInventaransichtAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht ge�ffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
 
 		try {
+			// lädt die aktuelle Stage in eine Variable
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
-			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
-			Scene scene = new Scene(root, 1600, 900);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setScene(scene);
 			
-		} catch (IOException iOException) {
-			System.out.println(iOException.getMessage());
-		}
-	}
-
-	@FXML
-	private void handleButtonItemBearbeitenAction(ActionEvent event) {
-		System.out.println("Item bearbeiten wird ge�ffnet\n");
-
-		try {
-			Node source = (Node) event.getSource();
-			Stage stage = (Stage) source.getScene().getWindow();
-			GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("ItemBearbeiten.fxml"));
+			// Für erklärung, Siehe: Main.java -> start
+			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+			root.setId("InventarAnsicht");
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -57,6 +51,11 @@ public class HauptmenueController {
 		}
 	}
 
+	/**
+	 * Schließt die Stage und damit das Programm
+	 * 
+	 * @param event - beendet das Programm
+	 */
 	@FXML
 	private void handleButtonBeendenAction(ActionEvent event) {
 		System.out.println("Jetzt wird das Programm beendet\n");
@@ -65,5 +64,4 @@ public class HauptmenueController {
 		Stage stage = (Stage) source.getScene().getWindow();
 		stage.close();
 	}
-
 }

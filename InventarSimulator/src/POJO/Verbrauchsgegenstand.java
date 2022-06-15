@@ -5,9 +5,9 @@ public class Verbrauchsgegenstand extends Item{
 	public enum Buffs{
 		HE("Heilung"),
 		AU("Ausdauerregeneration"),
-		VE("Verteidigungserhöhung"),
-		AN("Angriffserhöhung"),
-		GE("Geschwindigkeitserhöhung");
+		VE("VerteidigungserhÃ¶hung"),
+		AN("AngriffserhÃ¶hung"),
+		GE("GeschwindigkeitserhÃ¶hung");
 		
 		private String buffs;
 		Buffs(String buffs){

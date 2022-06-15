@@ -1,12 +1,7 @@
 
-
+/*Hauptmenü*/
 #btInventaransicht{
 	-fx-background-color: linear-gradient(white, lime);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
-}
-
-#btItemBearbeiten{
-	-fx-background-color: linear-gradient(white, yellow);
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
 }
 
@@ -15,6 +10,7 @@
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
 }
 
+/*InventarAnsicht*/
 #btItemErstellen{
 	-fx-background-color: linear-gradient(white, green);
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
@@ -29,3 +25,122 @@
 	-fx-background-color: linear-gradient(white, orange);
 	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
 }
+
+#btItemAnsicht{
+	-fx-background-color: linear-gradient(white, cyan);
+	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+}
+
+.tab{
+	-fx-font-family: Serif;
+	-fx-font-weight: bold;
+	-fx-font-size: 17;
+	-fx-background-color: linear-gradient(white, darkorchid);
+	-fx-border-color: darkviolet;
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-pane>.tab-header-area>.tab-header-background {
+   -fx-background-color: linear-gradient(black, lightslategrey);
+}
+
+.tab-pane{
+	-fx-background-color: lightslategrey;
+	-fx-border-color: black;
+}
+
+#tpItemArten{
+	-fx-background-color: rosybrown;
+	-fx-border-color: grey;
+}
+
+/*AllesView*/
+#tcName{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcItemArt{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcSeltenheit{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcWert{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+/*WaffenView*/
+#tcWaffenArt{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcStaerke{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcGewicht{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcElement{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcSchnelligkeit{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+/*RüstungsView*/
+#tcRuestungsArt{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+/*VerbrauchsgegenstandView*/
+#tcVerbrauchsgegenstandsArt{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#tcBuffs{
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+}
+
+#Detailansicht{
+	-fx-background-image: url("../../img/background/detailansicht.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 950 450;
+	-fx-background-position: center center;
+}
+
+#Hauptmenue{
+	-fx-background-image: url("../../img/background/hauptmenue.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 1600 900;
+	-fx-background-position: center center;
+}
+
+#InventarAnsicht{
+	-fx-background-image: url("../../img/background/inventaransicht.jpg");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 300 900;
+	-fx-background-position: right center;
+}
+

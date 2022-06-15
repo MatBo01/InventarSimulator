@@ -5,7 +5,7 @@ public class Item {
 
 	public enum ItemArt{
 		W("Waffe"),
-		R("Rüstung"),
+		R("RÃ¼stung"),
 		V("Verbrauchsgegenstand");
 		
 		private String art;
@@ -18,10 +18,10 @@ public class Item {
 	}
 	public enum Seltenheit{
 		N("Normal"),
-		U("Ungewöhnlich"),
+		U("UngewÃ¶hnlich"),
 		S("Selten"),
 		E("Episch"),
-		L("Legendär");
+		L("LegendÃ¤r");
 		
 		private String seltenheit;
 		Seltenheit(String seltenheit){
