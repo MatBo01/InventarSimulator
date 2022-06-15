@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import POJO.Ruestung;
 import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
+import Suchalgorithmen.LinearSearch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,47 +53,50 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private Button btReset;
-	
+
 	@FXML
 	private TableView<Ruestung> tvRuestung;
-	
+
 	public TableView<Ruestung> getTvRuestung() {
 		return tvRuestung;
 	}
 
 	@FXML
 	private TableColumn<Ruestung, String> tcName;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcRuestungsArt;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcSeltenheit;
-	
+
 	@FXML
 	private TableColumn<Ruestung, Integer> tcWert;
 
 	@FXML
 	private TableColumn<Ruestung, Integer> tcStaerke;
-	
+
 	@FXML
 	private TableColumn<Ruestung, Double> tcGewicht;
-	
+
 	@FXML
 	private TableColumn<Ruestung, String> tcElement;
-	
+
 	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
 
 	public ObservableList<Ruestung> getRuestungsListe() {
 		return RuestungsListe;
 	}
 
+	/**
+	 * Setzt Daten von jeder Rüstung aus der ObservableList: RüstungsListe in die TableView ein
+	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -103,7 +107,12 @@ public class RuestungViewController implements Initializable {
 		tcGewicht.setCellValueFactory(new PropertyValueFactory<>("Gewicht"));
 		tcElement.setCellValueFactory(new PropertyValueFactory<>("Element"));
 	}
-	
+
+	/**
+	 * Sortierbutton: Name
+	 * 
+	 * @param event - sotiert Tabelle nach den Namen
+	 */
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
@@ -115,9 +124,15 @@ public class RuestungViewController implements Initializable {
 			SelectionSort.selectionSortRuestung(RuestungsListe, nameZaehler);
 			nameZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: (Rüstungs)Art
+	 * 
+	 * @param event - sotiert Tabelle nach der RüstungsArt
+	 */
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
@@ -129,9 +144,15 @@ public class RuestungViewController implements Initializable {
 			SelectionSort.selectionSortArtRuestung(RuestungsListe, artZaehler);
 			artZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: Seltenheit
+	 * 
+	 * @param event - sotiert Tabelle nach der Seltenheit
+	 */
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
@@ -143,9 +164,15 @@ public class RuestungViewController implements Initializable {
 			SelectionSort.selectionSortRuestungSeltenheit(RuestungsListe, seltenheitZaehler);
 			seltenheitZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: Wert
+	 * 
+	 * @param event - sotiert Tabelle nach dem Wert
+	 */
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
@@ -157,9 +184,15 @@ public class RuestungViewController implements Initializable {
 			RadixSort.radixSortRW(RuestungsListe, wertZaehler);
 			wertZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: Verteidigung
+	 * 
+	 * @param event - sotiert Tabelle nach dem Verteidigung
+	 */
 	@FXML
 	private void handleButtonDbVerteidigungSortierAction(ActionEvent event) {
 		if (verteidigungZaehler) {
@@ -171,9 +204,15 @@ public class RuestungViewController implements Initializable {
 			RadixSort.radixSortRV(RuestungsListe, verteidigungZaehler);
 			verteidigungZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: Gewicht
+	 * 
+	 * @param event - sotiert Tabelle nach dem Gewicht
+	 */
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
 		if (gewichtZaehler) {
@@ -185,9 +224,15 @@ public class RuestungViewController implements Initializable {
 			SelectionSort.selectionSortRuestungGewicht(RuestungsListe, gewichtZaehler);
 			gewichtZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
 
+	/**
+	 * Sortierbutton: Resistenz
+	 * 
+	 * @param event - sotiert Tabelle nach dem Resistenz
+	 */
 	@FXML
 	private void handleButtonDbResistenzSortierAction(ActionEvent event) {
 		if (resistenzZaehler) {
@@ -199,14 +244,25 @@ public class RuestungViewController implements Initializable {
 			SelectionSort.selectionSortRuestungResistenz(RuestungsListe, resistenzZaehler);
 			resistenzZaehler = true;
 		}
+		// aktualisiert die Tabelle
 		tvRuestung.setItems(RuestungsListe);
 	}
-	
+
+	/**
+	 * Suchbutton Event
+	 * 
+	 * @param event - durchsucht Tabelle nach der Sucheingabe (tfSuche)
+	 */
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
+		tvRuestungsUpdate();
+		tvRuestung.setItems(LinearSearch.ruestung(RuestungsListe, tfSuche.getText()));
+		if(RuestungsListe.size() == 0) {
+			tfSuche.setText("Kein Ergebnis");
+		}
 	}
-	
+
 	/**
 	 * Ließt die ItemListe wieder neu aus der Datenbank aus
 	 * 
@@ -215,17 +271,17 @@ public class RuestungViewController implements Initializable {
 	@FXML
 	private void handleButtonResetAction(ActionEvent event) {
 		tvRuestungsUpdate();
+		tfSuche.setText("");
 	}
-	
+
+	/**
+	 * Lädt die Waffen aus der Datenbank und setzt sie in die Tabelle ein
+	 */
 	@FXML
 	public void tvRuestungsUpdate() {
-		
 		RuestungsListe.clear();
 		// Daten aus DB holen
 		RuestungsListe = DataExchange.getArmorFromDb();
-//		for(Ruestung ruestung: RuestungsListe) {
-//			System.out.println(ruestung.toString());
-//		}
 		tvRuestung.setItems(RuestungsListe);
 	}
 }

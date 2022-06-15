@@ -118,16 +118,22 @@ public class ErstelleVerbrauchsgegenstandController {
 
 		// Name-------------------------
 
-		if (tfName.getText().equals("")) {
-			tError1.setText("Bitte einen Namen eingeben!");
-			keineErrors = false;
-		} else if (tfName.getText().contains(",")) {
-			tError1.setText("Bitte kein ',' benutzen!");
-			keineErrors = false;
-		} else {
-			v.setName(tfName.getText());
-			item.setName(tfName.getText());
-			tError1.setText("");
+		for (Item i : ItemListe) {
+			if (tfName.getText().equals("")) {
+				tError1.setText("Bitte einen Namen eingeben!");
+				keineErrors = false;
+			} else if (tfName.getText().contains(",")) {
+				tError1.setText("Bitte kein ',' benutzen!");
+				keineErrors = false;
+			} else if (i.getName().equals(tfName.getText())) {
+				tError1.setText("Name schon vorhanden!");
+				keineErrors = false;
+				break;
+			} else {
+				v.setName(tfName.getText());
+				item.setName(tfName.getText());
+				tError1.setText("");
+			}
 		}
 
 		// Art---------------------------
@@ -212,6 +218,7 @@ public class ErstelleVerbrauchsgegenstandController {
 				Node source = (Node) event.getSource();
 				Stage stage = (Stage) source.getScene().getWindow();
 				HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+				root.setId("InventarAnsicht");
 				Scene scene = new Scene(root, 1600, 900);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				stage.setScene(scene);
@@ -219,18 +226,6 @@ public class ErstelleVerbrauchsgegenstandController {
 			} catch (IOException iOException) {
 				System.out.println(iOException.getMessage());
 			}
-		}
-
-		System.out.println("\n\n\n");
-
-		for (Verbrauchsgegenstand verbrauchsgegenstaende : VerbrauchsListe) {
-			System.out.println(verbrauchsgegenstaende.toString());
-		}
-
-		System.out.println();
-
-		for (Item items : ItemListe) {
-			System.out.println(items.toString());
 		}
 	}
 
@@ -242,6 +237,7 @@ public class ErstelleVerbrauchsgegenstandController {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
 			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+			root.setId("InventarAnsicht");
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);

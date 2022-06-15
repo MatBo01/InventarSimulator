@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane hgap="50.0" prefHeight="900.0" prefWidth="1600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/1" fx:controller="main.ItemErstellenController">
+<GridPane hgap="50.0" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemErstellenController">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="300.0" />
       <RowConstraints minHeight="10.0" prefHeight="300.0" />
@@ -37,29 +36,17 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btWaffe" mnemonicParsing="false" onAction="#handleButtonErstelleWaffeAction" prefHeight="300.0" prefWidth="300.0" text="Waffe">
-               <font>
-                  <Font name="Serif Bold" size="25.0" />
-               </font>
-            </Button>
+            <Button fx:id="btWaffe" mnemonicParsing="false" onAction="#handleButtonErstelleWaffeAction" prefHeight="300.0" prefWidth="300.0" text="Waffe" />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btRuestung" mnemonicParsing="false" onAction="#handleButtonErstelleRuestungAction" prefHeight="300.0" prefWidth="300.0" text="Rüstung">
-               <font>
-                  <Font name="Serif Bold" size="25.0" />
-               </font>
-            </Button>
+            <Button fx:id="btRuestung" mnemonicParsing="false" onAction="#handleButtonErstelleRuestungAction" prefHeight="300.0" prefWidth="300.0" text="Rüstung" />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btVerbrauchsgegenstand" mnemonicParsing="false" onAction="#handleButtonErstelleVerbrauchsgegenstandAction" prefHeight="300.0" prefWidth="300.0" text="Verbrauchsgegenstand">
-               <font>
-                  <Font name="Serif Bold" size="25.0" />
-               </font>
-            </Button>
+            <Button fx:id="btVerbrauchsgegenstand" mnemonicParsing="false" onAction="#handleButtonErstelleVerbrauchsgegenstandAction" prefHeight="300.0" prefWidth="300.0" text="Verbrauchsgegenstand" />
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">

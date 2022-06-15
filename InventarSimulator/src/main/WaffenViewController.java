@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import POJO.Waffe;
 import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
+import Suchalgorithmen.LinearSearch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -59,7 +60,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private Button btReset;
 
@@ -283,8 +284,13 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
+		tvWaffenUpdate();
+		tvWaffen.setItems(LinearSearch.waffe(WaffenListe, tfSuche.getText()));
+		if(WaffenListe.size() == 0) {
+			tfSuche.setText("Kein Ergebnis");
+		}
 	}
-	
+
 	/**
 	 * Ließt die ItemListe wieder neu aus der Datenbank aus
 	 * 
@@ -293,6 +299,7 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private void handleButtonResetAction(ActionEvent event) {
 		tvWaffenUpdate();
+		tfSuche.setText("");
 	}
 
 	/**

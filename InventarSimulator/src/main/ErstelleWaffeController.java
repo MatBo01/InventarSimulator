@@ -19,6 +19,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * "Formular" zum Erstellen einer Waffe
+ */
 public class ErstelleWaffeController {
 
 	// Name----------------------
@@ -141,6 +144,12 @@ public class ErstelleWaffeController {
 	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
+	/**
+	 * Liest eingaben zum Erstellen einer Waffe ein und speichert diese in die Item-/WaffenListe
+	 * 
+	 * @return keineErrors - boolean ob es bei den Eingaben einen Fehler gab
+	 * @throws IOException
+	 */
 	@FXML
 	private boolean erstelleWaffe() throws IOException {
 
@@ -149,31 +158,41 @@ public class ErstelleWaffeController {
 		WaffenListe.clear();
 		ItemListe.clear();
 
+		// Daten aus DB auslesen
 		WaffenListe = DataExchange.getWeaponsFromDb();
 		ItemListe = DataExchange.getItemsFromDb();
 
 		Waffe w = new Waffe();
 		Item item = new Item();
 
+		// ItemArt wird gespeichert
 		w.setItemArt(Waffe.ItemArt.W);
 		item.setItemArt(Item.ItemArt.W);
 
 		// Name-------------------------
 
-		if (tfName.getText().equals("")) {
-			tError1.setText("Bitte einen Namen eingeben!");
-			keineErrors = false;
-		} else if (tfName.getText().contains(",")) {
-			tError1.setText("Bitte kein ',' benutzen!");
-			keineErrors = false;
-		} else {
-			w.setName(tfName.getText());
-			item.setName(tfName.getText());
-			tError1.setText("");
+		for (Item i : ItemListe) {
+			if (tfName.getText().equals("")) { // prüft ob das TextFeld leer ist
+				tError1.setText("Bitte einen Namen eingeben!");
+				keineErrors = false;
+			} else if (tfName.getText().contains(",")) { // prüft ob das TextFeld ein Komma enthält
+				tError1.setText("Bitte kein ',' benutzen!");
+				keineErrors = false;
+			} else if (i.getName().equals(tfName.getText())) { // prüft ob der Name schon vorhanden ist
+				tError1.setText("Name schon vorhanden!");
+				keineErrors = false;
+				break;
+			} else {
+				// Name wird gespeichert
+				w.setName(tfName.getText());
+				item.setName(tfName.getText());
+				tError1.setText("");
+			}
 		}
 
 		// Art---------------------------
 
+		// prüft, welche Waffenart gewählt wurde, und speicheret sie
 		if (tgArt.getSelectedToggle().equals(rbAxt)) {
 			w.setWaffenArt(Waffe.WaffenArt.AX);
 		} else if (tgArt.getSelectedToggle().equals(rbBogen)) {
@@ -190,6 +209,7 @@ public class ErstelleWaffeController {
 
 		// Seltenheit--------------------
 
+		// prüft, welche Seltenheit gewählt wurde, und speicheret sie
 		if (tgSeltenheit.getSelectedToggle().equals(rbNormal)) {
 			w.setSeltenheit(Waffe.Seltenheit.N);
 			item.setSeltenheit(Item.Seltenheit.N);
@@ -209,16 +229,17 @@ public class ErstelleWaffeController {
 
 		// Wert-------------------------
 
-		if (tfWert.getText().equals("")) {
+		if (tfWert.getText().equals("")) { // prüft ob das TextFeld leer ist
 			tError2.setText("Bitte nur ganze Zahlen eingeben!");
 			keineErrors = false;
 		} else {
 			try {
-				int i = Integer.parseInt(tfWert.getText());
-				if (i < 0) {
+				int i = Integer.parseInt(tfWert.getText()); // prüft ob das TextFeld nur Zahlen enthält
+				if (i < 0) { // prüft ob das TextFeld ein negative Zahl enthält
 					tError2.setText("Bitte keine negativen Zahlen eingeben!");
 					keineErrors = false;
 				} else {
+					// Wert wird gespeichert
 					w.setWert(i);
 					item.setWert(i);
 					tError2.setText("");
@@ -294,6 +315,7 @@ public class ErstelleWaffeController {
 
 		// Element-----------------------
 
+		// prüft, welches Element gewählt wurde, und speicheret sie
 		if (tgElement.getSelectedToggle().equals(rbKeins)) {
 			w.setElement(Waffe.Element.K);
 		} else if (tgElement.getSelectedToggle().equals(rbFeuer)) {
@@ -328,25 +350,14 @@ public class ErstelleWaffeController {
 				Node source = (Node) event.getSource();
 				Stage stage = (Stage) source.getScene().getWindow();
 				HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+				root.setId("InventarAnsicht");
 				Scene scene = new Scene(root, 1600, 900);
 				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				stage.setScene(scene);
-				
+
 			} catch (IOException iOException) {
 				System.out.println(iOException.getMessage());
 			}
-		}
-
-		System.out.println("\n\n\n");
-
-		for (Waffe waffen : WaffenListe) {
-			System.out.println(waffen.toString());
-		}
-
-		System.out.println();
-
-		for (Item items : ItemListe) {
-			System.out.println(items.toString());
 		}
 	}
 
@@ -358,10 +369,11 @@ public class ErstelleWaffeController {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
 			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+			root.setId("InventarAnsicht");
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
-			
+
 		} catch (IOException iOException) {
 			System.out.println(iOException.getMessage());
 		}

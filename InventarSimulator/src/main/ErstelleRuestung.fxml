@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleRuestungController">
+<GridPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ErstelleRuestungController">
    <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="80.0" />
       <RowConstraints minHeight="10.0" prefHeight="80.0" />
@@ -290,9 +290,6 @@
          </cursor>
       </RadioButton>
       <Button fx:id="btErstellen" mnemonicParsing="false" onAction="#handleButtonErstellenAction" prefHeight="50.0" prefWidth="150.0" text="Erstellen " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
          <GridPane.margin>
             <Insets top="50.0" />
          </GridPane.margin>
@@ -301,9 +298,6 @@
          </cursor>
       </Button>
       <Button fx:id="btAbbrechen" mnemonicParsing="false" onAction="#handleButtonAbbrechenAction" prefHeight="50.0" prefWidth="150.0" text="Abbrechen" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="7" GridPane.halignment="LEFT" GridPane.rowIndex="9">
-         <font>
-            <Font name="Serif Regular" size="20.0" />
-         </font>
          <GridPane.margin>
             <Insets left="20.0" top="50.0" />
          </GridPane.margin>

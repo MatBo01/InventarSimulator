@@ -24,12 +24,21 @@ import POJO.Waffe.WaffenArt;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Methoden für den Daten-Austausch zwischen Programm und DatenBank (.txt Datei)
+ */
 public class DataExchange {
 
 	// Item-Liste laden -----------------------------------
 
+	/**
+	 * Ließt alle Items aus der Textdatei Items.txt aus und speichert sie als Objekte in einer ObservableList
+	 * 
+	 * @return - ItemListe in der alle Items gespeichert sind
+	 */
 	public static ObservableList<Item> getItemsFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+
+		// ObservableList in der Objekte(Items) gespeichert werden können, wird erstellt
 		ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -39,7 +48,7 @@ public class DataExchange {
 			s = new Scanner(db);
 
 			while (s.hasNext()) {
-				// neue Person wird erstellt
+				// neues Item wird erstellt
 				Item i = new Item();
 
 				// jede Zeile wird in einen String gespeichert
@@ -48,7 +57,7 @@ public class DataExchange {
 				// String wird bei eingegebenen Zeichen (,) gespaltet und in array gespeichert
 				String[] spalten = zeile.split(",");
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehörige Parameter des Items gespeichert
 				i.setItemArt(ItemArt.valueOf(spalten[0]));
 				i.setName(spalten[1]);
 				i.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -67,8 +76,13 @@ public class DataExchange {
 
 	// Waffen-Liste laden ---------------------------------
 
+	/**
+	 * Ließt alle Waffen aus der Textdatei Items.txt aus und speichert sie als Objekte in einer ObservableList
+	 * 
+	 * @return - WaffenListe in der alle Waffen gespeichert sind
+	 */
 	public static ObservableList<Waffe> getWeaponsFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Waffen) gespeichert werden können, wird erstellt
 		ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -78,7 +92,7 @@ public class DataExchange {
 			s = new Scanner(db);
 
 			while (s.hasNext()) {
-				// neue Person wird erstellt
+				// neue Waffe wird erstellt
 				Waffe w = new Waffe();
 
 				// jede Zeile wird in einen String gespeichert
@@ -91,7 +105,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Waffe gespeichert
 				w.setItemArt(ItemArt.valueOf(spalten[0]));
 				w.setName(spalten[1]);
 				w.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -115,8 +129,13 @@ public class DataExchange {
 
 	// Rüstungs-Liste laden -----------------------------
 
+	/**
+	 * Ließt alle Rüstungen aus der Textdatei Items.txt aus und speichert sie als Objekte in einer ObservableList
+	 * 
+	 * @return - RuestungsListe in der alle Waffen gespeichert sind
+	 */
 	public static ObservableList<Ruestung> getArmorFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Rüstungen) gespeichert werden können, wird erstellt
 		ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -126,7 +145,7 @@ public class DataExchange {
 			s = new Scanner(db);
 
 			while (s.hasNext()) {
-				// neue Person wird erstellt
+				// neue Rüstung wird erstellt
 				Ruestung r = new Ruestung();
 
 				// jede Zeile wird in einen String gespeichert
@@ -139,7 +158,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Rüstung gespeichert
 				r.setItemArt(ItemArt.valueOf(spalten[0]));
 				r.setName(spalten[1]);
 				r.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -162,8 +181,13 @@ public class DataExchange {
 
 	// Verbrauchsgegenstands-Liste laden ------------
 
+	/**
+	 * Ließt alle Verbrauchsgegenstände aus der Textdatei Items.txt aus und speichert sie als Objekte in einer ObservableList
+	 * 
+	 * @return - VerbrauchsgegenstandsListe in der alle Waffen gespeichert sind
+	 */
 	public static ObservableList<Verbrauchsgegenstand> getConsumablesFromDb() {
-		// ObservableList in der Objekte(Personen) gespeichert werden können, wird erstellt
+		// ObservableList in der Objekte(Verbrauchsgegenstände) gespeichert werden können, wird erstellt
 		ObservableList<Verbrauchsgegenstand> VerbrauchsListe = FXCollections.observableArrayList();
 
 		// Textdatei wird eingelesen
@@ -173,7 +197,7 @@ public class DataExchange {
 			s = new Scanner(db);
 
 			while (s.hasNext()) {
-				// neue Person wird erstellt
+				// neuer Verbrauchsgegenstand wird erstellt
 				Verbrauchsgegenstand v = new Verbrauchsgegenstand();
 
 				// jede Zeile wird in einen String gespeichert
@@ -186,7 +210,7 @@ public class DataExchange {
 					continue;
 				}
 
-				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Person gespeichert
+				// jeweilige Werte des Arrays werden in dazugehörige Parameter der Verbrauchsgegenstände gespeichert
 				v.setItemArt(ItemArt.valueOf(spalten[0]));
 				v.setName(spalten[1]);
 				v.setSeltenheit(Seltenheit.valueOf(spalten[2]));
@@ -207,8 +231,15 @@ public class DataExchange {
 
 	// Waffen-Liste speichern ---------------------------------
 
+	/**
+	 * Speichert eine Waffe w in die Datenbank (Item.txt Datei)
+	 * 
+	 * @param w - Objekt: Waffe das in die Datenbank gespeichert wird
+	 * @throws IOException
+	 */
 	public static void safeWeaponToDB(Waffe w) throws IOException {
 
+		// Setzt für Variable seltenheit das Enum des jeweiligen Strings ein
 		String seltenheit = "";
 		switch (w.getSeltenheit()) {
 		case "Normal":
@@ -228,6 +259,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable element das Enum des jeweiligen Strings ein
 		String element = "";
 		switch (w.getElement()) {
 		case " - ":
@@ -253,6 +285,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable waffenArt das Enum des jeweiligen Strings ein
 		String waffenArt = "";
 		switch (w.getWaffenArt()) {
 		case "Axt":
@@ -275,6 +308,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Schreibt einen String für die Waffe ans Ende des Textdokuments
 		try (FileWriter f = new FileWriter("Items.txt", true);
 				BufferedWriter b = new BufferedWriter(f);
 				PrintWriter p = new PrintWriter(b);) {
@@ -289,8 +323,15 @@ public class DataExchange {
 
 	// Rüstungs-Liste speichern ---------------------------------
 
+	/**
+	 * Speichert eine Rüstung r in die Datenbank (Item.txt Datei)
+	 * 
+	 * @param r - Objekt: Rüstung das in die Datenbank gespeichert wird
+	 * @throws IOException
+	 */
 	public static void safeArmorToDB(Ruestung r) throws IOException {
 
+		// Setzt für Variable seltenheit das Enum des jeweiligen Strings ein
 		String seltenheit = "";
 		switch (r.getSeltenheit()) {
 		case "Normal":
@@ -310,6 +351,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable element das Enum des jeweiligen Strings ein
 		String element = "";
 		switch (r.getElement()) {
 		case " - ":
@@ -335,6 +377,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable ruestungsArt das Enum des jeweiligen Strings ein
 		String ruestungsArt = "";
 		switch (r.getRuestungsArt()) {
 		case "Stoffrüstung":
@@ -348,6 +391,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Schreibt einen String für die Rüstung ans Ende des Textdokuments
 		try (FileWriter f = new FileWriter("Items.txt", true);
 				BufferedWriter b = new BufferedWriter(f);
 				PrintWriter p = new PrintWriter(b);) {
@@ -362,8 +406,15 @@ public class DataExchange {
 
 	// Verbrauchsgegenstands-Liste speichern ---------------------------------
 
+	/**
+	 * Speichert einen Verbrauchsgegenstand v in die Datenbank (Item.txt Datei)
+	 * 
+	 * @param v - Objekt: Verbrauchsgegenstand das in die Datenbank gespeichert wird
+	 * @throws IOException
+	 */
 	public static void safeConsumablesToDB(Verbrauchsgegenstand v) throws IOException {
 
+		// Setzt für Variable seltenheit das Enum des jeweiligen Strings ein
 		String seltenheit = "";
 		switch (v.getSeltenheit()) {
 		case "Normal":
@@ -383,6 +434,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable buffs das Enum des jeweiligen Strings ein
 		String buffs = "";
 		switch (v.getBuffs()) {
 		case "Heilung":
@@ -402,6 +454,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Setzt für Variable verbrauchsArt das Enum des jeweiligen Strings ein
 		String verbrauchsArt = "";
 		switch (v.getVerbrauchsgegenstandsArt()) {
 		case "Essen":
@@ -412,6 +465,7 @@ public class DataExchange {
 			break;
 		}
 
+		// Schreibt einen String für die Rüstung ans Ende des Textdokuments
 		try (FileWriter f = new FileWriter("Items.txt", true);
 				BufferedWriter b = new BufferedWriter(f);
 				PrintWriter p = new PrintWriter(b);) {
@@ -423,27 +477,39 @@ public class DataExchange {
 		}
 	}
 
+	// Item löschen -------------------------------------------------------------
+	
+	/**
+	 * Löscht ein Item i aus der Datenbank (Item.txt Datei)
+	 * 
+	 * @param i - Objekt: Item, welche gelöscht werden soll
+	 * @throws FileNotFoundException - Exception wenn eine Datei nicht gefunden werden kann
+	 * @throws IOException
+	 */
 	public static void itemLoeschen(Item i) throws FileNotFoundException, IOException {
 
-		File items = new File("Items.txt");
-		File tempItems = new File("TempItems.txt");
+		
+		File items = new File("Items.txt"); // Datei Items.txt wird ins Programm geladen
+		File tempItems = new File("TempItems.txt"); // Datei TempItems.txt wird ins Programm geladen
 
 		BufferedReader itemsReader = new BufferedReader(new FileReader(items));
 		BufferedWriter itemsWriter = new BufferedWriter(new FileWriter(tempItems));
 
-		String loeschenZeile = i.toString();
+		String loeschenZeile = i.toString(); // Zeile die gelöscht werden soll
 		String aktuelleZeile;
 
-		while ((aktuelleZeile = itemsReader.readLine()) != null) {
-			Item vergleichsItem = new Item();
-			
-			String[] spalten = aktuelleZeile.split(",");
+		while ((aktuelleZeile = itemsReader.readLine()) != null) { // geht Items.txt durch, bis keine Einträge mehr vorhanden sind
+			Item vergleichsItem = new Item(); // Item für den Vergleich mit loeschenZeile
 
+			String[] spalten = aktuelleZeile.split(","); // String wird bei eingegebenen Zeichen (,) gespaltet und in array gespeichert
+
+			// Daten der aktuellen Zeile werden ins Vergleichsitem gespeichert
 			vergleichsItem.setItemArt(ItemArt.valueOf(spalten[0]));
 			vergleichsItem.setName(spalten[1]);
 			vergleichsItem.setSeltenheit(Seltenheit.valueOf(spalten[2]));
 			vergleichsItem.setWert(Integer.parseInt(spalten[3]));
-	
+
+			// Alle jede Zeile die nicht mit der loeschenZeile übereinstimmen, werden in TempItems.txt geschrieben
 			if (vergleichsItem.toString().equals(loeschenZeile)) {
 				continue;
 			}
@@ -453,43 +519,8 @@ public class DataExchange {
 		itemsReader.close();
 		itemsWriter.close();
 
+		// Items.txt wird gelöscht und TempItems.txt wird in Items.txt umbenannt
 		items.delete();
 		tempItems.renameTo(items);
-	}
-
-	public static void main(String[] args) {
-		ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
-		WaffenListe = getWeaponsFromDb();
-		System.out.println(WaffenListe.isEmpty());
-		for (Waffe waffen : WaffenListe) {
-			System.out.println(waffen.toString());
-		}
-
-		System.out.println();
-
-		ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
-		RuestungsListe = getArmorFromDb();
-		System.out.println(RuestungsListe.isEmpty());
-		for (Ruestung ruestungen : RuestungsListe) {
-			System.out.println(ruestungen.toString());
-		}
-
-		System.out.println();
-
-		ObservableList<Verbrauchsgegenstand> VerbrauchsListe = FXCollections.observableArrayList();
-		VerbrauchsListe = getConsumablesFromDb();
-		System.out.println(VerbrauchsListe.isEmpty());
-		for (Verbrauchsgegenstand verbrauchsgegenstaende : VerbrauchsListe) {
-			System.out.println(verbrauchsgegenstaende.toString());
-		}
-
-		System.out.println();
-
-		ObservableList<Item> ItemListe = FXCollections.observableArrayList();
-		ItemListe = getItemsFromDb();
-		System.out.println(VerbrauchsListe.isEmpty());
-		for (Item item : ItemListe) {
-			System.out.println(item.toString());
-		}
 	}
 }

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import POJO.Item;
 import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
+import Suchalgorithmen.LinearSearch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -167,7 +168,11 @@ public class AllesViewController implements Initializable {
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
-
+		tvItemsUpdate();
+		tvItems.setItems(LinearSearch.alles(ItemListe, tfSuche.getText()));
+		if(ItemListe.size() == 0) {
+			tfSuche.setText("Kein Ergebnis");
+		}
 	}
 	
 	/**
@@ -178,6 +183,7 @@ public class AllesViewController implements Initializable {
 	@FXML
 	private void handleButtonResetAction(ActionEvent event) {
 		tvItemsUpdate();
+		tfSuche.setText("");
 	}
 
 	

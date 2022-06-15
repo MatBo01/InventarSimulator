@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import POJO.Verbrauchsgegenstand;
 import Sortieralgorithmen.RadixSort;
 import Sortieralgorithmen.SelectionSort;
+import Suchalgorithmen.LinearSearch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Tabellen-Anzeige für alle Verbrauchsgegenstände in der Datenbank, inklusive Sortierbuttons und Suchfeld
+ */
 public class VerbrauchsgegenstandViewController implements Initializable{
 	
 	@FXML
@@ -76,6 +80,9 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		return VerbrauchsgegenstandsListe;
 	}
 
+	/**
+	 * Setzt Daten von jedem Verbrauchsgegenstand aus der ObservableList: VerbrauchsgegenstandsListe in die TableView ein
+	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -85,6 +92,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tcBuffs.setCellValueFactory(new PropertyValueFactory<>("Buffs"));
 	}
 	
+	/**
+	 * Sortierbutton: Name
+	 * 
+	 * @param event - sotiert Tabelle nach den Namen
+	 */
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
 		if (nameZaehler) {
@@ -99,6 +111,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
+	/**
+	 * Sortierbutton: (Verbrauchsgegenstands)Art
+	 * 
+	 * @param event - sotiert Tabelle nach der VerbrauchsgegenstandsArt
+	 */
 	@FXML
 	private void handleButtonDbArtSortierAction(ActionEvent event) {
 		if (artZaehler) {
@@ -113,6 +130,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
+	/**
+	 * Sortierbutton: Seltenheit
+	 * 
+	 * @param event - sotiert Tabelle nach der Seltenheit
+	 */
 	@FXML
 	private void handleButtonDbSeltenheitSortierAction(ActionEvent event) {
 		if (seltenheitZaehler) {
@@ -127,6 +149,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
+	/**
+	 * Sortierbutton: Wert
+	 * 
+	 * @param event - sotiert Tabelle nach dem Wert
+	 */
 	@FXML
 	private void handleButtonDbWertSortierAction(ActionEvent event) {
 		if (wertZaehler) {
@@ -141,6 +168,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 
+	/**
+	 * Sortierbutton: Buffs
+	 * 
+	 * @param event - sotiert Tabelle nach dem Buffs
+	 */
 	@FXML
 	private void handleButtonDbBuffsSortierAction(ActionEvent event) {
 		if (buffsZaehler) {
@@ -155,10 +187,19 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
 	
+	/**
+	 * Suchbutton Event
+	 * 
+	 * @param event - durchsucht Tabelle nach der Sucheingabe (tfSuche)
+	 */
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
-		
+		tvVerbrauchsgegenstaendeUpdate();
+        tvVerbrauchsgegenstaende.setItems(LinearSearch.verbrauchsgegenstand(VerbrauchsgegenstandsListe, tfSuche.getText()));
+        if(VerbrauchsgegenstandsListe.size() == 0) {
+			tfSuche.setText("Kein Ergebnis");
+		}
 	}
 	
 	/**
@@ -169,11 +210,14 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	@FXML
 	private void handleButtonResetAction(ActionEvent event) {
 		tvVerbrauchsgegenstaendeUpdate();
+		tfSuche.setText("");
 	}
 	
+	/**
+	 * Lädt die Waffen aus der Datenbank und setzt sie in die Tabelle ein
+	 */
 	@FXML
 	public void tvVerbrauchsgegenstaendeUpdate() {
-		
 		VerbrauchsgegenstandsListe.clear();
 		// Daten aus DB holen
 		VerbrauchsgegenstandsListe = DataExchange.getConsumablesFromDb();

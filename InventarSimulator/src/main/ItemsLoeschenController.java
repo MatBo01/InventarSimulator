@@ -23,7 +23,7 @@ public class ItemsLoeschenController {
 	private Text tError;
 
 	@FXML
-	private Button btZurueck;
+	private Button btZurueck2;
 
 	@FXML
 	AllesViewController allesViewController;
@@ -54,6 +54,7 @@ public class ItemsLoeschenController {
 			Node source = (Node) event.getSource();
 			Stage stage = (Stage) source.getScene().getWindow();
 			HBox root = (HBox) FXMLLoader.load(getClass().getResource("InventarAnsicht.fxml"));
+			root.setId("InventarAnsicht");
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);

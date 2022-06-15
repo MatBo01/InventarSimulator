@@ -1,146 +1,145 @@
-
-/*Hauptmenü*/
-#btInventaransicht{
-	-fx-background-color: linear-gradient(white, lime);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+.button {
+	-fx-font-family: Serif;
+	-fx-font-weight: bold;
 }
 
-#btBeenden{
-	-fx-background-color: linear-gradient(white, red);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
+.text-field {
+	-fx-font-family: Serif;
+	-fx-font-size: 14;
 }
 
-/*InventarAnsicht*/
-#btItemErstellen{
-	-fx-background-color: linear-gradient(white, green);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
-}
 
-#btItemLoeschen{
-	-fx-background-color: linear-gradient(white, red);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
-}
 
-#btHauptmenue{
-	-fx-background-color: linear-gradient(white, orange);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
-}
-
-#btItemAnsicht{
-	-fx-background-color: linear-gradient(white, cyan);
-	-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0.6),5, 0.0, 0, 1);
-}
-
-.tab{
+.tab {
 	-fx-font-family: Serif;
 	-fx-font-weight: bold;
 	-fx-font-size: 17;
-	-fx-background-color: linear-gradient(white, darkorchid);
-	-fx-border-color: darkviolet;
-	-fx-border-radius: 10;
-	-fx-background-radius: 10;
+/*	-fx-background-color: transparent;*/
 }
 
-.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
-    -fx-border-color: transparent;
+.tab-pane:focused>.tab-header-area>.headers-region>.tab:selected .focus-indicator
+	{
+	-fx-border-color: transparent;
 }
 
 .tab-pane>.tab-header-area>.tab-header-background {
-   -fx-background-color: linear-gradient(black, lightslategrey);
+	-fx-background-color: transparent;
 }
 
-.tab-pane{
-	-fx-background-color: lightslategrey;
-	-fx-border-color: black;
+.tab-pane {
+	-fx-background-color: transparent;
 }
 
-#tpItemArten{
-	-fx-background-color: rosybrown;
-	-fx-border-color: grey;
+.table-view {
+	-fx-background-color: white;
+	-fx-opacity: 70%;
 }
 
-/*AllesView*/
+.table-row-cell {
+	-fx-background-color: transparent;
+	-fx-border-color: lightgrey;
+	-fx-cell-size: 30px;
+}
+
+.table-row-cell:selected{
+	-fx-background-color: aquamarine;
+}
+
+.table-column {
+	-fx-font-family: Serif;
+	-fx-font-size: 16;
+	-fx-dark-text-color: black ;
+	-fx-mid-text-color: black ;
+	-fx-light-text-color: black ;
+}
+
 #tcName{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
+	-fx-font-weight: bold;
 }
 
-#tcItemArt{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
+/*----Hauptmenü---------------------------------------*/
+#btInventaransicht, #btBeenden {
+	-fx-font-size: 25;
 }
 
-#tcSeltenheit{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcWert{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-/*WaffenView*/
-#tcWaffenArt{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcStaerke{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcGewicht{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcElement{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcSchnelligkeit{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-/*RüstungsView*/
-#tcRuestungsArt{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-/*VerbrauchsgegenstandView*/
-#tcVerbrauchsgegenstandsArt{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#tcBuffs{
-	-fx-font-family: Serif;
-	-fx-font-size: 16;
-}
-
-#Detailansicht{
-	-fx-background-image: url("../../img/background/detailansicht.png");
-	-fx-background-repeat: stretch;
-	-fx-background-size: 950 450;
-	-fx-background-position: center center;
-}
-
-#Hauptmenue{
+#Hauptmenue {
 	-fx-background-image: url("../../img/background/hauptmenue.png");
 	-fx-background-repeat: stretch;
 	-fx-background-size: 1600 900;
 	-fx-background-position: center center;
 }
 
-#InventarAnsicht{
-	-fx-background-image: url("../../img/background/inventaransicht.jpg");
-	-fx-background-repeat: no-repeat;
-	-fx-background-size: 300 900;
-	-fx-background-position: right center;
+/*----Inventaransicht---------------------------------*/
+#btItemAnsicht {
+	-fx-font-size: 14;
 }
 
+#btName, #btArt, #btSeltenheit, #btWert, #btAngriff, #btVerteidigung,
+	#btGewicht, #btElement, #btResistenz, #btSchnelligkeit, #btBuffs {
+	-fx-background-color: none;
+	-fx-background-image: url("../../img/buttons/sortierbuttons.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 100 30;
+	-fx-background-position: center center;
+}
+
+#btHauptmenue, #btItemErstellen, #btItemLoeschen {
+	-fx-font-size: 18;
+}
+
+#InventarAnsicht {
+	-fx-background-image:
+		url("../../img/background/inventaransicht.png");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 1600 900;
+	-fx-background-position: center center;
+}
+
+/*----Alles-/Waffen-/Rüstungs-/Verbrauchs-View--------*/
+#btName, #btArt, #btSeltenheit, #btWert, #btAngriff, #btVerteidigung,
+	#btGewicht, #btElement, #btResistenz, #btSchnelligkeit, #btBuffs {
+	-fx-font-size: 14;
+}
+
+#btReset {
+	-fx-font-size: 14;
+}
+
+#btSuchen {
+	-fx-font-size: 14;
+}
+
+/*----Item-Erstellen-----------------------------------*/
+#btWaffe, #btRuestung, #btVerbrauchsgegenstand {
+	-fx-font-size: 25;
+}
+
+/*----Erstelle Waffe/Rüstung/Verbra...-----------------*/
+#btErstellen, #btAbbrechen {
+	-fx-font-size: 20;
+}
+
+/*----Item-Löschen-------------------------------------*/
+#btDauerhaftLoeschen, #btZurueck2 {
+	-fx-font-size: 18;
+}
+
+/*----Item-Ansicht-Waffe/Rüstung/Verbra...-------------*/
+#btZurueck {
+	-fx-font-size: 16;
+}
+
+#Detailansicht {
+	-fx-background-image: url("../../img/background/detailansicht.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 950 450;
+	-fx-background-position: center center;
+}
+
+
+/*----Error-Nachrichten---------------------------------*/
+
+#tError,#tError1,#tError2,#tError3,#tError4,#tError5{
+	-fx-font-family: Serif;
+	-fx-font-size: 14;
+}

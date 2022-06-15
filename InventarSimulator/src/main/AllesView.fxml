@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AllesViewController">
+<VBox prefHeight="851.0" prefWidth="1398.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AllesViewController">
    <children>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
@@ -17,38 +17,23 @@
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
             </Button>
             <Button fx:id="btArt" mnemonicParsing="false" onAction="#handleButtonDbArtSortierAction" prefHeight="30.0" prefWidth="100.0" text="Art">
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="btSeltenheit" mnemonicParsing="false" onAction="#handleButtonDbSeltenheitSortierAction" prefHeight="30.0" prefWidth="100.0" text="Seltenheit">
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="btWert" mnemonicParsing="false" onAction="#handleButtonDbWertSortierAction" prefHeight="30.0" prefWidth="100.0" text="Wert">
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="20.0" top="10.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="btReset" mnemonicParsing="false" onAction="#handleButtonResetAction" prefHeight="30.0" prefWidth="80.0" text="Reset">
-               <font>
-                  <Font name="Serif Regular" size="14.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="10.0" left="560.0" top="10.0" />
                </HBox.margin>
@@ -62,9 +47,6 @@
                </font>
             </TextField>
             <Button fx:id="btSuchen" mnemonicParsing="false" onAction="#handleButtonDbSuchenAction" prefHeight="34.0" prefWidth="34.0" text="🔍">
-               <font>
-                  <Font name="Serif Bold" size="14.0" />
-               </font>
                <HBox.margin>
                   <Insets bottom="8.0" left="10.0" top="8.0" />
                </HBox.margin>

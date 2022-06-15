@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemsLoeschenController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ItemsLoeschenController">
    <children>
       <AnchorPane prefHeight="900.0" prefWidth="1400.0">
          <children>
@@ -28,9 +27,6 @@
                </VBox.margin>
             </Text>
             <Button fx:id="btDauerhaftLoeschen" mnemonicParsing="false" onAction="#handleButtonDauerhaftLoeschenAction" prefHeight="60.0" prefWidth="140.0" text="Dauerhaft Loeschen" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Serif Bold" size="18.0" />
-               </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -38,10 +34,7 @@
                   <Insets left="30.0" right="30.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btZurueck" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="50.0" prefWidth="140.0" text="Zurück" textAlignment="CENTER">
-               <font>
-                  <Font name="Serif Bold" size="18.0" />
-               </font>
+            <Button fx:id="btZurueck2" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="50.0" prefWidth="140.0" text="Zurück" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
