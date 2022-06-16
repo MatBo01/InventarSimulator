@@ -87,7 +87,7 @@
 	-fx-font-size: 18;
 }
 
-#InventarAnsicht {
+#InventarAnsicht,#ItemsLoeschen {
 	-fx-background-image:
 		url("../../img/background/inventaransicht.png");
 	-fx-background-repeat: no-repeat;

@@ -17,7 +17,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("Hauptmenue.fxml")); // Lädt die Szene Hauptmenü.fxml
+			GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("/hauptmenue/Hauptmenue.fxml")); // Lädt die Szene Hauptmenü.fxml
 			root.setId("Hauptmenue"); // Id-Verbindung für Methode in application.css
 			
 			Scene scene = new Scene(root, 1600, 900); // Speichert Szene mit angegebener Größe
