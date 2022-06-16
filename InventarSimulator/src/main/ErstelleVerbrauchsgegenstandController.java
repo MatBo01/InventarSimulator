@@ -19,6 +19,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * "Formular" zum Erstellen einer Waffe
+ */
 public class ErstelleVerbrauchsgegenstandController {
 
 	// Name----------------------
@@ -99,6 +102,12 @@ public class ErstelleVerbrauchsgegenstandController {
 	private ObservableList<Verbrauchsgegenstand> VerbrauchsListe = FXCollections.observableArrayList();
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
+	/**
+	 * Liest eingaben zum Erstellen eines Verbrauchsgegenstands ein und speichert diesen in die Item-/VerbrauchsListe
+	 * 
+	 * @return keineErrors - boolean ob es bei den Eingaben einen Fehler gab
+	 * @throws IOException
+	 */
 	@FXML
 	private boolean erstelleVerbrauchsgegenstand() throws IOException {
 
@@ -107,29 +116,32 @@ public class ErstelleVerbrauchsgegenstandController {
 		VerbrauchsListe.clear();
 		ItemListe.clear();
 
+		// Daten aus DB auslesen
 		VerbrauchsListe = DataExchange.getConsumablesFromDb();
 		ItemListe = DataExchange.getItemsFromDb();
 
 		Verbrauchsgegenstand v = new Verbrauchsgegenstand();
 		Item item = new Item();
 
+		// ItemArt wird gespeichert
 		v.setItemArt(Verbrauchsgegenstand.ItemArt.V);
 		item.setItemArt(Item.ItemArt.V);
 
 		// Name-------------------------
 
 		for (Item i : ItemListe) {
-			if (tfName.getText().equals("")) {
+			if (tfName.getText().equals("")) { // prüft ob das TextFeld leer ist
 				tError1.setText("Bitte einen Namen eingeben!");
 				keineErrors = false;
-			} else if (tfName.getText().contains(",")) {
+			} else if (tfName.getText().contains(",")) { // prüft ob das TextFeld ein Komma enthält
 				tError1.setText("Bitte kein ',' benutzen!");
 				keineErrors = false;
-			} else if (i.getName().equals(tfName.getText())) {
+			} else if (i.getName().equals(tfName.getText())) { // prüft ob der Name schon vorhanden ist
 				tError1.setText("Name schon vorhanden!");
 				keineErrors = false;
 				break;
 			} else {
+				// Name wird gespeichert
 				v.setName(tfName.getText());
 				item.setName(tfName.getText());
 				tError1.setText("");
@@ -138,6 +150,7 @@ public class ErstelleVerbrauchsgegenstandController {
 
 		// Art---------------------------
 
+		// prüft, welche Verbrauchsgegenstandsart gewählt wurde, und speicheret sie
 		if (tgArt.getSelectedToggle().equals(rbTrank)) {
 			v.setVerbrauchsgegenstandsArt(Verbrauchsgegenstand.VerbrauchsgegenstandsArt.T);
 		} else if (tgArt.getSelectedToggle().equals(rbEssen)) {
@@ -146,6 +159,7 @@ public class ErstelleVerbrauchsgegenstandController {
 
 		// Seltenheit--------------------
 
+		// prüft, welche Seltenheit gewählt wurde, und speicheret sie
 		if (tgSeltenheit.getSelectedToggle().equals(rbNormal)) {
 			v.setSeltenheit(Verbrauchsgegenstand.Seltenheit.N);
 			item.setSeltenheit(Item.Seltenheit.N);
@@ -165,16 +179,17 @@ public class ErstelleVerbrauchsgegenstandController {
 
 		// Wert-------------------------
 
-		if (tfWert.getText().equals("")) {
+		if (tfWert.getText().equals("")) { // prüft ob das TextFeld leer ist
 			tError2.setText("Bitte nur ganze Zahlen eingeben!");
 			keineErrors = false;
 		} else {
 			try {
-				int i = Integer.parseInt(tfWert.getText());
-				if (i < 0) {
+				int i = Integer.parseInt(tfWert.getText()); // prüft ob das TextFeld nur Zahlen enthält
+				if (i < 0) { // prüft ob das TextFeld ein negative Zahl enthält
 					tError2.setText("Bitte keine negativen Zahlen eingeben!");
 					keineErrors = false;
 				} else {
+					// Wert wird gespeichert
 					v.setWert(i);
 					item.setWert(i);
 					tError2.setText("");
@@ -187,6 +202,7 @@ public class ErstelleVerbrauchsgegenstandController {
 
 		// Buffs-------------------------
 
+		// prüft, welche Buffs gewählt wurde, und speicheret ihn
 		if (tgBuffs.getSelectedToggle().equals(rbHeilung)) {
 			v.setBuffs(Verbrauchsgegenstand.Buffs.HE);
 		} else if (tgBuffs.getSelectedToggle().equals(rbAusdauer)) {
@@ -209,6 +225,12 @@ public class ErstelleVerbrauchsgegenstandController {
 		return keineErrors;
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage wenn erstelleVerbrauchsgegenstand() keine Errors hat und speichert Verbrauchsgegenstand in DB
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 * @throws IOException
+	 */
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleVerbrauchsgegenstand()) {
@@ -229,6 +251,11 @@ public class ErstelleVerbrauchsgegenstandController {
 		}
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 */
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
 		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");

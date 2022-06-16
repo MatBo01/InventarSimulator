@@ -127,6 +127,12 @@ public class ErstelleRuestungController {
 	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
 
+	/**
+	 * Liest eingaben zum Erstellen einer Rüstung ein und speichert diese in die Item-/RuestungsListe
+	 * 
+	 * @return keineErrors - boolean ob es bei den Eingaben einen Fehler gab
+	 * @throws IOException
+	 */
 	@FXML
 	private boolean erstelleRuestung() throws IOException {
 
@@ -135,29 +141,32 @@ public class ErstelleRuestungController {
 		RuestungsListe.clear();
 		ItemListe.clear();
 
+		// Daten aus DB auslesen
 		RuestungsListe = DataExchange.getArmorFromDb();
 		ItemListe = DataExchange.getItemsFromDb();
 
 		Ruestung r = new Ruestung();
 		Item item = new Item();
 
+		// ItemArt wird gespeichert
 		r.setItemArt(Ruestung.ItemArt.R);
 		item.setItemArt(Item.ItemArt.R);
 
 		// Name-------------------------
 
 		for (Item i : ItemListe) {
-			if (tfName.getText().equals("")) {
+			if (tfName.getText().equals("")) { // prüft ob das TextFeld leer ist
 				tError1.setText("Bitte einen Namen eingeben!");
 				keineErrors = false;
-			} else if (tfName.getText().contains(",")) {
+			} else if (tfName.getText().contains(",")) { // prüft ob das TextFeld ein Komma enthält
 				tError1.setText("Bitte kein ',' benutzen!");
 				keineErrors = false;
-			} else if (i.getName().equals(tfName.getText())) {
+			} else if (i.getName().equals(tfName.getText())) { // prüft ob der Name schon vorhanden ist
 				tError1.setText("Name schon vorhanden!");
 				keineErrors = false;
 				break;
 			} else {
+				// Name wird gespeichert
 				r.setName(tfName.getText());
 				item.setName(tfName.getText());
 				tError1.setText("");
@@ -166,6 +175,7 @@ public class ErstelleRuestungController {
 
 		// Art---------------------------
 
+		// prüft, welche Rüstungsart gewählt wurde, und speicheret sie
 		if (tgArt.getSelectedToggle().equals(rbStoffruestung)) {
 			r.setRuestungsArt(Ruestung.RuestungsArt.STO);
 		} else if (tgArt.getSelectedToggle().equals(rbLederruestung)) {
@@ -176,6 +186,7 @@ public class ErstelleRuestungController {
 
 		// Seltenheit--------------------
 
+		// prüft, welche Seltenheit gewählt wurde, und speicheret sie
 		if (tgSeltenheit.getSelectedToggle().equals(rbNormal)) {
 			r.setSeltenheit(Ruestung.Seltenheit.N);
 			item.setSeltenheit(Item.Seltenheit.N);
@@ -195,16 +206,17 @@ public class ErstelleRuestungController {
 
 		// Wert-------------------------
 
-		if (tfWert.getText().equals("")) {
+		if (tfWert.getText().equals("")) { // prüft ob das TextFeld leer ist
 			tError2.setText("Bitte nur ganze Zahlen eingeben!");
 			keineErrors = false;
 		} else {
 			try {
-				int i = Integer.parseInt(tfWert.getText());
-				if (i < 0) {
+				int i = Integer.parseInt(tfWert.getText()); // prüft ob das TextFeld nur Zahlen enthält
+				if (i < 0) { // prüft ob das TextFeld ein negative Zahl enthält
 					tError2.setText("Bitte keine negativen Zahlen eingeben!");
 					keineErrors = false;
 				} else {
+					// Wert wird gespeichert
 					r.setWert(i);
 					item.setWert(i);
 					tError2.setText("");
@@ -257,8 +269,9 @@ public class ErstelleRuestungController {
 			}
 		}
 
-		// Element-----------------------
+		// Resistenz-----------------------
 
+		// prüft, welche Resistenz gewählt wurde, und speicheret sie
 		if (tgResistenz.getSelectedToggle().equals(rbKeins)) {
 			r.setElement(Ruestung.Element.K);
 		} else if (tgResistenz.getSelectedToggle().equals(rbFeuer)) {
@@ -284,6 +297,12 @@ public class ErstelleRuestungController {
 		return keineErrors;
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage wenn erstelleRuestung() keine Errors hat und speichert Rüstung in DB
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 * @throws IOException
+	 */
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {
 		if (erstelleRuestung()) {
@@ -304,6 +323,11 @@ public class ErstelleRuestungController {
 		}
 	}
 
+	/**
+	 * Lädt die Szene "InventarAnsicht" in die Stage
+	 * 
+	 * @param event - öffnet InventarAnsicht
+	 */
 	@FXML
 	private void handleButtonAbbrechenAction(ActionEvent event) {
 		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");

@@ -345,6 +345,7 @@ public class ErstelleWaffeController {
 	 * Lädt die Szene "InventarAnsicht" in die Stage wenn erstelleWaffe() keine Errors hat und speichert Waffe in DB
 	 * 
 	 * @param event - öffnet InventarAnsicht
+	 * @throws IOException
 	 */
 	@FXML
 	private void handleButtonErstellenAction(ActionEvent event) throws IOException {

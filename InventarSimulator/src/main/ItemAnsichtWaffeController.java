@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Detailansichstsfenster für Waffen
+ */
 public class ItemAnsichtWaffeController {
 
 	@FXML
@@ -52,6 +55,12 @@ public class ItemAnsichtWaffeController {
 	@FXML
 	InventarAnsichtController inventarAnsichtController;
 
+	/**
+	 * Setzt Daten einer Waffe in die Textfelder der Szene ein
+	 * 
+	 * @param w - ausgewählte Waffe
+	 * @throws FileNotFoundException - Exception wenn eine Datei nicht gefunden werden kann
+	 */
 	public void setInformation(Waffe w) throws FileNotFoundException {
 		tName.setText(w.getName());
 		tAusruestungsArt.setText(w.getItemArt());
@@ -63,6 +72,7 @@ public class ItemAnsichtWaffeController {
 		tElement.setText(w.getElement());
 		tSchnelligkeit.setText("" + w.getWert());
 
+		// Setzt je nach WaffenArt ein anderes Bild in die ImageView ein
 		InputStream axt = new FileInputStream("img/waffen/axt.png");
 		InputStream bogen = new FileInputStream("img/waffen/bogen.png");
 		InputStream dolch = new FileInputStream("img/waffen/dolch.png");
@@ -100,6 +110,11 @@ public class ItemAnsichtWaffeController {
 		ivBild.setImage(image);
 	}
 
+	/**
+	 * Schließt das Fenster
+	 * 
+	 * @param event - Fenster wird geschlossen
+	 */
 	@FXML
 	private void handleButtonZurueckAction(ActionEvent event) {
 		System.out.println("Fenster wird geschlossen\n");

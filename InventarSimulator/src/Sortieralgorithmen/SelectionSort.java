@@ -289,7 +289,7 @@ public class SelectionSort {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
 						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
-					for (int n = j - 1; n > 0; n--) {
+					for (int n = j - 1; n >= 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
 							min = n;
 							break;
@@ -306,7 +306,7 @@ public class SelectionSort {
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
 						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")) {
-					for (int n = j - 1; n > 0; n--) {
+					for (int n = j - 1; n >= 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
 							break;

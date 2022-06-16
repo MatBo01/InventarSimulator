@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Detailansichstsfenster für Rüstungen
+ */
 public class ItemAnsichtRuestungController {
 
 	@FXML
@@ -49,6 +52,12 @@ public class ItemAnsichtRuestungController {
 	@FXML
 	InventarAnsichtController inventarAnsichtController;
 	
+	/**
+	 * Setzt Daten einer Rüstung in die Textfelder der Szene ein
+	 * 
+	 * @param r - ausgewählte Rüstung
+	 * @throws FileNotFoundException - Exception wenn eine Datei nicht gefunden werden kann
+	 */
 	public void setInformation(Ruestung r) throws FileNotFoundException {
 		tName.setText(r.getName());
 		tAusruestungsArt.setText(r.getItemArt());
@@ -59,6 +68,7 @@ public class ItemAnsichtRuestungController {
 		tGewicht.setText(""+ r.getGewicht());
 		tResistenz.setText(r.getElement());
 		
+		// Setzt je nach RüstungsArt ein anderes Bild in die ImageView ein
 		InputStream  stoff = new FileInputStream("img/ruestungen/stoffruestung.png");
 		InputStream leder = new FileInputStream("img/ruestungen/lederruestung.png");
 		InputStream stahl = new FileInputStream("img/ruestungen/stahlruestung.png");
@@ -80,7 +90,12 @@ public class ItemAnsichtRuestungController {
 		}
 		ivBild.setImage(image);
 	}
-
+	
+	/**
+	 * Schließt das Fenster
+	 * 
+	 * @param event - Fenster wird geschlossen
+	 */
 	@FXML
 	private void handleButtonZurueckAction(ActionEvent event) {
 		System.out.println("Fenster wird geschlossen\n");
