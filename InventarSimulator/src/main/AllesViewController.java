@@ -67,15 +67,15 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbNameSortierAction(ActionEvent event) {
-		if (nameZaehler) {
+		if (!nameZaehler) {
 			// sortierung aufsteigend
 			SelectionSort.selectionSort(ItemListe, nameZaehler);
 
-			nameZaehler = false;
-		} else if (!nameZaehler) {
+			nameZaehler = true;
+		} else if (nameZaehler) {
 			// sortierung absteigend
 			SelectionSort.selectionSort(ItemListe, nameZaehler);
-			nameZaehler = true;
+			nameZaehler = false;
 		}
 		tvItems.setItems(ItemListe);
 	}

@@ -3,9 +3,9 @@ package POJO;
 public class Ruestung extends Ausruestung {
 
 	public enum RuestungsArt{
-		STO("Stoffrüstung"),
-		LED("Lederrüstung"),
-		STA("Stahlrüstung");
+		STO("StoffrÃ¼stung"),
+		LED("LederrÃ¼stung"),
+		STA("StahlrÃ¼stung");
 		
 		private String ruestungsArt;
 		RuestungsArt(String ruestungsArt){

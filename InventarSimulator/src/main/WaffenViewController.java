@@ -41,7 +41,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btElement;
@@ -53,7 +53,7 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
 
@@ -84,8 +84,7 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private TableColumn<Waffe, Integer> tcSchnelligkeit;
 
-	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList(); 
-	
+	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -118,12 +117,12 @@ public class WaffenViewController implements Initializable {
 		if (artZaehler) {
 			// sortierung aufsteigend
 			SelectionSort.selectionSortArtWaffe(WaffenListe, artZaehler);
-			artZaehler=false;
+			artZaehler = false;
 		} else if (!artZaehler) {
 			// sortierung absteigend
 			SelectionSort.selectionSortArtWaffe(WaffenListe, artZaehler);
 
-			artZaehler=true;
+			artZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
@@ -133,11 +132,11 @@ public class WaffenViewController implements Initializable {
 		if (seltenheitZaehler) {
 			// sortierung aufsteigend
 			SelectionSort.selectionSortWaffeSeltenheit(WaffenListe, seltenheitZaehler);
-			seltenheitZaehler=false;
+			seltenheitZaehler = false;
 		} else if (!seltenheitZaehler) {
 			// sortierung absteigend
 			SelectionSort.selectionSortWaffeSeltenheit(WaffenListe, seltenheitZaehler);
-			seltenheitZaehler=true;
+			seltenheitZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
@@ -147,12 +146,12 @@ public class WaffenViewController implements Initializable {
 		if (wertZaehler) {
 			RadixSort.radixSort(WaffenListe, wertZaehler);
 
-			wertZaehler= false;
+			wertZaehler = false;
 		} else if (!wertZaehler) {
 			// sortierung absteigend
 			System.out.println("Wsasagasgas");
 			RadixSort.radixSort(WaffenListe, wertZaehler);
-			wertZaehler= true;
+			wertZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
@@ -173,28 +172,28 @@ public class WaffenViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
+		if (gewichtZaehler) {
 			// sortierung aufsteigend
-
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			SelectionSort.selectionSortWaffeGewicht(WaffenListe, gewichtZaehler);
+			gewichtZaehler = false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
-			gewichtZaehler--;
+			SelectionSort.selectionSortWaffeGewicht(WaffenListe, gewichtZaehler);
+			gewichtZaehler = true;
 		}
-		tvWaffenUpdate();
+		tvWaffen.setItems(WaffenListe);
 	}
 
 	@FXML
 	private void handleButtonDbElementSortierAction(ActionEvent event) {
 		if (elementZaehler) {
 			// sortierung aufsteigend
-SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
-			elementZaehler=false;
+			SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
+			elementZaehler = false;
 		} else if (!elementZaehler) {
 			// sortierung absteigend
 			SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
-			elementZaehler=true;
+			elementZaehler = true;
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
@@ -212,7 +211,7 @@ SelectionSort.selectionSortWaffeElement(WaffenListe, elementZaehler);
 		}
 		tvWaffen.setItems(WaffenListe);
 	}
-	
+
 	@FXML
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche

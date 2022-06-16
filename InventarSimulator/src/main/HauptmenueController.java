@@ -25,7 +25,7 @@ public class HauptmenueController {
 
 	@FXML
 	private void handleButtonInventaransichtAction(ActionEvent event) {
-		System.out.println("Jetzt wird die Inventaransicht geöffnet\n");
+		System.out.println("Jetzt wird die Inventaransicht geï¿½ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();
@@ -42,7 +42,7 @@ public class HauptmenueController {
 
 	@FXML
 	private void handleButtonItemBearbeitenAction(ActionEvent event) {
-		System.out.println("Item bearbeiten wird geöffnet\n");
+		System.out.println("Item bearbeiten wird geï¿½ffnet\n");
 
 		try {
 			Node source = (Node) event.getSource();

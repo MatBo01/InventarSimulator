@@ -6,26 +6,38 @@ import POJO.Verbrauchsgegenstand;
 import POJO.Waffe;
 import javafx.collections.ObservableList;
 
+/**
+ * 			 Sortiert die Item/Waffen/Ruestungs/Verbrauchsgegenstandlisten mit dem SelectionSort Algorithmus
+ * @author 
+ *
+ */
 public class SelectionSort {
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param ItemListe - ObservableList in der Item Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Buttons wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Item> selectionSort(ObservableList<Item> ItemListe, boolean richtung) {
 
 		if (richtung) {
-			for (int a = 0; a < ItemListe.size(); a++) {
-				int min = a;
-				String sorta = ItemListe.get(a).getName().toLowerCase();
-				for (int b = a + 1; b < ItemListe.size(); b++) {
-					if (ItemListe.get(b).getName().toLowerCase().compareTo(sorta) < 0) {
-						sorta = ItemListe.get(b).getName().toLowerCase();
-						min = b;
+			for (int a = 0; a < ItemListe.size(); a++) {										//For-Schleife die die Liste durchgeht
+				int min = a;																	//Kleinster index 
+				String sorta = ItemListe.get(a).getName().toLowerCase();						//Der Name des Items von der Aktuellen Position Der Liste wird abgespeichert
+				for (int b = a + 1; b < ItemListe.size(); b++) {								//For-Schleife die eine Position nach der ersten For-Schleife beginnt und dann bis zum ende der Liste lÃ¤uft
+					if (ItemListe.get(b).getName().toLowerCase().compareTo(sorta) < 0) {		//Ã¼berprÃ¼ft ob "kleiner" als der String sorta ist
+						sorta = ItemListe.get(b).getName().toLowerCase();						//der Name von b wird in sorta abgespeichert
+						min = b;																//b wird in min abgespeichert weil es kleiner als a ist
 					}
 				}
 				if (min != a) {
-					Item temp = ItemListe.get(min);
-					ItemListe.set(min, ItemListe.get(a));
-					ItemListe.set(a, temp);
+					Item temp = ItemListe.get(min);												//Der Kleinste Index min wird in einer TempÃ¶raren Variable eingesetzt
+					ItemListe.set(min, ItemListe.get(a));										//Der Index von a wird in min eingesetzt
+					ItemListe.set(a, temp);														//Der Index von Temp wird in a eingesetzt
 				}
 			}
-		} else if (!richtung) {
+		} else if (!richtung) {																	//Dasselbe Prinzip nur andersrum
 			for (int a = ItemListe.size() - 1; a >= 0; a--) {
 				int min = a;
 				String sorta = ItemListe.get(a).getName().toLowerCase();
@@ -45,6 +57,13 @@ public class SelectionSort {
 		return ItemListe;
 	}
 
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param RuestungsListe - ObservableList in der Ruestungs Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Ruestung> selectionSortRuestung(ObservableList<Ruestung> RuestungsListe,
 			boolean richtung) {
 
@@ -84,6 +103,13 @@ public class SelectionSort {
 		return RuestungsListe;
 	}
 
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Waffe> selectionSortWaffe(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		if (richtung) {
@@ -122,6 +148,13 @@ public class SelectionSort {
 		return WaffenListe;
 	}
 
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param VerbrauchsgegenstandsListe - ObservableList in der Verbrauchsgegenstaends Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Verbrauchsgegenstand> selectionSortVerbrauchsgegenstand(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {
 
@@ -161,15 +194,23 @@ public class SelectionSort {
 		return VerbrauchsgegenstandsListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung 
+	 * 
+	 * @param ItemListe - ObservableList in der Item Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Item> selectionSortSeltenheit(ObservableList<Item> ItemListe, boolean richtung) {
 
 		if (richtung) {
 			for (int i = 0; i < ItemListe.size(); i++) {
-				int min = i;
-				if (!ItemListe.get(i).getSeltenheit().equals("Normal")) {
-					for (int n = i + 1; n < ItemListe.size(); n++) {
+				int min = i;														//Kleinster Index
+				if (!ItemListe.get(i).getSeltenheit().equals("Normal")) {			//Wenn der Inhalt von der aktuellen Position nicht "Normal" ist 
+					for (int n = i + 1; n < ItemListe.size(); n++) {				//Kommt man in die Forschleife und die lÃ¤uft solange bis ein "Normal" gefunden wird 
 						if (ItemListe.get(n).getSeltenheit().equals("Normal")) {
-							min = n;
+							min = n;												//Der Index wird ersetzt
+							break;													//und die Schleife unterbrochen
 						}
 					}
 				}
@@ -180,10 +221,11 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
-						if (ItemListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (ItemListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -195,11 +237,12 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
 						if (ItemListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -212,12 +255,13 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")
 						&& !ItemListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
 						if (ItemListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -233,6 +277,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -243,10 +288,11 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n > 0; n--) {
-						if (ItemListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (ItemListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -258,11 +304,12 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n > 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -275,12 +322,13 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getSeltenheit().equals("Normal")
-						&& !ItemListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !ItemListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !ItemListe.get(j).getSeltenheit().equals("Selten")
 						&& !ItemListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (ItemListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -294,6 +342,13 @@ public class SelectionSort {
 		return ItemListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung 
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Waffe> selectionSortWaffeSeltenheit(ObservableList<Waffe> WaffenListe,
 			boolean richtung) {
 
@@ -304,6 +359,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < WaffenListe.size(); n++) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -314,10 +370,11 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
-						if (WaffenListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (WaffenListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -329,11 +386,12 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -346,12 +404,13 @@ public class SelectionSort {
 			for (int j = 0; j < WaffenListe.size(); j++) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < WaffenListe.size(); n++) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -367,6 +426,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -377,10 +437,11 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
-					for (int n = j - 1; n > 0; n--) {
-						if (WaffenListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
+					for (int n = j - 1; n >= 0; n--) {
+						if (WaffenListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -392,11 +453,12 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -409,12 +471,13 @@ public class SelectionSort {
 			for (int j = WaffenListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!WaffenListe.get(j).getSeltenheit().equals("Normal")
-						&& !WaffenListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !WaffenListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Selten")
 						&& !WaffenListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (WaffenListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -428,6 +491,13 @@ public class SelectionSort {
 		return WaffenListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung 
+	 * 
+	 * @param RuestungsListe - ObservableList in der Ruestungs Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Ruestung> selectionSortRuestungSeltenheit(ObservableList<Ruestung> RuestungsListe,
 			boolean richtung) {
 
@@ -438,6 +508,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < RuestungsListe.size(); n++) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -448,10 +519,11 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (RuestungsListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -463,11 +535,12 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -480,12 +553,13 @@ public class SelectionSort {
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -501,6 +575,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -511,10 +586,11 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (RuestungsListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -526,11 +602,12 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -543,12 +620,13 @@ public class SelectionSort {
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!RuestungsListe.get(j).getSeltenheit().equals("Normal")
-						&& !RuestungsListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !RuestungsListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Selten")
 						&& !RuestungsListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (RuestungsListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -562,6 +640,13 @@ public class SelectionSort {
 		return RuestungsListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung
+	 * 
+	 * @param VerbrauchsgegenstandListe - ObservableList in der Verbrauchsgegenstands Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Verbrauchsgegenstand> selectionSortVerbrauchsgegenstandSeltenheit(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandListe, boolean richtung) {
 
@@ -572,6 +657,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < VerbrauchsgegenstandListe.size(); n++) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -582,10 +668,11 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
-						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -597,11 +684,12 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -614,12 +702,13 @@ public class SelectionSort {
 			for (int j = 0; j < VerbrauchsgegenstandListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandListe.size(); n++) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -635,6 +724,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Normal")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -645,10 +735,11 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")) {
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Ungewöhnlich")) {
+						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("UngewÃ¶hnlich")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -660,11 +751,12 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Selten")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -677,12 +769,13 @@ public class SelectionSort {
 			for (int j = VerbrauchsgegenstandListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Normal")
-						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Ungewöhnlich")
+						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("UngewÃ¶hnlich")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Selten")
 						&& !VerbrauchsgegenstandListe.get(j).getSeltenheit().equals("Episch")) {
 					for (int n = j - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandListe.get(n).getSeltenheit().equals("Episch")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -696,6 +789,13 @@ public class SelectionSort {
 		return VerbrauchsgegenstandListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung
+	 * 
+	 * @param ItemListe - ObservableList in der Item Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Item> selectionSortArt(ObservableList<Item> ItemListe, boolean richtung) {
 
 		if (richtung) {
@@ -705,6 +805,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < ItemListe.size(); n++) {
 						if (ItemListe.get(n).getItemArt().equals("Waffe")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -715,10 +816,11 @@ public class SelectionSort {
 			for (int j = 0; j < ItemListe.size(); j++) {
 				int min = j;
 				if (!ItemListe.get(j).getItemArt().equals("Waffe")
-						&& !ItemListe.get(j).getItemArt().equals("Rüstung")) {
+						&& !ItemListe.get(j).getItemArt().equals("RÃ¼stung")) {
 					for (int n = j + 1; n < ItemListe.size(); n++) {
-						if (ItemListe.get(n).getItemArt().equals("Rüstung")) {
+						if (ItemListe.get(n).getItemArt().equals("RÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -735,6 +837,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (ItemListe.get(n).getItemArt().equals("Waffe")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -745,10 +848,11 @@ public class SelectionSort {
 			for (int j = ItemListe.size() - 1; j >= 0; j--) {
 				int min = j;
 				if (!ItemListe.get(j).getItemArt().equals("Waffe")
-						&& !ItemListe.get(j).getItemArt().equals("Rüstung")) {
+						&& !ItemListe.get(j).getItemArt().equals("RÃ¼stung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (ItemListe.get(n).getItemArt().equals("Rüstung")) {
+						if (ItemListe.get(n).getItemArt().equals("RÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -763,6 +867,13 @@ public class SelectionSort {
 		return ItemListe;
 	}
 
+	/**
+	 * Sortiert die Liste alphabetisch
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Waffe> selectionSortArtWaffe(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		if (richtung) {
@@ -801,16 +912,24 @@ public class SelectionSort {
 		return WaffenListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung
+	 * 
+	 * @param RuestungsListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Ruestung> selectionSortArtRuestung(ObservableList<Ruestung> RuestungsListe,
 			boolean richtung) {
 
 		if (richtung) {
 			for (int i = 0; i < RuestungsListe.size(); i++) {
 				int min = i;
-				if (!RuestungsListe.get(i).getRuestungsArt().equals("Stoffrüstung")) {
+				if (!RuestungsListe.get(i).getRuestungsArt().equals("StoffrÃ¼stung")) {
 					for (int n = i + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Stoffrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("StoffrÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -820,11 +939,12 @@ public class SelectionSort {
 			}
 			for (int j = 0; j < RuestungsListe.size(); j++) {
 				int min = j;
-				if (!RuestungsListe.get(j).getRuestungsArt().equals("Stoffrüstung")
-						&& !RuestungsListe.get(j).getRuestungsArt().equals("Lederrüstung")) {
+				if (!RuestungsListe.get(j).getRuestungsArt().equals("StoffrÃ¼stung")
+						&& !RuestungsListe.get(j).getRuestungsArt().equals("LederrÃ¼stung")) {
 					for (int n = j + 1; n < RuestungsListe.size(); n++) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Lederrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("LederrÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -837,10 +957,11 @@ public class SelectionSort {
 		else if (!richtung) {
 			for (int i = RuestungsListe.size() - 1; i >= 0; i--) {
 				int min = i;
-				if (!RuestungsListe.get(i).getRuestungsArt().equals("Stoffrüstung")) {
+				if (!RuestungsListe.get(i).getRuestungsArt().equals("StoffrÃ¼stung")) {
 					for (int n = i - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Stoffrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("StoffrÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -850,11 +971,12 @@ public class SelectionSort {
 			}
 			for (int j = RuestungsListe.size() - 1; j >= 0; j--) {
 				int min = j;
-				if (!RuestungsListe.get(j).getRuestungsArt().equals("Stoffrüstung")
-						&& !RuestungsListe.get(j).getRuestungsArt().equals("Lederrüstung")) {
+				if (!RuestungsListe.get(j).getRuestungsArt().equals("StoffrÃ¼stung")
+						&& !RuestungsListe.get(j).getRuestungsArt().equals("LederrÃ¼stung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (RuestungsListe.get(n).getRuestungsArt().equals("Lederrüstung")) {
+						if (RuestungsListe.get(n).getRuestungsArt().equals("LederrÃ¼stung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -869,6 +991,13 @@ public class SelectionSort {
 		return RuestungsListe;
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung 
+	 * 
+	 * @param VerbrauchsgegenstandsListe - ObservableList in der Verbrauchsgegenstands Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Verbrauchsgegenstand> selectionSortArtVerbrauchsgegenstand(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {
 		if (richtung) {
@@ -878,6 +1007,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
 						if (VerbrauchsgegenstandsListe.get(n).getVerbrauchsgegenstandsArt().equals("Essen")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -892,6 +1022,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandsListe.get(n).getVerbrauchsgegenstandsArt().equals("Essen")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -904,6 +1035,13 @@ public class SelectionSort {
 
 	}
 
+	/**
+	 * Sortiert die Liste nach Gewichtung
+	 * 
+	 * @param VerbrauchsgegenstandListe - ObservableList in der Verbrauchsgegenstands Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Verbrauchsgegenstand> selectionSortBuffVerbrauchsgegenstand(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {
 		if (richtung) {
@@ -913,6 +1051,7 @@ public class SelectionSort {
 					for (int n = i + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
 						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Heilung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -927,6 +1066,7 @@ public class SelectionSort {
 					for (int n = j + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
 						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Ausdauerregeneration")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -939,10 +1079,11 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Verteidigungserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -950,15 +1091,17 @@ public class SelectionSort {
 				VerbrauchsgegenstandsListe.set(min, VerbrauchsgegenstandsListe.get(j));
 				VerbrauchsgegenstandsListe.set(j, temp);
 
-			}for (int j = 0; j < VerbrauchsgegenstandsListe.size(); j++) {
+			}
+			for (int j = 0; j < VerbrauchsgegenstandsListe.size(); j++) {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Angriffserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("AngriffserhÃ¶hung")) {
 					for (int n = j + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Angriffserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("AngriffserhÃ¶hung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -974,6 +1117,7 @@ public class SelectionSort {
 					for (int n = i - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Heilung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -988,6 +1132,7 @@ public class SelectionSort {
 					for (int n = j - 1; n >= 0; n--) {
 						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Ausdauerregeneration")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -1000,10 +1145,11 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Verteidigungserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("VerteidigungserhÃ¶hung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -1017,11 +1163,12 @@ public class SelectionSort {
 				int min = j;
 				if (!VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Heilung")
 						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Ausdauerregeneration")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Verteidigungserhöhung")
-						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("Angriffserhöhung")) {
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("VerteidigungserhÃ¶hung")
+						&& !VerbrauchsgegenstandsListe.get(j).getBuffs().equals("AngriffserhÃ¶hung")) {
 					for (int n = j - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("Angriffserhöhung")) {
+						if (VerbrauchsgegenstandsListe.get(n).getBuffs().equals("AngriffserhÃ¶hung")) {
 							min = n;
+							break;
 						}
 					}
 				}
@@ -1035,6 +1182,14 @@ public class SelectionSort {
 		return VerbrauchsgegenstandsListe;
 
 	}
+
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param RuestungsListe - ObservableList in der Ruestungs Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Ruestung> selectionSortRuestungResistenz(ObservableList<Ruestung> RuestungsListe,
 			boolean richtung) {
 
@@ -1073,7 +1228,14 @@ public class SelectionSort {
 		}
 		return RuestungsListe;
 	}
-
+	
+	/**
+	 * Sortiert die Liste alphabetisch nach Namen
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste alphabetisch sortiert je nach Button Betaetigung zurueck
+	 */
 	public static ObservableList<Waffe> selectionSortWaffeElement(ObservableList<Waffe> WaffenListe, boolean richtung) {
 
 		if (richtung) {
@@ -1110,5 +1272,79 @@ public class SelectionSort {
 			}
 		}
 		return WaffenListe;
+	}
+	
+	/**
+	 * Sortiert die Liste nach Zahlen
+	 * 
+	 * @param WaffenListe - ObservableList in der Waffen Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Zahlen sortiert je nach Button Betaetigung zurueck
+	 */
+	public static ObservableList<Waffe> selectionSortWaffeGewicht(ObservableList<Waffe> WaffenListe, boolean richtung) {
+
+		if (richtung) {
+			for (int a = 0; a < WaffenListe.size(); a++) {
+
+				for (int b = a + 1; b < WaffenListe.size(); b++) {
+					if (WaffenListe.get(a).getGewicht() > WaffenListe.get(b).getGewicht()) {
+						Waffe temp = WaffenListe.get(a);
+						WaffenListe.set(a, WaffenListe.get(b));
+						WaffenListe.set(b, temp);
+					}
+				}
+			}
+
+		} else if (!richtung) {
+			for (int a = WaffenListe.size() - 1; a >= 0; a--) {
+
+				for (int b = a - 1; b >= 0; b--) {
+					if (WaffenListe.get(a).getGewicht() > WaffenListe.get(b).getGewicht()) {
+						Waffe temp = WaffenListe.get(a);
+						WaffenListe.set(a, WaffenListe.get(b));
+						WaffenListe.set(b, temp);
+					}
+				}
+			}
+		}
+		return WaffenListe;
+	}
+
+	/**
+	 * Sortiert die Liste nach Zahlen
+	 * 
+	 * @param RuestungsListe - ObservableList in der Ruestungs Objekte gespeichert sind
+	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
+	 * @return - Gibt die Liste nach Zahlen sortiert je nach Button Betaetigung zurueck
+	 */
+	public static ObservableList<Ruestung> selectionSortRuestungGewicht(ObservableList<Ruestung> RuestungsListe,
+			boolean richtung) {
+
+		if (richtung) {
+			for (int a = 0; a < RuestungsListe.size(); a++) {
+
+				for (int b = a + 1; b < RuestungsListe.size(); b++) {
+					if (RuestungsListe.get(a).getGewicht() > RuestungsListe.get(b).getGewicht()) {
+						Ruestung temp = RuestungsListe.get(a);
+						RuestungsListe.set(a, RuestungsListe.get(b));
+						RuestungsListe.set(b, temp);
+					}
+				}
+			}
+
+		} else if (!richtung) {
+			for (int a = RuestungsListe.size() - 1; a >= 0; a--) {
+
+				for (int b = a - 1; b >= 0; b--) {
+					if (RuestungsListe.get(a).getGewicht() > RuestungsListe.get(b).getGewicht()) {
+						Ruestung temp = RuestungsListe.get(a);
+						RuestungsListe.set(a, RuestungsListe.get(b));
+						RuestungsListe.set(b, temp);
+					}
+				}
+			}
+		}
+//	}
+		return RuestungsListe;
 	}
 }

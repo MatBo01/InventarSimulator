@@ -40,7 +40,7 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private Button btGewicht;
-	private int gewichtZaehler = 1;
+	private boolean gewichtZaehler = true;
 
 	@FXML
 	private Button btResistenz;
@@ -162,16 +162,16 @@ public class RuestungViewController implements Initializable {
 
 	@FXML
 	private void handleButtonDbGewichtSortierAction(ActionEvent event) {
-		if (gewichtZaehler == 1) {
+		if (gewichtZaehler) {
 			// sortierung aufsteigend
-
-			gewichtZaehler++;
-		} else if (gewichtZaehler == 2) {
+			SelectionSort.selectionSortRuestungGewicht(RuestungsListe, gewichtZaehler);
+			gewichtZaehler=false;
+		} else if (!gewichtZaehler) {
 			// sortierung absteigend
-
-			gewichtZaehler--;
+			SelectionSort.selectionSortRuestungGewicht(RuestungsListe, gewichtZaehler);
+			gewichtZaehler=true;
 		}
-		tvRuestungsUpdate();
+		tvRuestung.setItems(RuestungsListe);
 	}
 
 	@FXML

@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 public class RadixSort {
 
-	// Größte Zahl im Array finden
+	// Grï¿½ï¿½te Zahl im Array finden
 	private static int getMax(ObservableList<Waffe> WaffenListe, int size) {
 
 		int max = WaffenListe.get(0).getWert();
@@ -23,17 +23,17 @@ public class RadixSort {
 	private static void vorSortierung(ObservableList<Waffe> WaffenListe, int size, int position, boolean richtung) {
 
 		Waffe[] ablage = new Waffe[size];
-		int[] zähler = new int[10];
+		int[] zhler = new int[10];
 
 		for (int i = 0; i < size; i++)
-			zähler[(WaffenListe.get(i).getWert() / position) % 10]++;
+			zhler[(WaffenListe.get(i).getWert() / position) % 10]++;
 
 		for (int i = 1; i < 10; i++)
-			zähler[i] += zähler[i - 1];
+			zhler[i] += zhler[i - 1];
 
 		for (int i = size - 1; i >= 0; i--) {
-			ablage[zähler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
-			zähler[(WaffenListe.get(i).getWert() / position) % 10]--;
+			ablage[zhler[(WaffenListe.get(i).getWert() / position) % 10] - 1] = WaffenListe.get(i);
+			zhler[(WaffenListe.get(i).getWert() / position) % 10]--;
 		}
 
 		if (richtung) {
@@ -41,11 +41,8 @@ public class RadixSort {
 			for (int i = 0; i < size; i++) {
 				WaffenListe.set(i, ablage[i]);
 			}
-		} else if (!richtung) {
-			System.out.println("2");
-			for (int i = size - 1; i >= 0; i--) {
-				WaffenListe.set(i, ablage[i]);
-			}
+		
+			
 		}
 	}
 
