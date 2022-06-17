@@ -8,8 +8,6 @@ import javafx.collections.ObservableList;
 
 /**
  * 			 Sortiert die Item/Waffen/Ruestungs/Verbrauchsgegenstandlisten mit dem SelectionSort Algorithmus
- * @author 
- *
  */
 public class SelectionSort {
 	/**
@@ -201,8 +199,8 @@ public class SelectionSort {
 	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
 	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
 	 */
-	public static ObservableList<Item> selectionSortSeltenheit(ObservableList<Item> ItemListe, boolean richtung) {
-
+	public static ObservableList<Item> selectionSortSeltenheit(ObservableList<Item> ItemListe, boolean richtung) {		
+		
 		if (richtung) {
 			for (int i = 0; i < ItemListe.size(); i++) {
 				int min = i;														//Kleinster Index
@@ -1001,46 +999,47 @@ public class SelectionSort {
 	public static ObservableList<Verbrauchsgegenstand> selectionSortArtVerbrauchsgegenstand(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {
 		if (richtung) {
-			for (int i = 0; i < VerbrauchsgegenstandsListe.size(); i++) {
-				int min = i;
-				if (!VerbrauchsgegenstandsListe.get(i).getVerbrauchsgegenstandsArt().equals("Essen")) {
-					for (int n = i + 1; n < VerbrauchsgegenstandsListe.size(); n++) {
-						if (VerbrauchsgegenstandsListe.get(n).getVerbrauchsgegenstandsArt().equals("Essen")) {
-							min = n;
-							break;
-						}
+			for (int a = 0; a < VerbrauchsgegenstandsListe.size(); a++) {
+				int min = a;
+				String sorta = VerbrauchsgegenstandsListe.get(a).getVerbrauchsgegenstandsArt().toLowerCase();
+				for (int b = a + 1; b < VerbrauchsgegenstandsListe.size(); b++) {
+					if (VerbrauchsgegenstandsListe.get(b).getVerbrauchsgegenstandsArt().toLowerCase().compareTo(sorta) < 0) {
+						sorta = VerbrauchsgegenstandsListe.get(b).getVerbrauchsgegenstandsArt().toLowerCase();
+						min = b;
 					}
 				}
-				Verbrauchsgegenstand temp = VerbrauchsgegenstandsListe.get(min);
-				VerbrauchsgegenstandsListe.set(min, VerbrauchsgegenstandsListe.get(i));
-				VerbrauchsgegenstandsListe.set(i, temp);
+				if (min != a) {
+					Verbrauchsgegenstand temp = VerbrauchsgegenstandsListe.get(min);
+					VerbrauchsgegenstandsListe.set(min, VerbrauchsgegenstandsListe.get(a));
+					VerbrauchsgegenstandsListe.set(a, temp);
+				}
 			}
 		} else if (!richtung) {
-			for (int i = VerbrauchsgegenstandsListe.size() - 1; i >= 0; i--) {
-				int min = i;
-				if (!VerbrauchsgegenstandsListe.get(i).getVerbrauchsgegenstandsArt().equals("Essen")) {
-					for (int n = i - 1; n >= 0; n--) {
-						if (VerbrauchsgegenstandsListe.get(n).getVerbrauchsgegenstandsArt().equals("Essen")) {
-							min = n;
-							break;
-						}
+			for (int a = VerbrauchsgegenstandsListe.size() - 1; a >= 0; a--) {
+				int min = a;
+				String sorta = VerbrauchsgegenstandsListe.get(a).getVerbrauchsgegenstandsArt().toLowerCase();
+				for (int b = a - 1; b >= 0; b--) {
+					if (VerbrauchsgegenstandsListe.get(b).getVerbrauchsgegenstandsArt().toLowerCase().compareTo(sorta) < 0) {
+						sorta = VerbrauchsgegenstandsListe.get(b).getVerbrauchsgegenstandsArt().toLowerCase();
+						min = b;
 					}
 				}
-				Verbrauchsgegenstand temp = VerbrauchsgegenstandsListe.get(min);
-				VerbrauchsgegenstandsListe.set(min, VerbrauchsgegenstandsListe.get(i));
-				VerbrauchsgegenstandsListe.set(i, temp);
+				if (min != a) {
+					Verbrauchsgegenstand temp = VerbrauchsgegenstandsListe.get(min);
+					VerbrauchsgegenstandsListe.set(min, VerbrauchsgegenstandsListe.get(a));
+					VerbrauchsgegenstandsListe.set(a, temp);
+				}
 			}
 		}
 		return VerbrauchsgegenstandsListe;
-
 	}
 
 	/**
 	 * Sortiert die Liste nach Gewichtung
 	 * 
-	 * @param VerbrauchsgegenstandListe - ObservableList in der Verbrauchsgegenstands Objekte gespeichert sind
+	 * @param VerbrauchsgegenstandsListe - ObservableList in der Verbrauchsgegenstands Objekte gespeichert sind
 	 * @param richtung - Mit jeder Betaetigung des Button wird die Reihenfolge der Liste gedreht
-	 * @return - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
+	 * @return VerbrauchsgegenstandsListe - Gibt die Liste nach Gewichtung sortiert je nach Button Betaetigung zurueck
 	 */
 	public static ObservableList<Verbrauchsgegenstand> selectionSortBuffVerbrauchsgegenstand(
 			ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe, boolean richtung) {

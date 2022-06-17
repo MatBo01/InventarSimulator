@@ -68,6 +68,11 @@ public class WaffenViewController implements Initializable {
 	@FXML
 	private TableView<Waffe> tvWaffen;
 
+	/**
+	 * Gibt TableView tvWaffen zurück
+	 * 
+	 * @return tvWaffen - TableView der aktuellen Waffen
+	 */
 	public TableView<Waffe> getTvWaffen() {
 		return tvWaffen;
 	}
@@ -98,6 +103,11 @@ public class WaffenViewController implements Initializable {
 
 	private ObservableList<Waffe> WaffenListe = FXCollections.observableArrayList();
 
+	/**
+	 * Gibt ObservableList WaffenListe zurück
+	 * 
+	 * @return WaffenListe - Liste der aktuellen Waffen
+	 */
 	public ObservableList<Waffe> getWaffenListe() {
 		return WaffenListe;
 	}

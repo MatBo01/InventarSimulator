@@ -424,7 +424,7 @@ public class RadixSort {
 	/**
 	 * Die vorSortierung wird für jede Stelle der größten Zahl ausgeführt
 	 * 
-	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param RuestungsListe - ObservableList in der Waffen-Objekte gespeichert sind
 	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
 	 * @return - gibt die sortierte WaffenListe zurück
 	 */
@@ -509,7 +509,7 @@ public class RadixSort {
 	/**
 	 * Die vorSortierung wird für jede Stelle der größten Zahl ausgeführt
 	 * 
-	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param RuestungsListe - ObservableList in der Waffen-Objekte gespeichert sind
 	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
 	 * @return - gibt die sortierte WaffenListe zurück
 	 */
@@ -596,7 +596,7 @@ public class RadixSort {
 	/**
 	 * Die vorSortierung wird für jede Stelle der größten Zahl ausgeführt
 	 * 
-	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param RuestungsListe - ObservableList in der Waffen-Objekte gespeichert sind
 	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
 	 * @return - gibt die sortierte WaffenListe zurück
 	 */
@@ -683,7 +683,7 @@ public class RadixSort {
 	/**
 	 * Die vorSortierung wird für jede Stelle der größten Zahl ausgeführt
 	 * 
-	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param VerbrauchsgegenstandsListe - ObservableList in der Waffen-Objekte gespeichert sind
 	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
 	 * @return - gibt die sortierte WaffenListe zurück
 	 */
@@ -768,7 +768,7 @@ public class RadixSort {
 	/**
 	 * Die vorSortierung wird für jede Stelle der größten Zahl ausgeführt
 	 * 
-	 * @param WaffenListe - ObservableList in der Waffen-Objekte gespeichert sind
+	 * @param ItemListe - ObservableList in der Waffen-Objekte gespeichert sind
 	 * @param richtung - Gibt an ob wir aufsteigend oder absteigend sortieren
 	 * @return - gibt die sortierte WaffenListe zurück
 	 */

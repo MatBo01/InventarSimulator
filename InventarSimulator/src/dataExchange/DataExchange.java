@@ -235,7 +235,7 @@ public class DataExchange {
 	 * Speichert eine Waffe w in die Datenbank (Item.txt Datei)
 	 * 
 	 * @param w - Objekt: Waffe das in die Datenbank gespeichert wird
-	 * @throws IOException
+	 * @throws IOException - Exception falls die Datei nicht geöffnet werden kann
 	 */
 	public static void safeWeaponToDB(Waffe w) throws IOException {
 
@@ -327,7 +327,7 @@ public class DataExchange {
 	 * Speichert eine Rüstung r in die Datenbank (Item.txt Datei)
 	 * 
 	 * @param r - Objekt: Rüstung das in die Datenbank gespeichert wird
-	 * @throws IOException
+	 * @throws IOException - Exception falls die Datei nicht geöffnet werden kann
 	 */
 	public static void safeArmorToDB(Ruestung r) throws IOException {
 
@@ -410,7 +410,7 @@ public class DataExchange {
 	 * Speichert einen Verbrauchsgegenstand v in die Datenbank (Item.txt Datei)
 	 * 
 	 * @param v - Objekt: Verbrauchsgegenstand das in die Datenbank gespeichert wird
-	 * @throws IOException
+	 * @throws IOException - Exception falls die Datei nicht geöffnet werden kann
 	 */
 	public static void safeConsumablesToDB(Verbrauchsgegenstand v) throws IOException {
 
@@ -484,7 +484,7 @@ public class DataExchange {
 	 * 
 	 * @param i - Objekt: Item, welche gelöscht werden soll
 	 * @throws FileNotFoundException - Exception wenn eine Datei nicht gefunden werden kann
-	 * @throws IOException
+	 * @throws IOException - Exception falls die Datei nicht geöffnet werden kann
 	 */
 	public static void itemLoeschen(Item i) throws FileNotFoundException, IOException {
 

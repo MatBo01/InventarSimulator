@@ -39,10 +39,10 @@ public class ItemAnsichtVerbrauchsgegenstandController {
 	private Text tBuffs;
 	
 	@FXML
-	private Button btZurueck;
+	private ImageView ivBild;
 	
 	@FXML
-	private ImageView ivBild;
+	private Button btZurueck;
 	
 	@FXML
 	InventarAnsichtController inventarAnsichtController;

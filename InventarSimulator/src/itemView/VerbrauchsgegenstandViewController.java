@@ -56,6 +56,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	@FXML
 	private TableView<Verbrauchsgegenstand> tvVerbrauchsgegenstaende;
 	
+	/**
+	 * Gibt TableView tvVerbrauchsgegenstaende zurück
+	 * 
+	 * @return tvVerbrauchsgegenstaende - TableView der aktuellen Verbrauchsgegenstände
+	 */	
 	public TableView<Verbrauchsgegenstand> getTvVerbrauchsgegenstaende() {
 		return tvVerbrauchsgegenstaende;
 	}
@@ -77,6 +82,11 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	
 	private ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe = FXCollections.observableArrayList();
 	
+	/**
+	 * Gibt ObservableList VerbrauchsgegenstandsListe zurück
+	 * 
+	 * @return VerbrauchsgegenstandsListe - ObservableList der aktuellen Verbrauchsgegenstände
+	 */	
 	public ObservableList<Verbrauchsgegenstand> getVerbrauchsgegenstandsListe() {
 		return VerbrauchsgegenstandsListe;
 	}

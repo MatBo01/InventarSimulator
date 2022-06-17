@@ -52,6 +52,11 @@ public class AllesViewController implements Initializable {
 	@FXML
 	private TableView<Item> tvItems;
 
+	/**
+	 * Gibt TableView tvItems zurück
+	 * 
+	 * @return tvItems - TableView
+	 */
 	public TableView<Item> getTvItems() {
 		return tvItems;
 	}

@@ -64,6 +64,11 @@ public class RuestungViewController implements Initializable {
 	@FXML
 	private TableView<Ruestung> tvRuestung;
 
+	/**
+	 * Gibt Table tvRuestung zurück
+	 * 
+	 * @return tvRuestung - TableView der aktuellen Rüstungen
+	 */
 	public TableView<Ruestung> getTvRuestung() {
 		return tvRuestung;
 	}
@@ -91,6 +96,11 @@ public class RuestungViewController implements Initializable {
 
 	private ObservableList<Ruestung> RuestungsListe = FXCollections.observableArrayList();
 
+	/**
+	 * Gibt ObservableList RuestungsListe zurück
+	 * 
+	 * @return RuestungsListe - Liste der aktuellen Rüstungen
+	 */
 	public ObservableList<Ruestung> getRuestungsListe() {
 		return RuestungsListe;
 	}
