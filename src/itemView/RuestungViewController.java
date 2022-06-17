@@ -15,9 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sortieralgorithmen.RadixSort;
-import sortieralgorithmen.SelectionSort;
-import suchalgorithmen.LinearSearch;
+import sortieralgorithmen.*;
+import suchalgorithmen.*;
 
 /**
  * Tabellen-Anzeige für alle Rüstungen in der Datenbank, inklusive Sortierbuttons und Suchfeld
@@ -268,8 +267,28 @@ public class RuestungViewController implements Initializable {
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 		tvRuestungsUpdate();
-		tvRuestung.setItems(LinearSearch.ruestung(RuestungsListe, tfSuche.getText()));
-		if(RuestungsListe.size() == 0) {
+		try {
+			int e = Integer.parseInt(tfSuche.getText()); // prüft ob das TextFeld nur Zahlen enthält
+
+			if (e < 0) // prüft ob das TextFeld ein negative Zahl enthält
+			{
+				RuestungsListe.clear();
+				tvRuestung.setItems(RuestungsListe);
+				tfSuche.setText("Kein Ergebnis");
+			}
+
+			else {
+				// RadixSort.radixSortWA(WaffenListe, angriffZaehler)
+				RuestungsListe = BinarySearch.binarySearchRuestung(RuestungsListe, tfSuche.getText());
+				tvRuestung.setItems(RuestungsListe);
+			}
+		}
+
+		catch (NumberFormatException e) {
+			tvRuestung.setItems(LinearSearch.ruestung(RuestungsListe, tfSuche.getText()));
+		}
+
+		if (RuestungsListe.size() == 0) {
 			tfSuche.setText("Kein Ergebnis");
 		}
 	}

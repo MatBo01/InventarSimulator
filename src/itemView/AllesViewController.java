@@ -15,9 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sortieralgorithmen.RadixSort;
-import sortieralgorithmen.SelectionSort;
-import suchalgorithmen.LinearSearch;
+import sortieralgorithmen.*;
+import suchalgorithmen.*;
 
 /**
  * Tabellen-Anzeige für alle Items in der Datenbank, inklusive Sortierbuttons und Suchfeld
@@ -45,7 +44,7 @@ public class AllesViewController implements Initializable {
 
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private Button btReset;
 
@@ -74,9 +73,9 @@ public class AllesViewController implements Initializable {
 	private TableColumn<Item, Integer> tcWert;
 
 	private ObservableList<Item> ItemListe = FXCollections.observableArrayList();
-	
+
 	/**
-	 * Setzt Daten von jedem Item aus der ObservableList: ItemListe in die TableView ein 
+	 * Setzt Daten von jedem Item aus der ObservableList: ItemListe in die TableView ein
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -175,12 +174,31 @@ public class AllesViewController implements Initializable {
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 		tvItemsUpdate();
-		tvItems.setItems(LinearSearch.alles(ItemListe, tfSuche.getText()));
-		if(ItemListe.size() == 0) {
+		try {
+			int i = Integer.parseInt(tfSuche.getText()); // prüft ob das TextFeld nur Zahlen enthält
+
+			if (i < 0) // prüft ob das TextFeld ein negative Zahl enthält
+			{
+				ItemListe.clear();
+				tvItems.setItems(ItemListe);
+				tfSuche.setText("Kein Ergebnis");
+			}
+
+			else {
+				ItemListe = BinarySearch.binarySearchAlles(ItemListe, tfSuche.getText());
+				tvItems.setItems(ItemListe);
+			}
+		}
+
+		catch (NumberFormatException e) {
+			tvItems.setItems(LinearSearch.alles(ItemListe, tfSuche.getText()));
+		}
+
+		if (ItemListe.size() == 0) {
 			tfSuche.setText("Kein Ergebnis");
 		}
 	}
-	
+
 	/**
 	 * Ließt die ItemListe wieder neu aus der Datenbank aus
 	 * 
@@ -192,7 +210,6 @@ public class AllesViewController implements Initializable {
 		tfSuche.setText("");
 	}
 
-	
 	/**
 	 * Lädt die Items aus der Datenbank und setzt sie in die Tabelle ein
 	 */

@@ -10,3 +10,5 @@ W,GroßAxt,U,543,344,4.0,F,3,DO
 V,Burger,E,23,AN,T
 W,Holzspeer,S,123,321,123.0,F,321,SP
 V,Ausdauertrank,S,500,AU,T
+W,fwe34,N,23,34,43.0,K,34,AX
+W,f432,N,23,43,554.0,K,65,AX

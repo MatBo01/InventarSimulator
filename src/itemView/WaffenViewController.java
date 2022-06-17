@@ -15,9 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sortieralgorithmen.RadixSort;
-import sortieralgorithmen.SelectionSort;
-import suchalgorithmen.LinearSearch;
+import sortieralgorithmen.*;
+import suchalgorithmen.*;
 
 /**
  * Tabellen-Anzeige für alle Waffen in der Datenbank, inklusive Sortierbuttons und Suchfeld
@@ -296,8 +295,27 @@ public class WaffenViewController implements Initializable {
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 		tvWaffenUpdate();
-		tvWaffen.setItems(LinearSearch.waffe(WaffenListe, tfSuche.getText()));
-		if(WaffenListe.size() == 0) {
+		try {
+			int e = Integer.parseInt(tfSuche.getText()); // prüft ob das TextFeld nur Zahlen enthält
+
+			if (e < 0) // prüft ob das TextFeld ein negative Zahl enthält
+			{
+				WaffenListe.clear();
+				tvWaffen.setItems(WaffenListe);
+				tfSuche.setText("Kein Ergebnis");
+			}
+
+			else {
+				WaffenListe = BinarySearch.binarySearchWaffen(WaffenListe, tfSuche.getText());
+				tvWaffen.setItems(WaffenListe);
+			}
+		}
+
+		catch (NumberFormatException e) {
+			tvWaffen.setItems(LinearSearch.waffe(WaffenListe, tfSuche.getText()));
+		}
+
+		if (WaffenListe.size() == 0) {
 			tfSuche.setText("Kein Ergebnis");
 		}
 	}

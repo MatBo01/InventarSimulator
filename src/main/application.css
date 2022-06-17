@@ -53,10 +53,6 @@
 	-fx-light-text-color: black ;
 }
 
-#tcName{
-	-fx-font-weight: bold;
-}
-
 /*----Hauptmenü---------------------------------------*/
 #btInventaransicht, #btBeenden {
 	-fx-font-size: 25;
@@ -107,6 +103,10 @@
 
 #btSuchen {
 	-fx-font-size: 14;
+}
+
+#tcName{
+	-fx-font-weight: bold;
 }
 
 /*----Item-Erstellen-----------------------------------*/

@@ -15,15 +15,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sortieralgorithmen.RadixSort;
-import sortieralgorithmen.SelectionSort;
-import suchalgorithmen.LinearSearch;
+import sortieralgorithmen.*;
+import suchalgorithmen.*;
 
 /**
  * Tabellen-Anzeige für alle Verbrauchsgegenstände in der Datenbank, inklusive Sortierbuttons und Suchfeld
  */
-public class VerbrauchsgegenstandViewController implements Initializable{
-	
+public class VerbrauchsgegenstandViewController implements Initializable {
+
 	@FXML
 	private Button btName;
 	private boolean nameZaehler;
@@ -46,53 +45,54 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 
 	@FXML
 	private TextField tfSuche;
-	
+
 	@FXML
 	private Button btSuchen;
-	
+
 	@FXML
 	private Button btReset;
-	
+
 	@FXML
 	private TableView<Verbrauchsgegenstand> tvVerbrauchsgegenstaende;
-	
+
 	/**
 	 * Gibt TableView tvVerbrauchsgegenstaende zurück
 	 * 
 	 * @return tvVerbrauchsgegenstaende - TableView der aktuellen Verbrauchsgegenstände
-	 */	
+	 */
 	public TableView<Verbrauchsgegenstand> getTvVerbrauchsgegenstaende() {
 		return tvVerbrauchsgegenstaende;
 	}
 
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcName;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcVerbrauchsgegenstandsArt;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, String> tcSeltenheit;
-	
+
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, Integer> tcWert;
 
 	@FXML
 	private TableColumn<Verbrauchsgegenstand, Integer> tcBuffs;
-	
+
 	private ObservableList<Verbrauchsgegenstand> VerbrauchsgegenstandsListe = FXCollections.observableArrayList();
-	
+
 	/**
 	 * Gibt ObservableList VerbrauchsgegenstandsListe zurück
 	 * 
 	 * @return VerbrauchsgegenstandsListe - ObservableList der aktuellen Verbrauchsgegenstände
-	 */	
+	 */
 	public ObservableList<Verbrauchsgegenstand> getVerbrauchsgegenstandsListe() {
 		return VerbrauchsgegenstandsListe;
 	}
 
 	/**
-	 * Setzt Daten von jedem Verbrauchsgegenstand aus der ObservableList: VerbrauchsgegenstandsListe in die TableView ein
+	 * Setzt Daten von jedem Verbrauchsgegenstand aus der ObservableList: VerbrauchsgegenstandsListe in die TableView
+	 * ein
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -102,7 +102,7 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tcWert.setCellValueFactory(new PropertyValueFactory<>("Wert"));
 		tcBuffs.setCellValueFactory(new PropertyValueFactory<>("Buffs"));
 	}
-	
+
 	/**
 	 * Sortierbutton: Name
 	 * 
@@ -197,7 +197,7 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		}
 		tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
 	}
-	
+
 	/**
 	 * Suchbutton Event
 	 * 
@@ -207,12 +207,34 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 	private void handleButtonDbSuchenAction(ActionEvent event) {
 		// Itemsuche
 		tvVerbrauchsgegenstaendeUpdate();
-        tvVerbrauchsgegenstaende.setItems(LinearSearch.verbrauchsgegenstand(VerbrauchsgegenstandsListe, tfSuche.getText()));
-        if(VerbrauchsgegenstandsListe.size() == 0) {
+		try {
+			int e = Integer.parseInt(tfSuche.getText()); // prüft ob das TextFeld nur Zahlen enthält
+
+			if (e < 0) // prüft ob das TextFeld ein negative Zahl enthält
+			{
+				VerbrauchsgegenstandsListe.clear();
+				tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
+				tfSuche.setText("Kein Ergebnis");
+			}
+
+			else {
+				// RadixSort.radixSortWA(WaffenListe, angriffZaehler)
+				VerbrauchsgegenstandsListe = BinarySearch.binarySearchVerbrauchsgegenstand(VerbrauchsgegenstandsListe,
+						tfSuche.getText());
+				tvVerbrauchsgegenstaende.setItems(VerbrauchsgegenstandsListe);
+			}
+		}
+
+		catch (NumberFormatException e) {
+			tvVerbrauchsgegenstaende
+					.setItems(LinearSearch.verbrauchsgegenstand(VerbrauchsgegenstandsListe, tfSuche.getText()));
+		}
+
+		if (VerbrauchsgegenstandsListe.size() == 0) {
 			tfSuche.setText("Kein Ergebnis");
 		}
 	}
-	
+
 	/**
 	 * Ließt die ItemListe wieder neu aus der Datenbank aus
 	 * 
@@ -223,7 +245,7 @@ public class VerbrauchsgegenstandViewController implements Initializable{
 		tvVerbrauchsgegenstaendeUpdate();
 		tfSuche.setText("");
 	}
-	
+
 	/**
 	 * Lädt die Waffen aus der Datenbank und setzt sie in die Tabelle ein
 	 */
