@@ -26,7 +26,7 @@
                   <Insets left="30.0" right="30.0" top="728.0" />
                </VBox.margin>
             </Text>
-            <Button fx:id="btDauerhaftLoeschen" mnemonicParsing="false" onAction="#handleButtonDauerhaftLoeschenAction" prefHeight="60.0" prefWidth="140.0" text="Dauerhaft Loeschen" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="btDauerhaftLoeschen" mnemonicParsing="false" onAction="#handleButtonDauerhaftLoeschenAction" prefHeight="60.0" prefWidth="140.0" text="Dauerhaft löschen" textAlignment="CENTER" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

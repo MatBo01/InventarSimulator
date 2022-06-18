@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -27,7 +30,12 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="28.0" layoutY="128.0" text="Item Erstellen">
+            <ImageView fitHeight="80.0" fitWidth="400.0" layoutX="-18.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/buttons/400x80.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="28.0" layoutY="128.0" text="Item Erstellen" textFill="BISQUE">
                <font>
                   <Font name="Serif Bold" size="40.0" />
                </font>
@@ -36,22 +44,34 @@
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btWaffe" mnemonicParsing="false" onAction="#handleButtonErstelleWaffeAction" prefHeight="300.0" prefWidth="300.0" text="Waffe" />
+            <Button fx:id="btWaffe" mnemonicParsing="false" onAction="#handleButtonErstelleWaffeAction" prefHeight="300.0" prefWidth="300.0" text="Waffe">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btRuestung" mnemonicParsing="false" onAction="#handleButtonErstelleRuestungAction" prefHeight="300.0" prefWidth="300.0" text="Rüstung" />
+            <Button fx:id="btRuestung" mnemonicParsing="false" onAction="#handleButtonErstelleRuestungAction" prefHeight="300.0" prefWidth="300.0" text="Rüstung">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
-            <Button fx:id="btVerbrauchsgegenstand" mnemonicParsing="false" onAction="#handleButtonErstelleVerbrauchsgegenstandAction" prefHeight="300.0" prefWidth="300.0" text="Verbrauchsgegenstand" />
+            <Button fx:id="btVerbrauchsgegenstand" mnemonicParsing="false" onAction="#handleButtonErstelleVerbrauchsgegenstandAction" prefHeight="300.0" prefWidth="300.0" text="Verbrauchsgegenstand">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <children>
-            <Button fx:id="btZurueck" layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="50.0" prefWidth="100.0" text="Zurück" />
+            <Button fx:id="btZurueck" layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleButtonZurueckAction" prefHeight="50.0" prefWidth="100.0" text="Zurück">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
    </children>

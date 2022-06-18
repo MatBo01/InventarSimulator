@@ -3,12 +3,26 @@ V,Seltener Trank,S,67,HE,T
 W,Stahlschwert,U,105,52,9,F,12,SC
 W,Feurige Kampfaxt,S,23,14,3,F,8,AX
 R,Alte Unterhose,L,999,99,9,D,STO
-V,Pusteblume,L,969,AN,E
 R,Stahlbrustplatte,S,104,23,8,K,STA
 W,Gigasword,E,345,43,6.4,D,2,GR
-W,GroßAxt,U,543,344,4.0,F,3,DO
-V,Burger,E,23,AN,T
 W,Holzspeer,S,123,321,123.0,F,321,SP
 V,Ausdauertrank,S,500,AU,T
-W,fwe34,N,23,34,43.0,K,34,AX
-W,f432,N,23,43,554.0,K,65,AX
+W,Mastersword,L,150,600,15.0,H,45,SC
+W,Brennende Wurfaxt,U,16,15,10.0,F,30,AX
+W,Kurzbogen,N,20,42,6.0,K,35,BO
+W,Dolch der Finsternis,E,69,80,2.0,D,75,DO
+W,Zweihänder der Bestandheit,S,100,150,30.0,E,10,GR
+W,Eisiger Wurfspeer,U,36,45,10.0,W,30,SP
+R,Hemd,N,10,5,5.0,K,STO
+R,Hemd der Beständigkeit,S,50,60,10.0,E,STO
+R,Ketten des Wassers Gotts,L,120,90,5.0,W,STA
+R,Korsett der Luft,U,20,15,5.0,L,LED
+V,Heiltrank,U,20,HE,T
+V,Angriff booster,S,45,AN,T
+V,Apfel,N,3,AU,E
+V,Kekse des Windes,E,33,GE,E
+V,Trank der Robustheit,E,86,VE,T
+R,Kleid des Grauens,L,210,120,10.0,D,STO
+R,Kettenhemd,N,12,20,15.0,K,STA
+R,Vollplatte,U,40,40,20.0,K,STA
+R,Flug Umhang,S,15,10,5.5,L,STO

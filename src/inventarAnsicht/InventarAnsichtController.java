@@ -291,6 +291,7 @@ public class InventarAnsichtController {
 
 			// Für erklärung, Siehe: Main.java -> start
 			GridPane root = (GridPane) FXMLLoader.load(getClass().getResource("/itemErstellen/ItemErstellen.fxml"));
+			root.setId("ItemErstellen");
 			Scene scene = new Scene(root, 1600, 900);
 			scene.getStylesheets().add(getClass().getResource("/main/application.css").toExternalForm());
 			stage.setScene(scene);

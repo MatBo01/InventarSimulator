@@ -1,6 +1,5 @@
 package POJO;
 
-
 public class Item {
 
 	public enum ItemArt{

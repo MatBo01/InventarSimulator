@@ -1,64 +1,134 @@
+.label{
+	font-family: Serif;
+	-fx-font-family: Serif;
+	-fx-dark-text-color: black;
+	-fx-mid-text-color: black;
+	-fx-light-text-color: black;
+}
+
 .button {
+	font-family: Serif;
+	font-weight: bold;
+	background-color: transparent;
+	background-repeat: stretch;
+	background-size: 98% 98%;
+	background-position: center center;
 	-fx-font-family: Serif;
 	-fx-font-weight: bold;
+	-fx-dark-text-color: bisque;
+	-fx-mid-text-color: bisque;
+	-fx-light-text-color: bisque;
+	-fx-background-color: transparent;
+	-fx-background-repeat: stretch;
+	-fx-background-size: 98% 98%;
+	-fx-background-position: center center;
+	
 }
 
 .text-field {
+	font-family: Serif;
+	font-size: 14;
 	-fx-font-family: Serif;
 	-fx-font-size: 14;
 }
 
-
-
 .tab {
+	font-family: Serif;
+	font-weight: bold;
+	font-size: 17;
+	background-color: transparent;
+	background-image: url("../../img/buttons/400x80.png");
+	background-repeat: stretch;
+	background-size: 98% 98%;
+	background-position: center center;
 	-fx-font-family: Serif;
 	-fx-font-weight: bold;
 	-fx-font-size: 17;
-/*	-fx-background-color: transparent;*/
+	-fx-dark-text-color: bisque;
+	-fx-mid-text-color: bisque;
+	-fx-light-text-color: bisque;
+	-fx-background-color: transparent;
+	-fx-background-image: url("../../img/buttons/400x80.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 98% 98%;
+	-fx-background-position: center center;
+	-fx-effect: dropshadow(gaussian, black, 3, 0.2, 0.0, 0.0);
 }
 
 .tab-pane:focused>.tab-header-area>.headers-region>.tab:selected .focus-indicator
 	{
+	border-color: transparent;
 	-fx-border-color: transparent;
 }
 
+.tab-pane:focused>.tab-header-area>.headers-region>.tab:hover {
+	background-size: 102% 102%;
+	-fx-background-size: 102% 102%;
+}
+
+.tab-pane:focused>.tab-header-area>.headers-region>.tab:selected {
+	-fx-effect: dropshadow(gaussian, bisque, 3, 0.2, 0.0, 0.0);
+}
+
 .tab-pane>.tab-header-area>.tab-header-background {
+	background-color: transparent;
 	-fx-background-color: transparent;
 }
 
 .tab-pane {
+	background-color: transparent;
 	-fx-background-color: transparent;
 }
 
 .table-view {
+	background-color: white;
+	opacity: 50%;
 	-fx-background-color: white;
-	-fx-opacity: 70%;
+	-fx-opacity: 50%;
 }
 
 .table-row-cell {
+	background-color: transparent;
+	border-color: lightgrey;
 	-fx-background-color: transparent;
 	-fx-border-color: lightgrey;
 	-fx-cell-size: 30px;
 }
 
-.table-row-cell:selected{
+.table-row-cell:selected {
+	background-color: aquamarine;
 	-fx-background-color: aquamarine;
 }
 
 .table-column {
+	font-family: Serif;
+	font-size: 16;
 	-fx-font-family: Serif;
 	-fx-font-size: 16;
-	-fx-dark-text-color: black ;
-	-fx-mid-text-color: black ;
-	-fx-light-text-color: black ;
+	-fx-dark-text-color: black;
+	-fx-mid-text-color: black;
+	-fx-light-text-color: black;
 }
 
 /*----Hauptmenü---------------------------------------*/
 #btInventaransicht, #btBeenden {
+	font-size: 25;
+	background-image: url("../../img/buttons/400x80.png");
 	-fx-font-size: 25;
+	-fx-background-image: url("../../img/buttons/400x80.png");
+	-fx-effect: dropshadow(gaussian, black, 10, 0.2, 0.0, 0.0);
+}
+
+#btInventaransicht:hover, #btBeenden:hover {
+	background-size: 100% 100%;
+	-fx-background-size: 100% 100%;
 }
 
 #Hauptmenue {
+	background-image: url("../../img/background/hauptmenue.png");
+	background-repeat: stretch;
+	background-size: 1600 900;
+	background-position: center center;
 	-fx-background-image: url("../../img/background/hauptmenue.png");
 	-fx-background-repeat: stretch;
 	-fx-background-size: 1600 900;
@@ -67,25 +137,32 @@
 
 /*----Inventaransicht---------------------------------*/
 #btItemAnsicht {
+	font-size: 14;
+	background-image: url("../../img/buttons/140x50.png");
 	-fx-font-size: 14;
-}
-
-#btName, #btArt, #btSeltenheit, #btWert, #btAngriff, #btVerteidigung,
-	#btGewicht, #btElement, #btResistenz, #btSchnelligkeit, #btBuffs {
-	-fx-background-color: none;
-	-fx-background-image: url("../../img/buttons/sortierbuttons.png");
-	-fx-background-repeat: stretch;
-	-fx-background-size: 100 30;
-	-fx-background-position: center center;
+	-fx-background-image: url("../../img/buttons/140x50.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
 }
 
 #btHauptmenue, #btItemErstellen, #btItemLoeschen {
-	-fx-font-size: 18;
+	font-size: 14;
+	background-image: url("../../img/buttons/140x50.png");	
+	-fx-font-size: 14;
+	-fx-background-image: url("../../img/buttons/140x50.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
 }
 
-#InventarAnsicht,#ItemsLoeschen {
-	-fx-background-image:
-		url("../../img/background/inventaransicht.png");
+#btItemAnsicht:hover, #btHauptmenue:hover, #btItemErstellen:hover, #btItemLoeschen:hover {
+	background-size: 105% 105%;
+	-fx-background-size: 105% 105%;
+}
+
+#InventarAnsicht, #ItemsLoeschen, #ItemErstellen {
+	background-image: url("../../img/background/inventaransicht.png");
+	background-repeat: no-repeat;
+	background-size: 1600 900;
+	background-position: center center;
+	-fx-background-image: url("../../img/background/inventaransicht.png");
 	-fx-background-repeat: no-repeat;
 	-fx-background-size: 1600 900;
 	-fx-background-position: center center;
@@ -94,52 +171,126 @@
 /*----Alles-/Waffen-/Rüstungs-/Verbrauchs-View--------*/
 #btName, #btArt, #btSeltenheit, #btWert, #btAngriff, #btVerteidigung,
 	#btGewicht, #btElement, #btResistenz, #btSchnelligkeit, #btBuffs {
+	font-size: 14;
+	background-image: url("../../img/buttons/140x50.png");
 	-fx-font-size: 14;
+	-fx-background-image: url("../../img/buttons/140x50.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
 }
 
 #btReset {
+	font-size: 14;
+	background-image: url("../../img/buttons/80x30.png");
 	-fx-font-size: 14;
+	-fx-background-image: url("../../img/buttons/80x30.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
 }
 
 #btSuchen {
+	font-size: 14;
+	background-image: url("../../img/buttons/300x300.png");
 	-fx-font-size: 14;
+	-fx-background-image: url("../../img/buttons/300x300.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
 }
 
-#tcName{
+#btName:hover, #btArt:hover, #btSeltenheit:hover, #btWert:hover,
+	#btAngriff:hover, #btVerteidigung:hover, #btGewicht:hover, #btElement:hover,
+	#btResistenz:hover, #btSchnelligkeit:hover, #btBuffs:hover, #btReset:hover,
+	#btSuchen:hover {
+	background-size: 105% 105%;
+	-fx-background-size: 105% 105%;
+}
+
+#tcName {
+	font-weight: bold;
 	-fx-font-weight: bold;
 }
 
 /*----Item-Erstellen-----------------------------------*/
 #btWaffe, #btRuestung, #btVerbrauchsgegenstand {
+	font-size: 25;
+	background-image: url("../../img/buttons/300x300.png");
 	-fx-font-size: 25;
+	-fx-background-image: url("../../img/buttons/300x300.png");
+	-fx-effect: dropshadow(gaussian, black, 10, 0.2, 0.0, 0.0);
+}
+
+#btWaffe:hover, #btRuestung:hover, #btVerbrauchsgegenstand:hover {
+	background-size: 100% 100%;
+	-fx-background-size: 100% 100%;
+}
+
+#ErstelleItem{
+	background-image: url("../../img/background/item_erstellen.png");
+	background-repeat: stretch;
+	background-size: 1600 900;
+	background-position: center center;
+	-fx-background-image: url("../../img/background/item_erstellen.png");
+	-fx-background-repeat: stretch;
+	-fx-background-size: 1600 900;
+	-fx-background-position: center center;
 }
 
 /*----Erstelle Waffe/Rüstung/Verbra...-----------------*/
 #btErstellen, #btAbbrechen {
+	font-size: 20;
+	background-image: url("../../img/buttons/140x50.png");	
 	-fx-font-size: 20;
+	-fx-background-image: url("../../img/buttons/140x50.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
+}
+
+#btErstellen:hover, #btAbbrechen:hover {
+	background-size: 105% 105%;
+	-fx-background-size: 105% 105%;
 }
 
 /*----Item-Löschen-------------------------------------*/
 #btDauerhaftLoeschen, #btZurueck2 {
+	font-size: 18;
+	background-image: url("../../img/buttons/140x50.png");	
 	-fx-font-size: 18;
+	-fx-background-image: url("../../img/buttons/140x50.png");
+	-fx-effect: dropshadow(gaussian, black, 5, 0.2, 0.0, 0.0);
+}
+
+#btDauerhaftLoeschen:hover, #btZurueck2:hover {
+	background-size: 105% 105%;
+	-fx-background-size: 105% 105%;
 }
 
 /*----Item-Ansicht-Waffe/Rüstung/Verbra...-------------*/
 #btZurueck {
+	font-size: 16;
+	background-image: url("../../img/buttons/100x40.png");
 	-fx-font-size: 16;
+	-fx-background-image: url("../../img/buttons/100x40.png");
+	-fx-effect: dropshadow(gaussian, black, 2, 0.2, 0.0, 0.0);
+}
+
+#btZurueck:hover {
+	background-size: 100% 100%;
+	-fx-background-size: 100% 100%;
 }
 
 #Detailansicht {
+	background-image: url("../../img/background/detailansicht.png");
+	background-repeat: stretch;
+	background-size: 950 450;
+	background-position: center center;
 	-fx-background-image: url("../../img/background/detailansicht.png");
 	-fx-background-repeat: stretch;
 	-fx-background-size: 950 450;
 	-fx-background-position: center center;
 }
 
-
 /*----Error-Nachrichten---------------------------------*/
-
-#tError,#tError1,#tError2,#tError3,#tError4,#tError5{
+#tError, #tError1, #tError2, #tError3, #tError4, #tError5 {
+	font-family: Serif;
+	font-size: 14;
+	font-weight: bold;
 	-fx-font-family: Serif;
 	-fx-font-size: 14;
+	-fx-font-weight: bold;
 }
